@@ -17,8 +17,8 @@ RELATIVE_URLS = True
 
 
 ARCHIVES_URL = 'archives.html'
-ARTICLE_URL = 'posts/{date:%Y}-{date:%m}-{date:%d}/{slug}.html'
-ARTICLE_SAVE_AS = 'posts/{date:%Y}-{date:%m}-{date:%d}/{slug}.html'
+ARTICLE_URL = 'posts/{category}/{slug}.html'
+ARTICLE_SAVE_AS = 'posts/{category}/{slug}.html'
 
 DISQUS_SITENAME = 'coolfire'
 GOOGLE_ANALYTICS = 'UA-43474657-1'
