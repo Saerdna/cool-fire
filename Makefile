@@ -7,7 +7,7 @@ INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(BASEDIR)/
 CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
-THEME=$(BASEDIR)/theme/pelican-themes/gum/
+THEME=$(BASEDIR)/theme/gum/
 
 FTP_HOST=localhost
 FTP_USER=anonymous
