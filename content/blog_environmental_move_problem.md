@@ -1,6 +1,7 @@
 Date: 2014-12-01
 Title: 博客环境迁移遇到的问题
-Category: tech,self-promote
+Category: tech
+Tag: self-promote, tech
 Slug: blog_environmental_move_problem
 
 在把博客的本地环境在 MBP 重新部署的时候遇到的.

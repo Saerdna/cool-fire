@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
 
-        <title>别再浪费时间了</title>
+        <title>博客环境迁移遇到的问题</title>
         <meta charset="utf-8" />
 
 
@@ -52,33 +52,47 @@
 
             <header>
               <h2 class="entry-title">
-                <a href="../../posts/life/don't_waste_time.html" rel="bookmark"
-                   title="Permalink to 别再浪费时间了">别再浪费时间了</a></h2>
+                <a href="../../posts/tech/blog_environmental_move_problem.html" rel="bookmark"
+                   title="Permalink to 博客环境迁移遇到的问题">博客环境迁移遇到的问题</a></h2>
            
             </header>
             <footer class="post-info">
-              <abbr class="published" title="2013-08-26T00:00:00+08:00">
-                2013-08-26
+              <abbr class="published" title="2014-12-01T00:00:00+08:00">
+                2014-12-01
               </abbr>
               <address class="vcard author">
                 By <a class="url fn" href="../../author/saerdna.html">Saerdna</a>
               </address>
             </footer><!-- /.post-info -->
             <div class="entry-content">
-              <p>又熬夜了，上一周计划的事情才做了一半多一点。</p>
-<p>发觉自己有点陷入高一，高二那时候的懒惰状态。</p>
-<p>想得太多，做得太少。</p>
-<p>再这么下去，不用等公司自然淘汰了，自己首先就得把自己玩死。</p>
-<p>这一个月租了房子之后，整个人都懒散了下来。</p>
-<p>看视频，偶尔玩玩游戏，刷刷微博，看看小说。</p>
-<p>时间就是这么一点一点被消磨光的。</p>
-<p>人的精力都是有限的。什么是长远的发展，自己得看清楚。不要每次都等到来不及了再去匆匆忙忙的赶工。很多机会就是在这种消磨和匆忙中流失了。</p>
+              <p>在把博客的本地环境在 MBP 重新部署的时候遇到的.</p>
+<p>现象描述:</p>
+<p>pelican 发布博文时出现如下错误</p>
+<blockquote>
+<p>ImportError: No module named html_parser
+<img alt="1" src="https://raw.githubusercontent.com/Saerdna/saerdna.github.io/master/pic/pelican_error.png" /></p>
+</blockquote>
+<ul>
+<li>发现是 mac python 自带的 six module 库有问题.因为原生six 的 version 是1.4的,最新的已经到1.8了.</li>
+</ul>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">six</span>
+<span class="k">print</span> <span class="n">six</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+
+
+<ul>
+<li>Solution:<ul>
+<li>从 https://pypi.python.org/pypi/six/ 下载最新的 source. </li>
+<li>解压后执行 <code>sudo python setup.py install</code></li>
+</ul>
+</li>
+</ul>
             </div><!-- /.entry-content -->
             <div class="comments">
               <h3>Comments</h3>
               <div id="disqus_thread"></div>
               <script type="text/javascript">
-                var disqus_identifier = "posts/life/don't_waste_time.html";
+                var disqus_identifier = "posts/tech/blog_environmental_move_problem.html";
                 (function() {
                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
                 dsq.src = 'http://coolfire.disqus.com/embed.js';
