@@ -54,9 +54,9 @@
         <div class="eleven columns">
 		         <ol id="post-list">
 				        <li><article class="hentry">
-				                <header> <h2 class="entry-title"><a href="./posts/tech/blog_environmental_move_problem.html" rel="bookmark" title="Permalink to 博客环境迁移遇到的问题">博客环境迁移遇到的问题</a></h2> </header>
+				                <header> <h2 class="entry-title"><a href="./posts/tech/blog_environmental_move_problem-zh.html" rel="bookmark" title="Permalink to 博客环境迁移遇到的问题">博客环境迁移遇到的问题</a></h2> </header>
 				                <footer class="post-info">
-				                    <abbr class="published" title="2014-12-01T00:00:00+08:00"> 2014-12-01 </abbr>
+				                    <abbr class="published" title="2014-12-01T00:00:00"> 2014-12-01 </abbr>
 <address class="vcard author">By <a class="url fn" href="./author/saerdna.html">Saerdna</a></address>				                </footer><!-- /.post-info -->
 				                <div class="entry-content"> <p>在把博客的本地环境在 MBP 重新部署的时候遇到的.</p>
 <p>现象描述:</p>
@@ -68,8 +68,8 @@
 <ul>
 <li>发现是 mac python 自带的 six module 库有问题.因为原生six 的 version 是1.4的,最新的已经到1.8了.</li>
 </ul>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">six</span>
-<span class="k">print</span> <span class="n">six</span><span class="o">.</span><span class="n">__version__</span>
+<div class="highlight"><pre><span class="n">import</span> <span class="n">six</span>
+<span class="n">print</span> <span class="n">six</span><span class="p">.</span><span class="n">__version__</span>
 </pre></div>
 
 
@@ -81,7 +81,7 @@
 </li>
 </ul> </div><!-- /.entry-content -->
 
-								<div class="medium primary btn"><a href="./posts/tech/blog_environmental_move_problem.html" rel="bookmark" title="Permalink to 博客环境迁移遇到的问题">Read more <i class="icon-arrow-right"></i></a></div>
+								<div class="medium primary btn"><a href="./posts/tech/blog_environmental_move_problem-zh.html" rel="bookmark" title="Permalink to 博客环境迁移遇到的问题">Read more <i class="icon-arrow-right"></i></a></div>
 
 
 
@@ -92,9 +92,41 @@
 
 				        </article></li>
 				        <li><article class="hentry">
-				                <header> <h2 class="entry-title"><a href="./posts/tech/how_to_assessment_the_competing_products_coverage_efficient.html" rel="bookmark" title="Permalink to 如何高效的评估竞品收录覆盖率">如何高效的评估竞品收录覆盖率</a></h2> </header>
+				                <header> <h2 class="entry-title"><a href="./posts/translate/supervised_learning-zh.html" rel="bookmark" title="Permalink to 监督学习">监督学习</a></h2> </header>
 				                <footer class="post-info">
-				                    <abbr class="published" title="2014-05-22T00:00:00+08:00"> 2014-05-22 </abbr>
+				                    <abbr class="published" title="2014-12-01T00:00:00"> 2014-12-01 </abbr>
+<address class="vcard author">By <a class="url fn" href="./author/saerdna.html">Saerdna</a></address>				                </footer><!-- /.post-info -->
+				                <div class="entry-content"> <h3><center>1.监督学习（翻译中）</center></h3>
+<ul>
+<li>1.1. 广义线性模型<ul>
+<li>1.1.1. 最小二乘法<ul>
+<li>1.1.1.1. 最小二乘法复杂度</li>
+</ul>
+</li>
+<li>1.1.2. 岭回归<ul>
+<li>1.1.2.1. 岭回归复杂度</li>
+<li>1.1.2.2. 参数设置:广义交叉验证</li>
+</ul>
+</li>
+<li>1.1.3. 套索算法<ul>
+<li>1.1.3.1. 参数设置<ul>
+<li>1.1.3.1.1. 交叉验证的使用</li>
+<li>1.1.3.1.2 ...</li></ul></li></ul></li></ul></li></ul> </div><!-- /.entry-content -->
+
+								<div class="medium primary btn"><a href="./posts/translate/supervised_learning-zh.html" rel="bookmark" title="Permalink to 监督学习">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+								<div class="row tag-row">
+								</div>
+
+
+
+				        </article></li>
+				        <li><article class="hentry">
+				                <header> <h2 class="entry-title"><a href="./posts/tech/how_to_assessment_the_competing_products_coverage_efficient-zh.html" rel="bookmark" title="Permalink to 如何高效的评估竞品收录覆盖率">如何高效的评估竞品收录覆盖率</a></h2> </header>
+				                <footer class="post-info">
+				                    <abbr class="published" title="2014-05-22T00:00:00"> 2014-05-22 </abbr>
 <address class="vcard author">By <a class="url fn" href="./author/saerdna.html">Saerdna</a></address>				                </footer><!-- /.post-info -->
 				                <div class="entry-content"> <h3>前言</h3>
 <blockquote>
@@ -108,7 +140,7 @@
 <p>当时我的导师给了我一个任务，就是实现一个自动评估模块，日处理千万量级的url，用以检测百度是否都收录了这些url或者这些url的相同资源。</p>
 <p>这个问题的难点在于，怎么判断2个不同的url是否是相同资源。 <code>相同资源:同一个站点下指向同一个网页的不同url，两者互为相同资源</code> 简单来说就是2个不同的url，使用浏览器打开后都为同一个实际页面。 对于收录而言，只需要收录了其中一条就算是good case。 所以需要做的事情，就是比较竞品收录的url和内部收录的url两个集合的交集 ...</p> </div><!-- /.entry-content -->
 
-								<div class="medium primary btn"><a href="./posts/tech/how_to_assessment_the_competing_products_coverage_efficient.html" rel="bookmark" title="Permalink to 如何高效的评估竞品收录覆盖率">Read more <i class="icon-arrow-right"></i></a></div>
+								<div class="medium primary btn"><a href="./posts/tech/how_to_assessment_the_competing_products_coverage_efficient-zh.html" rel="bookmark" title="Permalink to 如何高效的评估竞品收录覆盖率">Read more <i class="icon-arrow-right"></i></a></div>
 
 
 
@@ -119,9 +151,9 @@
 
 				        </article></li>
 				        <li><article class="hentry">
-				                <header> <h2 class="entry-title"><a href="./posts/essay/essay.html" rel="bookmark" title="Permalink to 随笔">随笔</a></h2> </header>
+				                <header> <h2 class="entry-title"><a href="./posts/essay/essay-zh.html" rel="bookmark" title="Permalink to 随笔">随笔</a></h2> </header>
 				                <footer class="post-info">
-				                    <abbr class="published" title="2013-09-09T00:00:00+08:00"> 2013-09-09 </abbr>
+				                    <abbr class="published" title="2013-09-09T00:00:00"> 2013-09-09 </abbr>
 <address class="vcard author">By <a class="url fn" href="./author/saerdna.html">Saerdna</a></address>				                </footer><!-- /.post-info -->
 				                <div class="entry-content"> <h3>插件</h3>
 <blockquote>
@@ -151,18 +183,18 @@
 <ul>
 <li>
 <p>插件端</p>
-<div class="highlight"><pre>1.交互模块
-2.展现模块
+<div class="highlight"><pre><span class="mf">1.</span><span class="err">交互模块</span>
+<span class="mf">2.</span><span class="err">展现模块</span>
 </pre></div>
 
 
 </li>
 <li>
 <p>服务端</p>
-<div class="highlight"><pre>1.分成系统
-2 ...</pre></div></li></ul> </div><!-- /.entry-content -->
+<div class="highlight"><pre><span class="mf">1.</span><span class="err">分成系统</span>
+<span class="mf">2 ...</span></pre></div></li></ul> </div><!-- /.entry-content -->
 
-								<div class="medium primary btn"><a href="./posts/essay/essay.html" rel="bookmark" title="Permalink to 随笔">Read more <i class="icon-arrow-right"></i></a></div>
+								<div class="medium primary btn"><a href="./posts/essay/essay-zh.html" rel="bookmark" title="Permalink to 随笔">Read more <i class="icon-arrow-right"></i></a></div>
 
 
 
@@ -173,9 +205,9 @@
 
 				        </article></li>
 				        <li><article class="hentry">
-				                <header> <h2 class="entry-title"><a href="./posts/tech/about_taobao_try.html" rel="bookmark" title="Permalink to 关于淘宝试用频道的一些想法">关于淘宝试用频道的一些想法</a></h2> </header>
+				                <header> <h2 class="entry-title"><a href="./posts/tech/about_taobao_try-zh.html" rel="bookmark" title="Permalink to 关于淘宝试用频道的一些想法">关于淘宝试用频道的一些想法</a></h2> </header>
 				                <footer class="post-info">
-				                    <abbr class="published" title="2013-08-27T00:30:00+08:00"> 2013-08-27 </abbr>
+				                    <abbr class="published" title="2013-08-27T00:30:00"> 2013-08-27 </abbr>
 <address class="vcard author">By <a class="url fn" href="./author/saerdna.html">Saerdna</a></address>				                </footer><!-- /.post-info -->
 				                <div class="entry-content"> <p>这两天看了下淘宝的<a href="http://try.taobao.com/">试用频道</a>。</p>
 <p>发现里面还挺多好东西的，就是申请的人太多了。</p>
@@ -205,31 +237,7 @@
 <p>把字数比较多的评论抓出来，然后替换关键词。</p>
 <p>估计这么弄出来的报告可以混过70%的临时工。</p> </div><!-- /.entry-content -->
 
-								<div class="medium primary btn"><a href="./posts/tech/about_taobao_try.html" rel="bookmark" title="Permalink to 关于淘宝试用频道的一些想法">Read more <i class="icon-arrow-right"></i></a></div>
-
-
-
-								<div class="row tag-row">
-								</div>
-
-
-
-				        </article></li>
-				        <li><article class="hentry">
-				                <header> <h2 class="entry-title"><a href="./posts/life/don't_waste_time.html" rel="bookmark" title="Permalink to 别再浪费时间了">别再浪费时间了</a></h2> </header>
-				                <footer class="post-info">
-				                    <abbr class="published" title="2013-08-26T00:00:00+08:00"> 2013-08-26 </abbr>
-<address class="vcard author">By <a class="url fn" href="./author/saerdna.html">Saerdna</a></address>				                </footer><!-- /.post-info -->
-				                <div class="entry-content"> <p>又熬夜了，上一周计划的事情才做了一半多一点。</p>
-<p>发觉自己有点陷入高一，高二那时候的懒惰状态。</p>
-<p>想得太多，做得太少。</p>
-<p>再这么下去，不用等公司自然淘汰了，自己首先就得把自己玩死。</p>
-<p>这一个月租了房子之后，整个人都懒散了下来。</p>
-<p>看视频，偶尔玩玩游戏，刷刷微博，看看小说。</p>
-<p>时间就是这么一点一点被消磨光的。</p>
-<p>人的精力都是有限的。什么是长远的发展，自己得看清楚。不要每次都等到来不及了再去匆匆忙忙的赶工。很多机会就是在这种消磨和匆忙中流失了。</p> </div><!-- /.entry-content -->
-
-								<div class="medium primary btn"><a href="./posts/life/don't_waste_time.html" rel="bookmark" title="Permalink to 别再浪费时间了">Read more <i class="icon-arrow-right"></i></a></div>
+								<div class="medium primary btn"><a href="./posts/tech/about_taobao_try-zh.html" rel="bookmark" title="Permalink to 关于淘宝试用频道的一些想法">Read more <i class="icon-arrow-right"></i></a></div>
 
 
 
@@ -256,6 +264,7 @@
 		<li><a href="./category/essay.html">essay</a></li>
 		<li><a href="./category/life.html">life</a></li>
 		<li><a href="./category/tech.html">tech</a></li>
+		<li><a href="./category/translate.html">translate</a></li>
 </ul>
 
 

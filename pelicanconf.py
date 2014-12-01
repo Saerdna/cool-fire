@@ -15,10 +15,11 @@ DEFAULT_DATE_FORMAT = '%Y-%m-%d'
 #THEME = 'bootstrap2'
 RELATIVE_URLS = True
 
-
 ARCHIVES_URL = 'archives.html'
-ARTICLE_URL = 'posts/{category}/{slug}.html'
-ARTICLE_SAVE_AS = 'posts/{category}/{slug}.html'
+
+ARTICLE_PATHS = ['sklearn']
+ARTICLE_URL = 'posts/{category}/{slug}-{lang}.html'
+ARTICLE_SAVE_AS = 'posts/{category}/{slug}-{lang}.html'
 
 DISQUS_SITENAME = 'coolfire'
 GOOGLE_ANALYTICS = 'UA-43474657-1'

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+
+        <title>监督学习</title>
+        <meta charset="utf-8" />
+
+
+        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="../../theme/gumby.css" />
+        <link rel="stylesheet" type="text/css" href="../../theme/style.css" />
+        <link rel="stylesheet" type="text/css" href="../../theme/pygment.css" />
+
+        <script src="../../theme/js/libs/modernizr-2.6.2.min.js"></script>
+
+
+
+
+
+
+</head>
+
+<body id="index" class="home">
+
+
+    <div class="container">
+
+        <div class="row">
+
+          <header id="banner" class="body">
+                  <h1><a href="../..">cool-fire <strong></strong></a></h1>
+          </header><!-- /#banner -->
+
+            <div id="navigation" class="navbar row">
+              <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
+             
+              <ul class="columns">
+                <li><a href="../..">Home</a></li>
+
+                <li><a href="../../pages/search.html">Search</a></li>
+
+              </ul>
+            </div>
+
+<section id="content" class="body">
+
+   <div class="row">
+        <div class="eleven columns">
+
+
+            <header>
+              <h2 class="entry-title">
+                <a href="../../posts/translate/supervised_learning-zh.html" rel="bookmark"
+                   title="Permalink to 监督学习">监督学习</a></h2>
+           
+            </header>
+            <footer class="post-info">
+              <abbr class="published" title="2014-12-01T00:00:00">
+                2014-12-01
+              </abbr>
+              <address class="vcard author">
+                By <a class="url fn" href="../../author/saerdna.html">Saerdna</a>
+              </address>
+            </footer><!-- /.post-info -->
+            <div class="entry-content">
+              <h3><center>1.监督学习（翻译中）</center></h3>
+<ul>
+<li>1.1. 广义线性模型<ul>
+<li>1.1.1. 最小二乘法<ul>
+<li>1.1.1.1. 最小二乘法复杂度</li>
+</ul>
+</li>
+<li>1.1.2. 岭回归<ul>
+<li>1.1.2.1. 岭回归复杂度</li>
+<li>1.1.2.2. 参数设置:广义交叉验证</li>
+</ul>
+</li>
+<li>1.1.3. 套索算法<ul>
+<li>1.1.3.1. 参数设置<ul>
+<li>1.1.3.1.1. 交叉验证的使用</li>
+<li>1.1.3.1.2. 基于模型选择的信息标准</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>1.1.4. 弹性网原理</li>
+<li>1.1.5. 多任务的套索算法</li>
+<li>1.1.6. 最小角回归</li>
+<li>1.1.7. 最小角回归 套索<ul>
+<li>1.1.7.1. 数学公式</li>
+</ul>
+</li>
+<li>1.1.8. 正交匹配追踪算法 (OMP)</li>
+<li>1.1.9. 贝叶斯回归<ul>
+<li>1.1.9.1. 贝叶斯岭回归</li>
+<li>1.1.9.2. 自动相关确定 - ARD</li>
+</ul>
+</li>
+<li>1.1.10. 逻辑回归</li>
+<li>1.1.11. 随机梯度下降 - SGD</li>
+<li>1.1.12. 感知器</li>
+<li>1.1.13. Passive Aggressive Algorithms</li>
+<li>1.1.14. Robustness to outliers: RANSAC</li>
+<li>1.1.15. Polynomial regression: extending linear models with basis functions</li>
+</ul>
+</li>
+<li>1.2. Support Vector Machines<ul>
+<li>1.2.1. Classification<ul>
+<li>1.2.1.1. Multi-class classification</li>
+<li>1.2.1.2. Scores and probabilities</li>
+<li>1.2.1.3. Unbalanced problems</li>
+</ul>
+</li>
+<li>1.2.2. Regression</li>
+<li>1.2.3. Density estimation, novelty detection</li>
+<li>1.2.4. Complexity</li>
+<li>1.2.5. Tips on Practical Use</li>
+<li>1.2.6. Kernel functions<ul>
+<li>1.2.6.1. Custom Kernels<ul>
+<li>1.2.6.1.1. Using Python functions as kernels</li>
+<li>1.2.6.1.2. Using the Gram matrix</li>
+<li>1.2.6.1.3. Parameters of the RBF Kernel</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>1.2.7. Mathematical formulation<ul>
+<li>1.2.7.1. SVC</li>
+<li>1.2.7.2. NuSVC</li>
+</ul>
+</li>
+<li>1.2.8. Implementation details</li>
+</ul>
+</li>
+<li>1.3. Stochastic Gradient Descent<ul>
+<li>1.3.1. Classification</li>
+<li>1.3.2. Regression</li>
+<li>1.3.3. Stochastic Gradient Descent for sparse data</li>
+<li>1.3.4. Complexity</li>
+<li>1.3.5. Tips on Practical Use</li>
+<li>1.3.6. Mathematical formulation<ul>
+<li>1.3.6.1. SGD</li>
+</ul>
+</li>
+<li>1.3.7. Implementation details</li>
+</ul>
+</li>
+<li>1.4. Nearest Neighbors<ul>
+<li>1.4.1. Unsupervised Nearest Neighbors<ul>
+<li>1.4.1.1. Finding the Nearest Neighbors</li>
+<li>1.4.1.2. KDTree and BallTree Classes</li>
+</ul>
+</li>
+<li>1.4.2. Nearest Neighbors Classification</li>
+<li>1.4.3. Nearest Neighbors Regression</li>
+<li>1.4.4. Nearest Neighbor Algorithms<ul>
+<li>1.4.4.1. Brute Force</li>
+<li>1.4.4.2. K-D Tree</li>
+<li>1.4.4.3. Ball Tree</li>
+<li>1.4.4.4. Choice of Nearest Neighbors Algorithm</li>
+<li>1.4.4.5. Effect of leaf_size</li>
+</ul>
+</li>
+<li>1.4.5. Nearest Centroid Classifier<ul>
+<li>1.4.5.1. Nearest Shrunken Centroid</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>1.5. Gaussian Processes<ul>
+<li>1.5.1. Examples<ul>
+<li>1.5.1.1. An introductory regression example</li>
+<li>1.5.1.2. Fitting Noisy Data</li>
+</ul>
+</li>
+<li>1.5.2. Mathematical formulation<ul>
+<li>1.5.2.1. The initial assumption</li>
+<li>1.5.2.2. The best linear unbiased prediction (BLUP)</li>
+<li>1.5.2.3. The empirical best linear unbiased predictor (EBLUP)</li>
+</ul>
+</li>
+<li>1.5.3. Correlation Models</li>
+<li>1.5.4. Regression Models</li>
+<li>1.5.5. Implementation details</li>
+</ul>
+</li>
+<li>1.6. Cross decomposition</li>
+<li>1.7. Naive Bayes<ul>
+<li>1.7.1. Gaussian Naive Bayes</li>
+<li>1.7.2. Multinomial Naive Bayes</li>
+<li>1.7.3. Bernoulli Naive Bayes</li>
+<li>1.7.4. Out-of-core naive Bayes model fitting</li>
+</ul>
+</li>
+<li>1.8. Decision Trees<ul>
+<li>1.8.1. Classification</li>
+<li>1.8.2. Regression</li>
+<li>1.8.3. Multi-output problems</li>
+<li>1.8.4. Complexity</li>
+<li>1.8.5. Tips on practical use</li>
+<li>1.8.6. Tree algorithms: ID3, C4.5, C5.0 and CART</li>
+<li>1.8.7. Mathematical formulation<ul>
+<li>1.8.7.1. Classification criteria</li>
+<li>1.8.7.2. Regression criteria</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>1.9. Ensemble methods<ul>
+<li>1.9.1. Bagging meta-estimator</li>
+<li>1.9.2. Forests of randomized trees<ul>
+<li>1.9.2.1. Random Forests</li>
+<li>1.9.2.2. Extremely Randomized Trees</li>
+<li>1.9.2.3. Parameters</li>
+<li>1.9.2.4. Parallelization</li>
+<li>1.9.2.5. Feature importance evaluation</li>
+<li>1.9.2.6. Totally Random Trees Embedding</li>
+</ul>
+</li>
+<li>1.9.3. AdaBoost<ul>
+<li>1.9.3.1. Usage</li>
+</ul>
+</li>
+<li>1.9.4. Gradient Tree Boosting<ul>
+<li>1.9.4.1. Classification</li>
+<li>1.9.4.2. Regression</li>
+<li>1.9.4.3. Fitting additional weak-learners</li>
+<li>1.9.4.4. Controlling the tree size</li>
+<li>1.9.4.5. Mathematical formulation<ul>
+<li>1.9.4.5.1. Loss Functions</li>
+</ul>
+</li>
+<li>1.9.4.6. Regularization<ul>
+<li>1.9.4.6.1. Shrinkage</li>
+<li>1.9.4.6.2. Subsampling</li>
+</ul>
+</li>
+<li>1.9.4.7. Interpretation<ul>
+<li>1.9.4.7.1. Feature importance</li>
+<li>1.9.4.7.2. Partial dependence</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>1.10. Multiclass and multilabel algorithms<ul>
+<li>1.10.1. Multilabel classification format</li>
+<li>1.10.2. One-Vs-The-Rest<ul>
+<li>1.10.2.1. Multiclass learning</li>
+<li>1.10.2.2. Multilabel learning</li>
+</ul>
+</li>
+<li>1.10.3. One-Vs-One<ul>
+<li>1.10.3.1. Multiclass learning</li>
+</ul>
+</li>
+<li>1.10.4. Error-Correcting Output-Codes<ul>
+<li>1.10.4.1. Multiclass learning</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>1.11. Feature selection<ul>
+<li>1.11.1. Removing features with low variance</li>
+<li>1.11.2. Univariate feature selection</li>
+<li>1.11.3. Recursive feature elimination</li>
+<li>1.11.4. L1-based feature selection<ul>
+<li>1.11.4.1. Selecting non-zero coefficients</li>
+<li>1.11.4.2. Randomized sparse models</li>
+</ul>
+</li>
+<li>1.11.5. Tree-based feature selection</li>
+<li>1.11.6. Feature selection as part of a pipeline</li>
+</ul>
+</li>
+<li>1.12. Semi-Supervised<ul>
+<li>1.12.1. Label Propagation</li>
+</ul>
+</li>
+<li>1.13. Linear and quadratic discriminant analysis<ul>
+<li>1.13.1. Dimensionality reduction using LDA</li>
+<li>1.13.2. Mathematical Idea</li>
+</ul>
+</li>
+<li>1.14. Isotonic regression</li>
+</ul>
+            </div><!-- /.entry-content -->
+            <div class="comments">
+              <h3>Comments</h3>
+              <div id="disqus_thread"></div>
+              <script type="text/javascript">
+                var disqus_identifier = "posts/translate/supervised_learning-zh.html";
+                (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://coolfire.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+              </script>
+            </div>
+
+
+        </div><!-- /.eleven.columns -->
+        
+<div class="three columns">
+
+<h4>Pages</h4>
+
+ <ul>
+      <li><a href="../../pages/search.html">Search</a></li>
+  </ul>
+
+<h4>Categories</h4>
+<ul>
+		<li><a href="../../category/essay.html">essay</a></li>
+		<li><a href="../../category/life.html">life</a></li>
+		<li><a href="../../category/tech.html">tech</a></li>
+		<li><a href="../../category/translate.html">translate</a></li>
+</ul>
+
+
+<h4>Tags</h4>
+	<ul>
+	    <li class="tag-4"><a href="../../tag/feeling.html">feeling</a></li>
+</ul>
+
+
+<nav class="widget">
+  <h4>Social</h4>
+  <ul>
+    <li><a href="http://weibo.com/saerdna13">Weibo</a></li>
+    <li><a href="https://plus.google.com/105858506209398295278">Google plus</a></li>
+  </ul>
+</nav>
+
+</div> </div><!-- /.row -->
+
+
+</section>
+
+       </div><!-- /.row -->
+    </div><!-- /.container -->
+
+
+       <div class="container.nopad bg">
+
+    
+        <footer id="credits" class="row">
+          <div class="seven columns left-center">
+
+                   <address id="about" class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                    <br />
+                    Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a>
+                    </address>
+          </div>
+
+
+          <div class="seven columns">
+            <div class="row">
+              <ul class="socbtns">
+
+
+
+
+
+              </ul>
+            </div>
+          </div>
+        </footer>
+
+    </div>
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'coolfire';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+  <script src="../../theme/js/libs/jquery-1.9.1.min.js"></script>
+  <script src="../../theme/js/libs/gumby.min.js"></script>
+  <script src="../../theme/js/plugins.js"></script>
+
+</body>
+</html>

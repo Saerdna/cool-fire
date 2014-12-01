@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
 
-        <title>关于淘宝试用频道的一些想法</title>
+        <title>随笔</title>
         <meta charset="utf-8" />
 
 
@@ -52,52 +52,72 @@
 
             <header>
               <h2 class="entry-title">
-                <a href="../../posts/tech/about_taobao_try.html" rel="bookmark"
-                   title="Permalink to 关于淘宝试用频道的一些想法">关于淘宝试用频道的一些想法</a></h2>
+                <a href="../../posts/essay/essay-zh.html" rel="bookmark"
+                   title="Permalink to 随笔">随笔</a></h2>
            
             </header>
             <footer class="post-info">
-              <abbr class="published" title="2013-08-27T00:30:00">
-                2013-08-27
+              <abbr class="published" title="2013-09-09T00:00:00">
+                2013-09-09
               </abbr>
               <address class="vcard author">
                 By <a class="url fn" href="../../author/saerdna.html">Saerdna</a>
               </address>
             </footer><!-- /.post-info -->
             <div class="entry-content">
-              <p>这两天看了下淘宝的<a href="http://try.taobao.com/">试用频道</a>。</p>
-<p>发现里面还挺多好东西的，就是申请的人太多了。</p>
-<p>随便个什么东西都有几百号人在领，好一点的基本都上万人。</p>
-<p><img alt="1" src="https://raw.githubusercontent.com/Saerdna/saerdna.github.io/master/pic/taobao_try_1.png" /></p>
-<p>(这泥马大家都没见过翻盖手机么－ －)</p>
-<p>这还没什么，关键是这货是淘宝弄出来让大家写试用报告的，我看了下。</p>
-<p>似乎很多人把报告什么的给无视了。</p>
-<p><img alt="2" src="https://raw.githubusercontent.com/Saerdna/saerdna.github.io/master/pic/taobao_try_2.png" /></p>
-<p>(马德，是不是剩下的那9个人被大米给弄成食物中毒所以没机会完成这份报告－ －)</p>
-<p>出于职业习惯以及个人需求，我打算弄一个chrome插件来帮助我自动填写试用申请的答案。</p>
-<p>至于为什么不弄个本地的spider然后post数据。</p>
+              <h3>插件</h3>
+<blockquote>
+<p>在等程序出结果，想着似乎该写点什么。</p>
+<p>就称之为随笔吧，估计以后会有个系列也说不定。</p>
+</blockquote>
+<p>之前说了要弄一个自动填写淘宝试用频道答案的<a href="https://github.com/Saerdna/try-taobao-helper">插件</a></p>
+<p>周末花了点时间，总算是弄好了，虽然还有些小bug，但用着还是很顺手的。</p>
+<p>最烦就是重复的手工劳动了。</p>
+<p>本来还想弄成自动扫描商品来着，后面发现每天申请试用还有上限。</p>
+<p>一想到还得先弄一批淘宝的帐号就闹心，还是算了吧。</p>
+<h3>产品</h3>
+<blockquote>
+<p>一切没有收入的开发都是无用功</p>
+</blockquote>
+<p>这次开发完这个小插件后我就开始想着拿这货弄些什么东西来赚钱－ －。</p>
+<p>一开始也没啥思路的，后面想想目前国内互联网小众还是得靠广告维生。</p>
+<p>是不是可以写一个插件让大家装浏览器上，自动分析当前页面的空白部分并展现广告，我就通过这部分广告获得收入并提供分成给大家。</p>
+<p>当然，我拿小头，大家伙拿大头。</p>
+<p>我希望这么做可以让互联网趋于服务化，用户对于服务就该付费。</p>
+<p>广告部分的收入，既然用户消费产生了经济收益，这部分就该还给用户。</p>
+<p>这东西说起来简单，但是实际也挺难的。</p>
+<p>技术层面能做的就有分成系统和用户行为分析以及站点分析。</p>
+<p>还得考虑做大后会不会被原始广告商掐死，移动端似乎完全没法开展。</p>
+<p>唯一的亮点在于这个产品以用户为中心，不需要看站长的脸色，也能在这么复杂的环境下插一脚。</p>
+<p>这个事情我希望自己能在年底前把基础的东西做好。</p>
 <ul>
-<li>我还不想被淘宝给封号</li>
-<li>里面很多化妆品不大合我的style，还是留给辛苦的女生们吧。</li>
+<li>
+<p>插件端</p>
+<div class="highlight"><pre><span class="mf">1.</span><span class="err">交互模块</span>
+<span class="mf">2.</span><span class="err">展现模块</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>服务端</p>
+<div class="highlight"><pre><span class="mf">1.</span><span class="err">分成系统</span>
+<span class="mf">2.</span><span class="err">用户接入</span>
+<span class="mf">3.</span><span class="err">站点分析</span>
+</pre></div>
+
+
+</li>
 </ul>
-<p>出于长远的打算，插件的可移植性比本地写spider要靠谱。</p>
-<p>以后孝敬老爸老妈的好东西啊！</p>
-<p>长线方案还得弄一个自动写报告的模块。</p>
-<p>这就得看人力了，做得不好还不如自己写。</p>
-<p>估计后面有一堆临时工在审核，一不小心进了黑名单以后就不好领了。</p>
-<p>简单说下思路</p>
-<p>提取图片中的链接和问题</p>
-<p><img alt="3" src="https://raw.githubusercontent.com/Saerdna/saerdna.github.io/master/pic/taobao_try_2.png" /></p>
-<p>解析商品页面对应的描述部分即可。</p>
-<p>至于自动写报告的模块。找几家大的天猫店或者皇冠店铺。</p>
-<p>把字数比较多的评论抓出来，然后替换关键词。</p>
-<p>估计这么弄出来的报告可以混过70%的临时工。</p>
+<p>这个事情只能拿自己平时的时间来弄了。</p>
+<p>这个也是我第一次如此感兴趣的一个项目。</p>
+<p>加油。</p>
             </div><!-- /.entry-content -->
             <div class="comments">
               <h3>Comments</h3>
               <div id="disqus_thread"></div>
               <script type="text/javascript">
-                var disqus_identifier = "posts/tech/about_taobao_try.html";
+                var disqus_identifier = "posts/essay/essay-zh.html";
                 (function() {
                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
                 dsq.src = 'http://coolfire.disqus.com/embed.js';
