@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = u'Saerdna'
 SITENAME = u'cool-fire'
-#SITEURL = 'http://saerdna.github.io/'
+SITEURL = 'http://saerdna.github.io'
 
 USE_FOLDER_AS_CATEGORY = True
 
