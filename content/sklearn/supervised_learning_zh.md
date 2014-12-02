@@ -28,8 +28,8 @@ lang: zh
     * 1.1.10. 逻辑回归
     * 1.1.11. 随机梯度下降 - SGD
     * 1.1.12. 感知器
-    * 1.1.13. Passive Aggressive Algorithms
-    * 1.1.14. Robustness to outliers: RANSAC
+    * 1.1.13. 被动侵略算法
+    * 1.1.14. 随机抽样一致:增加异常值的鲁棒性
     * 1.1.15. Polynomial regression: extending linear models with basis functions
 * 1.2. Support Vector Machines
     * 1.2.1. Classification
