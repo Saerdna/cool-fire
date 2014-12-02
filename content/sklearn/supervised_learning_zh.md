@@ -30,76 +30,76 @@ lang: zh
     * 1.1.12. 感知器
     * 1.1.13. 被动侵略算法
     * 1.1.14. 随机抽样一致:增加异常值的鲁棒性
-    * 1.1.15. Polynomial regression: extending linear models with basis functions
-* 1.2. Support Vector Machines
-    * 1.2.1. Classification
-        * 1.2.1.1. Multi-class classification
-        * 1.2.1.2. Scores and probabilities
-        * 1.2.1.3. Unbalanced problems
-    * 1.2.2. Regression
-    * 1.2.3. Density estimation, novelty detection
-    * 1.2.4. Complexity
-    * 1.2.5. Tips on Practical Use
-    * 1.2.6. Kernel functions
-        * 1.2.6.1. Custom Kernels
-            * 1.2.6.1.1. Using Python functions as kernels
-            * 1.2.6.1.2. Using the Gram matrix
-            * 1.2.6.1.3. Parameters of the RBF Kernel
-    * 1.2.7. Mathematical formulation
+    * 1.1.15. 多项式回归: 基础函数的扩展线性模型
+* 1.2. 支持向量机
+    * 1.2.1. 分类
+        * 1.2.1.1. 多类分类
+        * 1.2.1.2. 评分与概率
+        * 1.2.1.3. 不平衡问题
+    * 1.2.2. 回归
+    * 1.2.3. 密度估计,新颖性检测
+    * 1.2.4. 复杂度
+    * 1.2.5. 实际中使用技巧
+    * 1.2.6. 核函数
+        * 1.2.6.1. 自定义核
+            * 1.2.6.1.1. 用 Python 函数作为核函数
+            * 1.2.6.1.2. 使用 Gram 矩阵
+            * 1.2.6.1.3. RBF 内核参数
+    * 1.2.7. 数学公式
         * 1.2.7.1. SVC
         * 1.2.7.2. NuSVC
-    * 1.2.8. Implementation details
-* 1.3. Stochastic Gradient Descent
-    * 1.3.1. Classification
-    * 1.3.2. Regression
-    * 1.3.3. Stochastic Gradient Descent for sparse data
-    * 1.3.4. Complexity
-    * 1.3.5. Tips on Practical Use
-    * 1.3.6. Mathematical formulation
+    * 1.2.8. 实际细节
+* 1.3. 随机梯度下降
+    * 1.3.1. 分类
+    * 1.3.2. 回归
+    * 1.3.3. 稀疏数据的随机梯度下降
+    * 1.3.4. 复杂度
+    * 1.3.5. 实际中的使用技巧
+    * 1.3.6. 数学公式
         * 1.3.6.1. SGD
-    * 1.3.7. Implementation details
-* 1.4. Nearest Neighbors
-    * 1.4.1. Unsupervised Nearest Neighbors
-        * 1.4.1.1. Finding the Nearest Neighbors
-        * 1.4.1.2. KDTree and BallTree Classes
-    * 1.4.2. Nearest Neighbors Classification
-    * 1.4.3. Nearest Neighbors Regression
-    * 1.4.4. Nearest Neighbor Algorithms
-        * 1.4.4.1. Brute Force
+    * 1.3.7. 实际细节
+* 1.4. 最近邻算法
+    * 1.4.1. 无监督的近邻算法
+        * 1.4.1.1. 找到最近邻
+        * 1.4.1.2. KDTree 和 BallTree 类
+    * 1.4.2. 最近邻分类问题
+    * 1.4.3. 最近邻回归问题
+    * 1.4.4. 最近邻算法
+        * 1.4.4.1. 暴力
         * 1.4.4.2. K-D Tree
         * 1.4.4.3. Ball Tree
-        * 1.4.4.4. Choice of Nearest Neighbors Algorithm
-        * 1.4.4.5. Effect of leaf_size
-    * 1.4.5. Nearest Centroid Classifier
-        * 1.4.5.1. Nearest Shrunken Centroid
-* 1.5. Gaussian Processes
-    * 1.5.1. Examples
-        * 1.5.1.1. An introductory regression example
-        * 1.5.1.2. Fitting Noisy Data
-    * 1.5.2. Mathematical formulation
-        * 1.5.2.1. The initial assumption
-        * 1.5.2.2. The best linear unbiased prediction (BLUP)
-        * 1.5.2.3. The empirical best linear unbiased predictor (EBLUP)
-    * 1.5.3. Correlation Models
-    * 1.5.4. Regression Models
-    * 1.5.5. Implementation details
-* 1.6. Cross decomposition
-* 1.7. Naive Bayes
-    * 1.7.1. Gaussian Naive Bayes
-    * 1.7.2. Multinomial Naive Bayes
-    * 1.7.3. Bernoulli Naive Bayes
-    * 1.7.4. Out-of-core naive Bayes model fitting
-* 1.8. Decision Trees
-    * 1.8.1. Classification
-    * 1.8.2. Regression
-    * 1.8.3. Multi-output problems
-    * 1.8.4. Complexity
-    * 1.8.5. Tips on practical use
-    * 1.8.6. Tree algorithms: ID3, C4.5, C5.0 and CART
-    * 1.8.7. Mathematical formulation
-        * 1.8.7.1. Classification criteria
-        * 1.8.7.2. Regression criteria
-* 1.9. Ensemble methods
+        * 1.4.4.4. 最近邻算法的选择
+        * 1.4.4.5. leaf_size 的影响
+    * 1.4.5. 最近质心分类
+        * 1.4.5.1. 最近的缩小质心
+* 1.5. 高斯过程
+    * 1.5.1. 例子
+        * 1.5.1.1. 一个回归例子的介绍
+        * 1.5.1.2. 数据拟合
+    * 1.5.2. 数学公式
+        * 1.5.2.1. 开始的假设
+        * 1.5.2.2. 最佳线性无偏预测 (BLUP)
+        * 1.5.2.3. 经验最佳线性无偏预测 (EBLUP)
+    * 1.5.3. 相关模型
+    * 1.5.4. 回归模型
+    * 1.5.5. 实际细节
+* 1.6. 交叉分解
+* 1.7. 朴素贝叶斯
+    * 1.7.1. 高斯朴素贝叶斯
+    * 1.7.2. 多项式朴素贝叶斯
+    * 1.7.3. 伯努利朴素贝叶斯
+    * 1.7.4. 核心朴素贝叶斯模型拟合
+* 1.8. 决策树
+    * 1.8.1. 分类
+    * 1.8.2. 回归
+    * 1.8.3. 多输出问题
+    * 1.8.4. 复杂度
+    * 1.8.5. 实际中的使用技巧
+    * 1.8.6. 树算法: ID3, C4.5, C5.0 and CART
+    * 1.8.7. 数学公式
+        * 1.8.7.1. 分类标准
+        * 1.8.7.2. 回归标准
+* 1.9. 所有方法
     * 1.9.1. Bagging meta-estimator
     * 1.9.2. Forests of randomized trees
         * 1.9.2.1. Random Forests
