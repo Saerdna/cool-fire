@@ -5,7 +5,7 @@ Tag: self-promote, tech
 Slug: supervised_learning
 lang: zh
 
-###<center>1.监督学习（翻译中）</center>
+###<center>1.监督学习（翻译完）</center>
 * 1.1. 广义线性模型
     * 1.1.1. 最小二乘法
         * 1.1.1.1. 最小二乘法复杂度
@@ -100,50 +100,50 @@ lang: zh
         * 1.8.7.1. 分类标准
         * 1.8.7.2. 回归标准
 * 1.9. 所有方法
-    * 1.9.1. Bagging meta-estimator
-    * 1.9.2. Forests of randomized trees
-        * 1.9.2.1. Random Forests
-        * 1.9.2.2. Extremely Randomized Trees
-        * 1.9.2.3. Parameters
-        * 1.9.2.4. Parallelization
-        * 1.9.2.5. Feature importance evaluation
-        * 1.9.2.6. Totally Random Trees Embedding
-    * 1.9.3. AdaBoost
-        * 1.9.3.1. Usage
-    * 1.9.4. Gradient Tree Boosting
-        * 1.9.4.1. Classification
-        * 1.9.4.2. Regression
-        * 1.9.4.3. Fitting additional weak-learners
-        * 1.9.4.4. Controlling the tree size
-        * 1.9.4.5. Mathematical formulation
-            * 1.9.4.5.1. Loss Functions
-        * 1.9.4.6. Regularization
-            * 1.9.4.6.1. Shrinkage
-            * 1.9.4.6.2. Subsampling
-        * 1.9.4.7. Interpretation
-            * 1.9.4.7.1. Feature importance
-            * 1.9.4.7.2. Partial dependence
-* 1.10. Multiclass and multilabel algorithms
-    * 1.10.1. Multilabel classification format
+    * 1.9.1. 套袋元估计
+    * 1.9.2. 随机森林
+        * 1.9.2.1. 随机森林
+        * 1.9.2.2. 绝对随机森林
+        * 1.9.2.3. 参数
+        * 1.9.2.4. 并行化
+        * 1.9.2.5. 特征重要性评价
+        * 1.9.2.6. 完全随机森林嵌入
+    * 1.9.3. AdaBoost算法
+        * 1.9.3.1. 使用方法
+    * 1.9.4. 梯度推进树
+        * 1.9.4.1. 分类
+        * 1.9.4.2. 回归
+        * 1.9.4.3. 适配额外的弱学习器
+        * 1.9.4.4. 控制树的大小
+        * 1.9.4.5. 数学公式
+            * 1.9.4.5.1. 损失函数
+        * 1.9.4.6. 正规化
+            * 1.9.4.6.1. 收缩
+            * 1.9.4.6.2. 二次采样
+        * 1.9.4.7. 解释
+            * 1.9.4.7.1. 特征重要性
+            * 1.9.4.7.2. 部分依赖
+* 1.10. 多用户多标记算法
+    * 1.10.1. 多标记分类格式
     * 1.10.2. One-Vs-The-Rest
-        * 1.10.2.1. Multiclass learning
-        * 1.10.2.2. Multilabel learning
+        * 1.10.2.1. 多类学习
+        * 1.10.2.2. 多标签学习
     * 1.10.3. One-Vs-One
-        * 1.10.3.1. Multiclass learning
-    * 1.10.4. Error-Correcting Output-Codes
-        * 1.10.4.1. Multiclass learning
-* 1.11. Feature selection
-    * 1.11.1. Removing features with low variance
-    * 1.11.2. Univariate feature selection
-    * 1.11.3. Recursive feature elimination
-    * 1.11.4. L1-based feature selection
-        * 1.11.4.1. Selecting non-zero coefficients
-        * 1.11.4.2. Randomized sparse models
-    * 1.11.5. Tree-based feature selection
-    * 1.11.6. Feature selection as part of a pipeline
-* 1.12. Semi-Supervised
-    * 1.12.1. Label Propagation
-* 1.13. Linear and quadratic discriminant analysis
-    * 1.13.1. Dimensionality reduction using LDA
-    * 1.13.2. Mathematical Idea
-* 1.14. Isotonic regression
+        * 1.10.3.1. 多类学习
+    * 1.10.4. 纠错输出编码
+        * 1.10.4.1. 多类学习
+* 1.11. 特征选择
+    * 1.11.1. 移除低方差特征
+    * 1.11.2. 单变量特征选择
+    * 1.11.3. 递归特征消除
+    * 1.11.4. L1-based 特征选择
+        * 1.11.4.1. 选择非零系数
+        * 1.11.4.2. 随机稀疏模型
+    * 1.11.5. Tree-based 特征选择
+    * 1.11.6. 特征选择是管道的一部分
+* 1.12. 半监督
+    * 1.12.1. 标签传递
+* 1.13. 线性和二次判定分析
+    * 1.13.1. 使用 LDA 降维
+    * 1.13.2. 数学观
+* 1.14. 保序回归
