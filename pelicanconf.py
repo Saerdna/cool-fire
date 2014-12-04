@@ -16,8 +16,9 @@ DEFAULT_DATE_FORMAT = '%Y-%m-%d'
 RELATIVE_URLS = True
 
 ARCHIVES_URL = 'archives.html'
-
+PATH = 'content'
 ARTICLE_PATHS = ['sklearn', 'blog']
+STATIC_PATHS = ['images']
 ARTICLE_URL = 'posts/{category}/{slug}-{lang}.html'
 ARTICLE_SAVE_AS = 'posts/{category}/{slug}-{lang}.html'
 

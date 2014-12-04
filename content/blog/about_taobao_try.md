@@ -10,7 +10,7 @@ Slug:about_taobao_try
 
 随便个什么东西都有几百号人在领，好一点的基本都上万人。
 
-![1](https://raw.githubusercontent.com/Saerdna/saerdna.github.io/master/pic/taobao_try_1.png)
+![1]({filename}/images/taobao_try_1.png)
 
 (这泥马大家都没见过翻盖手机么－ －)
 
@@ -19,7 +19,7 @@ Slug:about_taobao_try
 
 似乎很多人把报告什么的给无视了。
 
-![2](https://raw.githubusercontent.com/Saerdna/saerdna.github.io/master/pic/taobao_try_2.png)
+![2]({filename}/images/taobao_try_2.png)
 
 (马德，是不是剩下的那9个人被大米给弄成食物中毒所以没机会完成这份报告－ －)
 
@@ -44,7 +44,7 @@ Slug:about_taobao_try
 
 提取图片中的链接和问题
 
-![3](https://raw.githubusercontent.com/Saerdna/saerdna.github.io/master/pic/taobao_try_2.png)
+![3]({filename}/images/taobao_try_2.png)
 
 解析商品页面对应的描述部分即可。
 	
