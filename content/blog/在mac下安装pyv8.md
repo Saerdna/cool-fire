@@ -3,7 +3,7 @@ category: skill
 tags: tech, python, mac
 authors: saerdna
 slug: install_pyv8_in_mac
-title: 在mac下安装pyv8ka
+title: 在mac下安装pyv8
 
 
 ### 需求起因
