@@ -18,7 +18,7 @@ RELATIVE_URLS = True
 ARCHIVES_URL = 'archives.html'
 PATH = 'content'
 ARTICLE_PATHS = ['sklearn', 'blog']
-STATIC_PATHS = ['images']
+STATIC_PATHS = ['images', 'files']
 ARTICLE_URL = 'posts/{category}/{slug}-{lang}.html'
 ARTICLE_SAVE_AS = 'posts/{category}/{slug}-{lang}.html'
 

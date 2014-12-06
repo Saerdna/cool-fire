@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
 
-        <title>博客环境迁移遇到的问题</title>
+        <title>在mac下安装pyv8ka</title>
         <meta charset="utf-8" />
 
 
@@ -52,47 +52,59 @@
 
             <header>
               <h2 class="entry-title">
-                <a href="../../posts/tech/blog_environmental_move_problem-zh.html" rel="bookmark"
-                   title="Permalink to 博客环境迁移遇到的问题">博客环境迁移遇到的问题</a></h2>
+                <a href="../../posts/skill/install_pyv8_in_mac-zh.html" rel="bookmark"
+                   title="Permalink to 在mac下安装pyv8ka">在mac下安装pyv8ka</a></h2>
            
             </header>
             <footer class="post-info">
-              <abbr class="published" title="2014-12-01T00:00:00">
-                2014-12-01
+              <abbr class="published" title="2014-12-06T02:56:00">
+                2014-12-06
               </abbr>
               <address class="vcard author">
                 By <a class="url fn" href="../../author/saerdna.html">Saerdna</a>
               </address>
             </footer><!-- /.post-info -->
             <div class="entry-content">
-              <p>在把博客的本地环境在 MBP 重新部署的时候遇到的.</p>
-<p>现象描述:</p>
-<p>pelican 发布博文时出现如下错误</p>
-<blockquote>
-<p>ImportError: No module named html_parser
-<img alt="1" src="../../images/pelican_error.png" /></p>
-</blockquote>
-<ul>
-<li>发现是 mac python 自带的 six module 库有问题.因为原生six 的 version 是1.4的,最新的已经到1.8了.</li>
-</ul>
-<div class="highlight"><pre><span class="n">import</span> <span class="n">six</span>
-<span class="n">print</span> <span class="n">six</span><span class="p">.</span><span class="n">__version__</span>
+              <h3>需求起因</h3>
+<p>最近在写一个自动登录网站并执行某些操作的模块。</p>
+<p>网站在js中加了token，需要在登录的时候传过去做校验。</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">JSP_VAR</span><span class="o">=</span><span class="p">{</span>
+  <span class="nx">callback</span><span class="o">:</span><span class="s2">&quot;callbackurl&quot;</span><span class="p">,</span>
+  <span class="nx">sid</span><span class="o">:</span><span class="s2">&quot;sid&quot;</span><span class="p">,</span>
+  <span class="nx">qs</span><span class="o">:</span><span class="s2">&quot;qs_string&quot;</span><span class="p">,</span>
+  <span class="nx">hidden</span><span class="o">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;_sign&quot;</span><span class="o">:</span><span class="s2">&quot;token&quot;</span><span class="p">,</span>
+<span class="p">};</span>
 </pre></div>
 
 
-<ul>
-<li>Solution:<ul>
-<li>从 https://pypi.python.org/pypi/six/ 下载最新的 source. </li>
-<li>解压后执行 <code>sudo python setup.py install</code></li>
-</ul>
-</li>
-</ul>
+<h3>尝试解决</h3>
+<p>开始尝试直接正则抠出字符串后<code>json.loads</code>，发现和标准json不大一致，遂作罢。</p>
+<p>后来发现还有pyv8这种神奇的货色，考虑到以后需求肯定不单单是提取js的数据，也会有一些执行的东西，就想着试试。</p>
+<p>执行<code>pip install pyv8</code>后提示</p>
+<blockquote>
+<p>src/Exception.h:6:16: fatal error: v8.h: no such file or directory</p>
+</blockquote>
+<p>参考了这个哥们的文章之后发现还是不行，安装v8后没有出现boost部分的错误。building PyV8的时候报错了，<a href="../../files/pyv8_install_failed.log">错误日志</a>。</p>
+<h3>解决方案</h3>
+<p>无奈之下只好找了个<a href="https://github.com/brokenseal/PyV8-OS-X">PyV8-OS-X</a>直接拿来用，缺点是以后移植到linux平台下还得改代码。</p>
+<h5>mac版：</h5>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">pyv8</span> <span class="kn">import</span> <span class="n">PyV8</span>
+</pre></div>
+
+
+<h5>linux版：</h5>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">PyV8</span>
+</pre></div>
+
+
+<p>为了这个事情都折腾半天了，实在不划算，对于一个程序员来说，折腾这种环境的事情实在太浪费时间了,下次一定得搞一台mini主机，开发运维啥的都统一到ubuntu，就不会有这些破事了。</p>
             </div><!-- /.entry-content -->
             <div class="comments">
               <h3>Comments</h3>
               <div id="disqus_thread"></div>
               <script type="text/javascript">
-                var disqus_identifier = "posts/tech/blog_environmental_move_problem-zh.html";
+                var disqus_identifier = "posts/skill/install_pyv8_in_mac-zh.html";
                 (function() {
                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
                 dsq.src = 'http://coolfire.disqus.com/embed.js';

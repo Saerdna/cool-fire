@@ -54,6 +54,48 @@
         <div class="eleven columns">
 		         <ol id="post-list">
 				        <li><article class="hentry">
+				                <header> <h2 class="entry-title"><a href="../posts/skill/install_pyv8_in_mac-zh.html" rel="bookmark" title="Permalink to 在mac下安装pyv8ka">在mac下安装pyv8ka</a></h2> </header>
+				                <footer class="post-info">
+				                    <abbr class="published" title="2014-12-06T02:56:00"> 2014-12-06 </abbr>
+<address class="vcard author">By <a class="url fn" href="../author/saerdna.html">Saerdna</a></address>				                </footer><!-- /.post-info -->
+				                <div class="entry-content"> <h3>需求起因</h3>
+<p>最近在写一个自动登录网站并执行某些操作的模块。</p>
+<p>网站在js中加了token，需要在登录的时候传过去做校验。</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">JSP_VAR</span><span class="o">=</span><span class="p">{</span>
+  <span class="nx">callback</span><span class="o">:</span><span class="s2">&quot;callbackurl&quot;</span><span class="p">,</span>
+  <span class="nx">sid</span><span class="o">:</span><span class="s2">&quot;sid&quot;</span><span class="p">,</span>
+  <span class="nx">qs</span><span class="o">:</span><span class="s2">&quot;qs_string&quot;</span><span class="p">,</span>
+  <span class="nx">hidden</span><span class="o">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;_sign&quot;</span><span class="o">:</span><span class="s2">&quot;token&quot;</span><span class="p">,</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<h3>尝试解决</h3>
+<p>开始尝试直接正则抠出字符串后<code>json.loads</code>，发现和标准json不大一致，遂作罢。</p>
+<p>后来发现还有pyv8这种神奇的货色，考虑到以后需求肯定不单单是提取js的数据，也会有一些执行的东西，就想着试试。</p>
+<p>执行<code>pip install pyv8</code>后提示</p>
+<blockquote>
+<p>src/Exception.h:6:16: fatal error: v8.h: no such file or directory</p>
+</blockquote>
+<p>参考了这个哥们的文章之后发现还是不行，安装v8后没有出现boost部分的错误。building PyV8的时候报错了，<a href="../files/pyv8_install_failed.log">错误日志</a>。</p>
+<h3>解决方案 ...</h3> </div><!-- /.entry-content -->
+
+								<div class="medium primary btn"><a href="../posts/skill/install_pyv8_in_mac-zh.html" rel="bookmark" title="Permalink to 在mac下安装pyv8ka">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+								<div class="row tag-row">
+										<span>Tagged as : </span>
+											<a class="danger label" href="../tag/tech.html">tech</a>
+											<a class="danger label" href="../tag/python.html">python</a>
+											<a class="danger label" href="../tag/mac.html">mac</a>
+								</div>
+
+
+
+				        </article></li>
+				        <li><article class="hentry">
 				                <header> <h2 class="entry-title"><a href="../posts/tech/blog_environmental_move_problem-zh.html" rel="bookmark" title="Permalink to 博客环境迁移遇到的问题">博客环境迁移遇到的问题</a></h2> </header>
 				                <footer class="post-info">
 				                    <abbr class="published" title="2014-12-01T00:00:00"> 2014-12-01 </abbr>
@@ -204,49 +246,6 @@
 
 
 				        </article></li>
-				        <li><article class="hentry">
-				                <header> <h2 class="entry-title"><a href="../posts/tech/about_taobao_try-zh.html" rel="bookmark" title="Permalink to 关于淘宝试用频道的一些想法">关于淘宝试用频道的一些想法</a></h2> </header>
-				                <footer class="post-info">
-				                    <abbr class="published" title="2013-08-27T00:30:00"> 2013-08-27 </abbr>
-<address class="vcard author">By <a class="url fn" href="../author/saerdna.html">Saerdna</a></address>				                </footer><!-- /.post-info -->
-				                <div class="entry-content"> <p>这两天看了下淘宝的<a href="http://try.taobao.com/">试用频道</a>。</p>
-<p>发现里面还挺多好东西的，就是申请的人太多了。</p>
-<p>随便个什么东西都有几百号人在领，好一点的基本都上万人。</p>
-<p><img alt="1" src="../images/taobao_try_1.png" /></p>
-<p>(这泥马大家都没见过翻盖手机么－ －)</p>
-<p>这还没什么，关键是这货是淘宝弄出来让大家写试用报告的，我看了下。</p>
-<p>似乎很多人把报告什么的给无视了。</p>
-<p><img alt="2" src="../images/taobao_try_2.png" /></p>
-<p>(马德，是不是剩下的那9个人被大米给弄成食物中毒所以没机会完成这份报告－ －)</p>
-<p>出于职业习惯以及个人需求，我打算弄一个chrome插件来帮助我自动填写试用申请的答案。</p>
-<p>至于为什么不弄个本地的spider然后post数据。</p>
-<ul>
-<li>我还不想被淘宝给封号</li>
-<li>里面很多化妆品不大合我的style，还是留给辛苦的女生们吧。</li>
-</ul>
-<p>出于长远的打算，插件的可移植性比本地写spider要靠谱。</p>
-<p>以后孝敬老爸老妈的好东西啊！</p>
-<p>长线方案还得弄一个自动写报告的模块。</p>
-<p>这就得看人力了，做得不好还不如自己写。</p>
-<p>估计后面有一堆临时工在审核，一不小心进了黑名单以后就不好领了。</p>
-<p>简单说下思路</p>
-<p>提取图片中的链接和问题</p>
-<p><img alt="3" src="../images/taobao_try_2.png" /></p>
-<p>解析商品页面对应的描述部分即可。</p>
-<p>至于自动写报告的模块。找几家大的天猫店或者皇冠店铺。</p>
-<p>把字数比较多的评论抓出来，然后替换关键词。</p>
-<p>估计这么弄出来的报告可以混过70%的临时工。</p> </div><!-- /.entry-content -->
-
-								<div class="medium primary btn"><a href="../posts/tech/about_taobao_try-zh.html" rel="bookmark" title="Permalink to 关于淘宝试用频道的一些想法">Read more <i class="icon-arrow-right"></i></a></div>
-
-
-
-								<div class="row tag-row">
-								</div>
-
-
-
-				        </article></li>
 				</ol><!-- /#posts-list -->
 
         </div><!-- /.eleven.columns -->
@@ -263,6 +262,7 @@
 <ul>
 		<li><a href="../category/essay.html">essay</a></li>
 		<li><a href="../category/life.html">life</a></li>
+		<li><a href="../category/skill.html">skill</a></li>
 		<li><a href="../category/tech.html">tech</a></li>
 		<li><a href="../category/translate.html">translate</a></li>
 </ul>
@@ -271,6 +271,9 @@
 <h4>Tags</h4>
 	<ul>
 	    <li class="tag-4"><a href="../tag/feeling.html">feeling</a></li>
+	    <li class="tag-4"><a href="../tag/python.html">python</a></li>
+	    <li class="tag-4"><a href="../tag/mac.html">mac</a></li>
+	    <li class="tag-4"><a href="../tag/tech.html">tech</a></li>
 </ul>
 
 

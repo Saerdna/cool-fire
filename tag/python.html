@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
 
-        <title>cool-fire</title>
+        <title>cool-fire - python</title>
         <meta charset="utf-8" />
 
 
@@ -45,7 +45,7 @@
             </div>
 
 <section id="content">
-<h2>Articles in the essay category</h2>
+
 
 
    <div class="row">
@@ -54,54 +54,42 @@
         <div class="eleven columns">
 		         <ol id="post-list">
 				        <li><article class="hentry">
-				                <header> <h2 class="entry-title"><a href="../posts/essay/essay-zh.html" rel="bookmark" title="Permalink to 随笔">随笔</a></h2> </header>
+				                <header> <h2 class="entry-title"><a href="../posts/skill/install_pyv8_in_mac-zh.html" rel="bookmark" title="Permalink to 在mac下安装pyv8ka">在mac下安装pyv8ka</a></h2> </header>
 				                <footer class="post-info">
-				                    <abbr class="published" title="2013-09-09T00:00:00"> 2013-09-09 </abbr>
+				                    <abbr class="published" title="2014-12-06T02:56:00"> 2014-12-06 </abbr>
 <address class="vcard author">By <a class="url fn" href="../author/saerdna.html">Saerdna</a></address>				                </footer><!-- /.post-info -->
-				                <div class="entry-content"> <h3>插件</h3>
-<blockquote>
-<p>在等程序出结果，想着似乎该写点什么。</p>
-<p>就称之为随笔吧，估计以后会有个系列也说不定。</p>
-</blockquote>
-<p>之前说了要弄一个自动填写淘宝试用频道答案的<a href="https://github.com/Saerdna/try-taobao-helper">插件</a></p>
-<p>周末花了点时间，总算是弄好了，虽然还有些小bug，但用着还是很顺手的。</p>
-<p>最烦就是重复的手工劳动了。</p>
-<p>本来还想弄成自动扫描商品来着，后面发现每天申请试用还有上限。</p>
-<p>一想到还得先弄一批淘宝的帐号就闹心，还是算了吧。</p>
-<h3>产品</h3>
-<blockquote>
-<p>一切没有收入的开发都是无用功</p>
-</blockquote>
-<p>这次开发完这个小插件后我就开始想着拿这货弄些什么东西来赚钱－ －。</p>
-<p>一开始也没啥思路的，后面想想目前国内互联网小众还是得靠广告维生。</p>
-<p>是不是可以写一个插件让大家装浏览器上，自动分析当前页面的空白部分并展现广告，我就通过这部分广告获得收入并提供分成给大家。</p>
-<p>当然，我拿小头，大家伙拿大头。</p>
-<p>我希望这么做可以让互联网趋于服务化，用户对于服务就该付费。</p>
-<p>广告部分的收入，既然用户消费产生了经济收益，这部分就该还给用户。</p>
-<p>这东西说起来简单，但是实际也挺难的。</p>
-<p>技术层面能做的就有分成系统和用户行为分析以及站点分析。</p>
-<p>还得考虑做大后会不会被原始广告商掐死，移动端似乎完全没法开展。</p>
-<p>唯一的亮点在于这个产品以用户为中心，不需要看站长的脸色，也能在这么复杂的环境下插一脚。</p>
-<p>这个事情我希望自己能在年底前把基础的东西做好。</p>
-<ul>
-<li>
-<p>插件端</p>
-<div class="highlight"><pre><span class="mf">1.</span><span class="err">交互模块</span>
-<span class="mf">2.</span><span class="err">展现模块</span>
+				                <div class="entry-content"> <h3>需求起因</h3>
+<p>最近在写一个自动登录网站并执行某些操作的模块。</p>
+<p>网站在js中加了token，需要在登录的时候传过去做校验。</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">JSP_VAR</span><span class="o">=</span><span class="p">{</span>
+  <span class="nx">callback</span><span class="o">:</span><span class="s2">&quot;callbackurl&quot;</span><span class="p">,</span>
+  <span class="nx">sid</span><span class="o">:</span><span class="s2">&quot;sid&quot;</span><span class="p">,</span>
+  <span class="nx">qs</span><span class="o">:</span><span class="s2">&quot;qs_string&quot;</span><span class="p">,</span>
+  <span class="nx">hidden</span><span class="o">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;_sign&quot;</span><span class="o">:</span><span class="s2">&quot;token&quot;</span><span class="p">,</span>
+<span class="p">};</span>
 </pre></div>
 
 
-</li>
-<li>
-<p>服务端</p>
-<div class="highlight"><pre><span class="mf">1.</span><span class="err">分成系统</span>
-<span class="mf">2 ...</span></pre></div></li></ul> </div><!-- /.entry-content -->
+<h3>尝试解决</h3>
+<p>开始尝试直接正则抠出字符串后<code>json.loads</code>，发现和标准json不大一致，遂作罢。</p>
+<p>后来发现还有pyv8这种神奇的货色，考虑到以后需求肯定不单单是提取js的数据，也会有一些执行的东西，就想着试试。</p>
+<p>执行<code>pip install pyv8</code>后提示</p>
+<blockquote>
+<p>src/Exception.h:6:16: fatal error: v8.h: no such file or directory</p>
+</blockquote>
+<p>参考了这个哥们的文章之后发现还是不行，安装v8后没有出现boost部分的错误。building PyV8的时候报错了，<a href="../files/pyv8_install_failed.log">错误日志</a>。</p>
+<h3>解决方案 ...</h3> </div><!-- /.entry-content -->
 
-								<div class="medium primary btn"><a href="../posts/essay/essay-zh.html" rel="bookmark" title="Permalink to 随笔">Read more <i class="icon-arrow-right"></i></a></div>
+								<div class="medium primary btn"><a href="../posts/skill/install_pyv8_in_mac-zh.html" rel="bookmark" title="Permalink to 在mac下安装pyv8ka">Read more <i class="icon-arrow-right"></i></a></div>
 
 
 
 								<div class="row tag-row">
+										<span>Tagged as : </span>
+											<a class="danger label" href="../tag/tech.html">tech</a>
+											<a class="danger label" href="../tag/python.html">python</a>
+											<a class="danger label" href="../tag/mac.html">mac</a>
 								</div>
 
 
