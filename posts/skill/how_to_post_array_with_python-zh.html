@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
 
-        <title>关于淘宝试用频道的一些想法</title>
+        <title>python中post数组参数</title>
         <meta charset="utf-8" />
 
 
@@ -52,52 +52,44 @@
 
             <header>
               <h2 class="entry-title">
-                <a href="../../posts/tech/about_taobao_try-zh.html" rel="bookmark"
-                   title="Permalink to 关于淘宝试用频道的一些想法">关于淘宝试用频道的一些想法</a></h2>
+                <a href="../../posts/skill/how_to_post_array_with_python-zh.html" rel="bookmark"
+                   title="Permalink to python中post数组参数">python中post数组参数</a></h2>
            
             </header>
             <footer class="post-info">
-              <abbr class="published" title="2013-08-27T00:30:00">
-                2013-08-27
+              <abbr class="published" title="2014-12-06T10:56:00">
+                2014-12-06
               </abbr>
               <address class="vcard author">
                 By <a class="url fn" href="../../author/saerdna.html">Saerdna</a>
               </address>
             </footer><!-- /.post-info -->
             <div class="entry-content">
-              <p>这两天看了下淘宝的<a href="http://try.taobao.com/">试用频道</a>。</p>
-<p>发现里面还挺多好东西的，就是申请的人太多了。</p>
-<p>随便个什么东西都有几百号人在领，好一点的基本都上万人。</p>
-<p><img alt="1" src="../../images/taobao_try_1.png" /></p>
-<p>(这泥马大家都没见过翻盖手机么－ －)</p>
-<p>这还没什么，关键是这货是淘宝弄出来让大家写试用报告的，我看了下。</p>
-<p>似乎很多人把报告什么的给无视了。</p>
-<p><img alt="2" src="../../images/taobao_try_2.png" /></p>
-<p>(马德，是不是剩下的那9个人被大米给弄成食物中毒所以没机会完成这份报告－ －)</p>
-<p>出于职业习惯以及个人需求，我打算弄一个chrome插件来帮助我自动填写试用申请的答案。</p>
-<p>至于为什么不弄个本地的spider然后post数据。</p>
-<ul>
-<li>我还不想被淘宝给封号</li>
-<li>里面很多化妆品不大合我的style，还是留给辛苦的女生们吧。</li>
-</ul>
-<p>出于长远的打算，插件的可移植性比本地写spider要靠谱。</p>
-<p>以后孝敬老爸老妈的好东西啊！</p>
-<p>长线方案还得弄一个自动写报告的模块。</p>
-<p>这就得看人力了，做得不好还不如自己写。</p>
-<p>估计后面有一堆临时工在审核，一不小心进了黑名单以后就不好领了。</p>
-<p>简单说下思路</p>
-<p>提取图片中的链接和问题</p>
-<p><img alt="3" src="../../images/taobao_try_2.png" /></p>
-<p>解析商品页面对应的描述部分即可。</p>
-<p>至于自动写报告的模块。找几家大的天猫店或者皇冠店铺。</p>
-<p>把字数比较多的评论抓出来，然后替换关键词。</p>
-<p>估计这么弄出来的报告可以混过70%的临时工。</p>
+              <p>今天在写自动预约抢购的模块时发现的问题</p>
+<p>需要向网站post这样的数据<code>{'key':[1,2,3]}</code></p>
+<p>post的结果是<code>key=1&amp;key=2&amp;key=3</code></p>
+<p>大家都知道在python对参数做序列化是urlencode,可是直接urlencode的结果如下</p>
+<div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">urllib</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">help</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">urlencode</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">post_data</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;key&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]}</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">post_data</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="s">&#39;key=%5B1%2C+2%2C+3%5D&#39;</span>
+</pre></div>
+
+
+<p>查了下stackoverflow，还是有人遇到同样的问题，解决方案是urlencode时加上一个参数。</p>
+<div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">urllib</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">help</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">urlencode</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">post_data</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;key&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]}</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">post_data</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="s">&#39;key=1&amp;key=2&amp;key=3&#39;</span>
+</pre></div>
             </div><!-- /.entry-content -->
             <div class="comments">
               <h3>Comments</h3>
               <div id="disqus_thread"></div>
               <script type="text/javascript">
-                var disqus_identifier = "posts/tech/about_taobao_try-zh.html";
+                var disqus_identifier = "posts/skill/how_to_post_array_with_python-zh.html";
                 (function() {
                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
                 dsq.src = 'http://coolfire.disqus.com/embed.js';

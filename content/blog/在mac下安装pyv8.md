@@ -1,6 +1,6 @@
 date: 2014-12-06 02:56
 category: skill
-tags: tech, python, mac
+tags: tech, python, mac, web
 authors: saerdna
 slug: install_pyv8_in_mac
 title: 在mac下安装pyv8
