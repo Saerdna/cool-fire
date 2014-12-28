@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+        <meta charset="utf-8" />
+        <title>在mac下安装pyv8</title>
+        <link rel="stylesheet" href="../../theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="../../">cool-fire </a></h1>
+                <nav><ul>
+                    <li><a href="../../pages/search.html">Search</a></li>
+                    <li><a href="../../category/essay.html">essay</a></li>
+                    <li><a href="../../category/life.html">life</a></li>
+                    <li class="active"><a href="../../category/skill.html">skill</a></li>
+                    <li><a href="../../category/tech.html">tech</a></li>
+                    <li><a href="../../category/translate.html">translate</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="../../posts/skill/install_pyv8_in_mac-zh.html" rel="bookmark"
+           title="Permalink to 在mac下安装pyv8">在mac下安装pyv8</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-12-06T02:56:00">
+                2014-12-06
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="../../author/saerdna.html">Saerdna</a>
+        </address>
+<p>In <a href="../../category/skill.html">skill</a>. </p>
+<p>tags: <a href="../../tag/tech.html">tech</a><a href="../../tag/python.html">python</a><a href="../../tag/mac.html">mac</a><a href="../../tag/web.html">web</a></p>
+</footer><!-- /.post-info -->      <h3>需求起因</h3>
+<p>最近在写一个自动登录网站并执行某些操作的模块。</p>
+<p>网站在js中加了token，需要在登录的时候传过去做校验。</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">JSP_VAR</span><span class="o">=</span><span class="p">{</span>
+  <span class="nx">callback</span><span class="o">:</span><span class="s2">&quot;callbackurl&quot;</span><span class="p">,</span>
+  <span class="nx">sid</span><span class="o">:</span><span class="s2">&quot;sid&quot;</span><span class="p">,</span>
+  <span class="nx">qs</span><span class="o">:</span><span class="s2">&quot;qs_string&quot;</span><span class="p">,</span>
+  <span class="nx">hidden</span><span class="o">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;_sign&quot;</span><span class="o">:</span><span class="s2">&quot;token&quot;</span><span class="p">,</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<h3>尝试解决</h3>
+<p>开始尝试直接正则抠出字符串后<code>json.loads</code>，发现和标准json不大一致，遂作罢。</p>
+<p>后来发现还有pyv8这种神奇的货色，考虑到以后需求肯定不单单是提取js的数据，也会有一些执行的东西，就想着试试。</p>
+<p>执行<code>pip install pyv8</code>后提示</p>
+<blockquote>
+<p>src/Exception.h:6:16: fatal error: v8.h: no such file or directory</p>
+</blockquote>
+<p>参考了这个哥们的文章之后发现还是不行，安装v8后没有出现boost部分的错误。building PyV8的时候报错了，<a href="../../files/pyv8_install_failed.log">错误日志</a>。</p>
+<h3>解决方案</h3>
+<p>无奈之下只好找了个<a href="https://github.com/brokenseal/PyV8-OS-X">PyV8-OS-X</a>直接拿来用，缺点是以后移植到linux平台下还得改代码。</p>
+<h5>mac版：</h5>
+<div class="highlight"><pre>    <span class="kn">from</span> <span class="nn">pyv8</span> <span class="kn">import</span> <span class="n">PyV8</span>
+</pre></div>
+
+
+<h5>linux版：</h5>
+<div class="highlight"><pre>    <span class="kn">import</span> <span class="nn">PyV8</span>
+</pre></div>
+
+
+<p>为了这个事情都折腾半天了，实在不划算，对于一个程序员来说，折腾这种环境的事情实在太浪费时间了,下次一定得搞一台mini主机，开发运维啥的都统一到ubuntu，就不会有这些破事了。</p>
+    </div><!-- /.entry-content -->
+    <div class="comments">
+      <h2>Comments !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_identifier = "posts/skill/install_pyv8_in_mac-zh.html";
+        var disqus_url = "../../posts/skill/install_pyv8_in_mac-zh.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://coolfire.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+    </div>
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="Weibo">http://weibo.com/saerdna13</a></li>
+                            <li><a href="Google plus">https://plus.google.com/105858506209398295278</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-43474657-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+<script type="text/javascript">
+    var disqus_shortname = 'coolfire';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

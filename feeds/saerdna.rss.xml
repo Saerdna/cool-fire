@@ -1,10 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>cool-fire</title><link>http://saerdna.github.io/</link><description></description><atom:link href="http://saerdna.github.io/feeds/saerdna.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 01 Dec 2014 00:00:00 +0800</lastBuildDate><item><title>博客环境迁移遇到的问题</title><link>http://saerdna.github.io/posts/tech/blog_environmental_move_problem-zh.html</link><description>&lt;p&gt;在把博客的本地环境在 MBP 重新部署的时候遇到的.&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>cool-fire</title><link>http://saerdna.github.io/</link><description></description><atom:link href="http://saerdna.github.io/feeds/saerdna.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 06 Dec 2014 10:56:00 +0800</lastBuildDate><item><title>python中post数组参数</title><link>http://saerdna.github.io/posts/skill/how_to_post_array_with_python-zh.html</link><description>&lt;p&gt;今天在写自动预约抢购的模块时发现的问题&lt;/p&gt;
+&lt;p&gt;需要向网站post这样的数据&lt;code&gt;{'key':[1,2,3]}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;post的结果是&lt;code&gt;key=1&amp;amp;key=2&amp;amp;key=3&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;大家都知道在python对参数做序列化是urlencode,可是直接urlencode的结果如下&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;urllib&lt;/span&gt;
+&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;urllib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;urlencode&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;post_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;key&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]}&lt;/span&gt;
+&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;urllib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;urlencode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;post_data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;Out&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;key=%5B1%2C+2%2C+3%5D&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;查了下stackoverflow，还是有人遇到同样的问题，解决方案是urlencode时加上一个参数。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;urllib&lt;/span&gt;
+&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;urllib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;urlencode&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;post_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;key&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]}&lt;/span&gt;
+&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;urllib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;urlencode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;post_data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;Out&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;key=1&amp;amp;key=2&amp;amp;key=3&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">saerdna</dc:creator><pubDate>Sat, 06 Dec 2014 10:56:00 +0800</pubDate><guid>tag:saerdna.github.io,2014-12-06:posts/skill/how_to_post_array_with_python-zh.html</guid><category>tech</category><category>python</category><category>web</category></item><item><title>在mac下安装pyv8</title><link>http://saerdna.github.io/posts/skill/install_pyv8_in_mac-zh.html</link><description>&lt;h3&gt;需求起因&lt;/h3&gt;
+&lt;p&gt;最近在写一个自动登录网站并执行某些操作的模块。&lt;/p&gt;
+&lt;p&gt;网站在js中加了token，需要在登录的时候传过去做校验。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;JSP_VAR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nx"&gt;callback&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;callbackurl&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="nx"&gt;sid&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;sid&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="nx"&gt;qs&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;qs_string&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="nx"&gt;hidden&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="s2"&gt;&amp;quot;_sign&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;token&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;尝试解决&lt;/h3&gt;
+&lt;p&gt;开始尝试直接正则抠出字符串后&lt;code&gt;json.loads&lt;/code&gt;，发现和标准json不大一致，遂作罢。&lt;/p&gt;
+&lt;p&gt;后来发现还有pyv8这种神奇的货色，考虑到以后需求肯定不单单是提取js的数据，也会有一些执行的东西，就想着试试。&lt;/p&gt;
+&lt;p&gt;执行&lt;code&gt;pip install pyv8&lt;/code&gt;后提示&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;src/Exception.h:6:16: fatal error: v8.h: no such file or directory&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;参考了这个哥们的文章之后发现还是不行，安装v8后没有出现boost部分的错误。building PyV8的时候报错了，&lt;a href="http://saerdna.github.io/files/pyv8_install_failed.log"&gt;错误日志&lt;/a&gt;。&lt;/p&gt;
+&lt;h3&gt;解决方案&lt;/h3&gt;
+&lt;p&gt;无奈之下只好找了个&lt;a href="https://github.com/brokenseal/PyV8-OS-X"&gt;PyV8-OS-X&lt;/a&gt;直接拿来用，缺点是以后移植到linux平台下还得改代码。&lt;/p&gt;
+&lt;h5&gt;mac版：&lt;/h5&gt;
+&lt;p&gt;&lt;pre&gt;&lt;code&gt;from pyv8 import PyV8
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;h5&gt;linux版：&lt;/h5&gt;
+&lt;p&gt;&lt;pre&gt;&lt;code&gt;import PyV8
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;为了这个事情都折腾半天了，实在不划算，对于一个程序员来说，折腾这种环境的事情实在太浪费时间了,下次一定得搞一台mini主机，开发运维啥的都统一到ubuntu，就不会有这些破事了。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">saerdna</dc:creator><pubDate>Sat, 06 Dec 2014 02:56:00 +0800</pubDate><guid>tag:saerdna.github.io,2014-12-06:posts/skill/install_pyv8_in_mac-zh.html</guid><category>tech</category><category>python</category><category>mac</category><category>web</category></item><item><title>博客环境迁移遇到的问题</title><link>http://saerdna.github.io/posts/tech/blog_environmental_move_problem-zh.html</link><description>&lt;p&gt;在把博客的本地环境在 MBP 重新部署的时候遇到的.&lt;/p&gt;
 &lt;p&gt;现象描述:&lt;/p&gt;
 &lt;p&gt;pelican 发布博文时出现如下错误&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;ImportError: No module named html_parser
-&lt;img alt="1" src="https://raw.githubusercontent.com/Saerdna/saerdna.github.io/master/pic/pelican_error.png" /&gt;&lt;/p&gt;
+&lt;img alt="1" src="http://saerdna.github.io/images/pelican_error.png" /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;发现是 mac python 自带的 six module 库有问题.因为原生six 的 version 是1.4的,最新的已经到1.8了.&lt;/li&gt;
@@ -311,11 +358,11 @@
 &lt;p&gt;加油。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Saerdna</dc:creator><pubDate>Mon, 09 Sep 2013 00:00:00 +0800</pubDate><guid>tag:saerdna.github.io,2013-09-09:posts/essay/essay-zh.html</guid></item><item><title>关于淘宝试用频道的一些想法</title><link>http://saerdna.github.io/posts/tech/about_taobao_try-zh.html</link><description>&lt;p&gt;这两天看了下淘宝的&lt;a href="http://try.taobao.com/"&gt;试用频道&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;发现里面还挺多好东西的，就是申请的人太多了。&lt;/p&gt;
 &lt;p&gt;随便个什么东西都有几百号人在领，好一点的基本都上万人。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="1" src="https://raw.githubusercontent.com/Saerdna/saerdna.github.io/master/pic/taobao_try_1.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="http://saerdna.github.io/images/taobao_try_1.png" /&gt;&lt;/p&gt;
 &lt;p&gt;(这泥马大家都没见过翻盖手机么－ －)&lt;/p&gt;
 &lt;p&gt;这还没什么，关键是这货是淘宝弄出来让大家写试用报告的，我看了下。&lt;/p&gt;
 &lt;p&gt;似乎很多人把报告什么的给无视了。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="2" src="https://raw.githubusercontent.com/Saerdna/saerdna.github.io/master/pic/taobao_try_2.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="http://saerdna.github.io/images/taobao_try_2.png" /&gt;&lt;/p&gt;
 &lt;p&gt;(马德，是不是剩下的那9个人被大米给弄成食物中毒所以没机会完成这份报告－ －)&lt;/p&gt;
 &lt;p&gt;出于职业习惯以及个人需求，我打算弄一个chrome插件来帮助我自动填写试用申请的答案。&lt;/p&gt;
 &lt;p&gt;至于为什么不弄个本地的spider然后post数据。&lt;/p&gt;
@@ -330,7 +377,7 @@
 &lt;p&gt;估计后面有一堆临时工在审核，一不小心进了黑名单以后就不好领了。&lt;/p&gt;
 &lt;p&gt;简单说下思路&lt;/p&gt;
 &lt;p&gt;提取图片中的链接和问题&lt;/p&gt;
-&lt;p&gt;&lt;img alt="3" src="https://raw.githubusercontent.com/Saerdna/saerdna.github.io/master/pic/taobao_try_2.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="3" src="http://saerdna.github.io/images/taobao_try_2.png" /&gt;&lt;/p&gt;
 &lt;p&gt;解析商品页面对应的描述部分即可。&lt;/p&gt;
 &lt;p&gt;至于自动写报告的模块。找几家大的天猫店或者皇冠店铺。&lt;/p&gt;
 &lt;p&gt;把字数比较多的评论抓出来，然后替换关键词。&lt;/p&gt;

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+        <meta charset="utf-8" />
+        <title>cool-fire - Saerdna</title>
+        <link rel="stylesheet" href="../theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="../">cool-fire </a></h1>
+                <nav><ul>
+                    <li><a href="../pages/search.html">Search</a></li>
+                    <li><a href="../category/essay.html">essay</a></li>
+                    <li><a href="../category/life.html">life</a></li>
+                    <li><a href="../category/skill.html">skill</a></li>
+                    <li><a href="../category/tech.html">tech</a></li>
+                    <li><a href="../category/translate.html">translate</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="../posts/skill/how_to_post_array_with_python-zh.html">python中post数组参数</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2014-12-06T10:56:00">
+                2014-12-06
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="../author/saerdna.html">Saerdna</a>
+        </address>
+<p>In <a href="../category/skill.html">skill</a>. </p>
+<p>tags: <a href="../tag/tech.html">tech</a><a href="../tag/python.html">python</a><a href="../tag/web.html">web</a></p>
+</footer><!-- /.post-info --><p>今天在写自动预约抢购的模块时发现的问题</p>
+<p>需要向网站post这样的数据<code>{'key':[1,2,3]}</code></p>
+<p>post的结果是<code>key=1&amp;key=2&amp;key=3</code></p>
+<p>大家都知道在python对参数做序列化是urlencode,可是直接urlencode的结果如下</p>
+<div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">urllib</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">help</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">urlencode</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">post_data</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;key&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]}</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">post_data</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="s">&#39;key=%5B1%2C+2%2C+3%5D&#39;</span>
+</pre></div>
+
+
+<p>查了下stackoverflow，还是有人遇到同样的问题，解决方案是urlencode时加上一个参数。</p>
+<div class="highlight"><pre><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">urllib</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">help</span><span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">urlencode</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">post_data</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;key&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]}</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">post_data</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="s">&#39;key=1&amp;key=2&amp;key=3&#39;</span>
+</pre></div><p>There are <a href="../posts/skill/how_to_post_array_with_python-zh.html#disqus_thread">comments</a>.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="../posts/skill/install_pyv8_in_mac-zh.html" rel="bookmark"
+                           title="Permalink to 在mac下安装pyv8">在mac下安装pyv8</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-12-06T02:56:00">
+                2014-12-06
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="../author/saerdna.html">Saerdna</a>
+        </address>
+<p>In <a href="../category/skill.html">skill</a>. </p>
+<p>tags: <a href="../tag/tech.html">tech</a><a href="../tag/python.html">python</a><a href="../tag/mac.html">mac</a><a href="../tag/web.html">web</a></p>
+</footer><!-- /.post-info -->                <h3>需求起因</h3>
+<p>最近在写一个自动登录网站并执行某些操作的模块。</p>
+<p>网站在js中加了token，需要在登录的时候传过去做校验。</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">JSP_VAR</span><span class="o">=</span><span class="p">{</span>
+  <span class="nx">callback</span><span class="o">:</span><span class="s2">&quot;callbackurl&quot;</span><span class="p">,</span>
+  <span class="nx">sid</span><span class="o">:</span><span class="s2">&quot;sid&quot;</span><span class="p">,</span>
+  <span class="nx">qs</span><span class="o">:</span><span class="s2">&quot;qs_string&quot;</span><span class="p">,</span>
+  <span class="nx">hidden</span><span class="o">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;_sign&quot;</span><span class="o">:</span><span class="s2">&quot;token&quot;</span><span class="p">,</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<h3>尝试解决</h3>
+<p>开始尝试直接正则抠出字符串后<code>json.loads</code>，发现和标准json不大一致，遂作罢。</p>
+<p>后来发现还有pyv8这种神奇的货色，考虑到以后需求肯定不单单是提取js的数据，也会有一些执行的东西，就想着试试。</p>
+<p>执行<code>pip install pyv8</code>后提示</p>
+<blockquote>
+<p>src/Exception.h:6:16: fatal error: v8.h: no such file or directory</p>
+</blockquote>
+<p>参考了这个哥们的文章之后发现还是不行，安装v8后没有出现boost部分的错误。building PyV8的时候报错了，<a href="../files/pyv8_install_failed.log">错误日志</a>。</p>
+<h3>解决方案 ...</h3>
+                <a class="readmore" href="../posts/skill/install_pyv8_in_mac-zh.html">read more</a>
+<p>There are <a href="../posts/skill/install_pyv8_in_mac-zh.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="../posts/tech/blog_environmental_move_problem-zh.html" rel="bookmark"
+                           title="Permalink to 博客环境迁移遇到的问题">博客环境迁移遇到的问题</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-12-01T00:00:00">
+                2014-12-01
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="../author/saerdna.html">Saerdna</a>
+        </address>
+<p>In <a href="../category/tech.html">tech</a>. </p>
+
+</footer><!-- /.post-info -->                <p>在把博客的本地环境在 MBP 重新部署的时候遇到的.</p>
+<p>现象描述:</p>
+<p>pelican 发布博文时出现如下错误</p>
+<blockquote>
+<p>ImportError: No module named html_parser
+<img alt="1" src="../images/pelican_error.png" /></p>
+</blockquote>
+<ul>
+<li>发现是 mac python 自带的 six module 库有问题.因为原生six 的 version 是1.4的,最新的已经到1.8了.</li>
+</ul>
+<div class="highlight"><pre><span class="n">import</span> <span class="n">six</span>
+<span class="n">print</span> <span class="n">six</span><span class="p">.</span><span class="n">__version__</span>
+</pre></div>
+
+
+<ul>
+<li>Solution:<ul>
+<li>从 https://pypi.python.org/pypi/six/ 下载最新的 source. </li>
+<li>解压后执行 <code>sudo python setup.py install</code></li>
+</ul>
+</li>
+</ul>
+                <a class="readmore" href="../posts/tech/blog_environmental_move_problem-zh.html">read more</a>
+<p>There are <a href="../posts/tech/blog_environmental_move_problem-zh.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="../posts/translate/supervised_learning-zh.html" rel="bookmark"
+                           title="Permalink to 监督学习">监督学习</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-12-01T00:00:00">
+                2014-12-01
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="../author/saerdna.html">Saerdna</a>
+        </address>
+<p>In <a href="../category/translate.html">translate</a>. </p>
+
+</footer><!-- /.post-info -->                <h3><center>1.监督学习（翻译完）</center></h3>
+<ul>
+<li>1.1. 广义线性模型<ul>
+<li>1.1.1. 最小二乘法<ul>
+<li>1.1.1.1. 最小二乘法复杂度</li>
+</ul>
+</li>
+<li>1.1.2. 岭回归<ul>
+<li>1.1.2.1. 岭回归复杂度</li>
+<li>1.1.2.2. 参数设置:广义交叉验证</li>
+</ul>
+</li>
+<li>1.1.3. 套索算法<ul>
+<li>1.1.3.1. 参数设置<ul>
+<li>1.1.3.1.1. 交叉验证的使用</li>
+<li>1.1.3.1.2 ...</li></ul></li></ul></li></ul></li></ul>
+                <a class="readmore" href="../posts/translate/supervised_learning-zh.html">read more</a>
+<p>There are <a href="../posts/translate/supervised_learning-zh.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="../posts/tech/how_to_assessment_the_competing_products_coverage_efficient-zh.html" rel="bookmark"
+                           title="Permalink to 如何高效的评估竞品收录覆盖率">如何高效的评估竞品收录覆盖率</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-05-22T00:00:00">
+                2014-05-22
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="../author/saerdna.html">Saerdna</a>
+        </address>
+<p>In <a href="../category/tech.html">tech</a>. </p>
+
+</footer><!-- /.post-info -->                <h3>前言</h3>
+<blockquote>
+<p>好久没来这里写东西了，作为一个技术人员,还是得写点干货。 也算是对工作中一些难点的感悟吧，有些习惯总得坚持下去才能见到收获。</p>
+</blockquote>
+<p>正式入职百度半年之后因为某些<del>特殊原因</del>，我被transfer到了百度的spider部门。 这个部门就是负责抓取互联网上对百度有意义的资源(此处泛指网页)。</p>
+<p>大家都知道，网站是有压力瓶颈的，对于一个站点，不能无限制的抓取。如果<code>抓取量+用户访问量&gt;网站实际可承受压力</code>，网站就会出现诸如404等无法正常响应的情况。</p>
+<p>而对于整个百度而言，抓取的出口也是有限的,每天抓取的总量就那么多。 所以，如何在有限的资源下尽可能的将有价值的网页抓回来就是一个难题。</p>
+<p>评估一个抓取服务质量的好坏，在于这个服务收录整个集合的百分比。</p>
+<p>在我接触这个方向时，对于整个服务的质量评估，基本是处于人工加半自动化工具的方式来评估。 而且现成的工具效率也偏低，只能用来做为评估手段，利用产出数据由于数据量太小，没法用于实际的生产环境。</p>
+<p>当时我的导师给了我一个任务，就是实现一个自动评估模块，日处理千万量级的url，用以检测百度是否都收录了这些url或者这些url的相同资源。</p>
+<p>这个问题的难点在于，怎么判断2个不同的url是否是相同资源。 <code>相同资源:同一个站点下指向同一个网页的不同url，两者互为相同资源</code> 简单来说就是2个不同的url，使用浏览器打开后都为同一个实际页面。 对于收录而言，只需要收录了其中一条就算是good case。 所以需要做的事情，就是比较竞品收录的url和内部收录的url两个集合的交集 ...</p>
+                <a class="readmore" href="../posts/tech/how_to_assessment_the_competing_products_coverage_efficient-zh.html">read more</a>
+<p>There are <a href="../posts/tech/how_to_assessment_the_competing_products_coverage_efficient-zh.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+            </ol><!-- /#posts-list -->
+<p class="paginator">
+    Page 1 / 2
+        <a href="../author/saerdna2.html">&raquo;</a>
+</p>
+            </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="Weibo">http://weibo.com/saerdna13</a></li>
+                            <li><a href="Google plus">https://plus.google.com/105858506209398295278</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-43474657-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+<script type="text/javascript">
+    var disqus_shortname = 'coolfire';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

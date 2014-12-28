@@ -36,12 +36,10 @@ var JSP_VAR={
 无奈之下只好找了个[PyV8-OS-X](https://github.com/brokenseal/PyV8-OS-X)直接拿来用，缺点是以后移植到linux平台下还得改代码。
 
 ##### mac版：
-```python
-from pyv8 import PyV8
-```
+<pre><code>from pyv8 import PyV8
+</code></pre>
 ##### linux版：
-```python
-import PyV8
-```
+<pre><code>import PyV8
+</code></pre>
 
 为了这个事情都折腾半天了，实在不划算，对于一个程序员来说，折腾这种环境的事情实在太浪费时间了,下次一定得搞一台mini主机，开发运维啥的都统一到ubuntu，就不会有这些破事了。

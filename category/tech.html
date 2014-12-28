@@ -12,7 +12,9 @@
         <link rel="stylesheet" type="text/css" href="../theme/gumby.css" />
         <link rel="stylesheet" type="text/css" href="../theme/style.css" />
         <link rel="stylesheet" type="text/css" href="../theme/pygment.css" />
-
+        <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">  
+        <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>  
+        <script >hljs.initHighlightingOnLoad();</script>  
         <script src="../theme/js/libs/modernizr-2.6.2.min.js"></script>
 
 
@@ -55,7 +57,7 @@
 				        <li><article class="hentry">
 				                <header> <h2 class="entry-title"><a href="../posts/tech/blog_environmental_move_problem-zh.html" rel="bookmark" title="Permalink to 博客环境迁移遇到的问题">博客环境迁移遇到的问题</a></h2> </header>
 				                <footer class="post-info">
-				                    <abbr class="published" title="2014-12-01T00:00:00"> 2014-12-01 </abbr>
+				                    <abbr class="published" title="2014-12-01T00:00:00+08:00"> 2014-12-01 </abbr>
 <address class="vcard author">By <a class="url fn" href="../author/saerdna.html">Saerdna</a></address>				                </footer><!-- /.post-info -->
 				                <div class="entry-content"> <p>在把博客的本地环境在 MBP 重新部署的时候遇到的.</p>
 <p>现象描述:</p>
@@ -67,8 +69,8 @@
 <ul>
 <li>发现是 mac python 自带的 six module 库有问题.因为原生six 的 version 是1.4的,最新的已经到1.8了.</li>
 </ul>
-<div class="highlight"><pre><span class="n">import</span> <span class="n">six</span>
-<span class="n">print</span> <span class="n">six</span><span class="p">.</span><span class="n">__version__</span>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">six</span>
+<span class="k">print</span> <span class="n">six</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
 
 
@@ -93,7 +95,7 @@
 				        <li><article class="hentry">
 				                <header> <h2 class="entry-title"><a href="../posts/tech/how_to_assessment_the_competing_products_coverage_efficient-zh.html" rel="bookmark" title="Permalink to 如何高效的评估竞品收录覆盖率">如何高效的评估竞品收录覆盖率</a></h2> </header>
 				                <footer class="post-info">
-				                    <abbr class="published" title="2014-05-22T00:00:00"> 2014-05-22 </abbr>
+				                    <abbr class="published" title="2014-05-22T00:00:00+08:00"> 2014-05-22 </abbr>
 <address class="vcard author">By <a class="url fn" href="../author/saerdna.html">Saerdna</a></address>				                </footer><!-- /.post-info -->
 				                <div class="entry-content"> <h3>前言</h3>
 <blockquote>
@@ -120,7 +122,7 @@
 				        <li><article class="hentry">
 				                <header> <h2 class="entry-title"><a href="../posts/tech/about_taobao_try-zh.html" rel="bookmark" title="Permalink to 关于淘宝试用频道的一些想法">关于淘宝试用频道的一些想法</a></h2> </header>
 				                <footer class="post-info">
-				                    <abbr class="published" title="2013-08-27T00:30:00"> 2013-08-27 </abbr>
+				                    <abbr class="published" title="2013-08-27T00:30:00+08:00"> 2013-08-27 </abbr>
 <address class="vcard author">By <a class="url fn" href="../author/saerdna.html">Saerdna</a></address>				                </footer><!-- /.post-info -->
 				                <div class="entry-content"> <p>这两天看了下淘宝的<a href="http://try.taobao.com/">试用频道</a>。</p>
 <p>发现里面还挺多好东西的，就是申请的人太多了。</p>
@@ -183,11 +185,11 @@
 
 <h4>Tags</h4>
 	<ul>
+	    <li class="tag-4"><a href="../tag/feeling.html">feeling</a></li>
+	    <li class="tag-1"><a href="../tag/python.html">python</a></li>
 	    <li class="tag-1"><a href="../tag/web.html">web</a></li>
 	    <li class="tag-1"><a href="../tag/tech.html">tech</a></li>
-	    <li class="tag-4"><a href="../tag/feeling.html">feeling</a></li>
 	    <li class="tag-4"><a href="../tag/mac.html">mac</a></li>
-	    <li class="tag-1"><a href="../tag/python.html">python</a></li>
 </ul>
 
 
