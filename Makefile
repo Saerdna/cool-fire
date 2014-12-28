@@ -1,5 +1,5 @@
 PY=python
-PELICAN=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/pelican
+PELICAN=pelican
 PELICANOPTS=
 
 BASEDIR=$(CURDIR)
