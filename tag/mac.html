@@ -57,20 +57,19 @@
 				        <li><article class="hentry">
 				                <header> <h2 class="entry-title"><a href="../posts/skill/install_pyv8_in_mac-zh.html" rel="bookmark" title="Permalink to 在mac下安装pyv8">在mac下安装pyv8</a></h2> </header>
 				                <footer class="post-info">
-				                    <abbr class="published" title="2014-12-06T02:56:00"> 2014-12-06 </abbr>
-<address class="vcard author">By <a class="url fn" href="../author/saerdna.html">Saerdna</a></address>				                </footer><!-- /.post-info -->
+				                    <abbr class="published" title="2014-12-06T02:56:00+08:00"> 2014-12-06 </abbr>
+<address class="vcard author">By <a class="url fn" href="../author/saerdna.html">saerdna</a></address>				                </footer><!-- /.post-info -->
 				                <div class="entry-content"> <h3>需求起因</h3>
 <p>最近在写一个自动登录网站并执行某些操作的模块。</p>
 <p>网站在js中加了token，需要在登录的时候传过去做校验。</p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">JSP_VAR</span><span class="o">=</span><span class="p">{</span>
-  <span class="nx">callback</span><span class="o">:</span><span class="s2">&quot;callbackurl&quot;</span><span class="p">,</span>
-  <span class="nx">sid</span><span class="o">:</span><span class="s2">&quot;sid&quot;</span><span class="p">,</span>
-  <span class="nx">qs</span><span class="o">:</span><span class="s2">&quot;qs_string&quot;</span><span class="p">,</span>
-  <span class="nx">hidden</span><span class="o">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;_sign&quot;</span><span class="o">:</span><span class="s2">&quot;token&quot;</span><span class="p">,</span>
-<span class="p">};</span>
-</pre></div>
-
+<pre><code>var JSP_VAR={
+  callback:"callbackurl",
+  sid:"sid",
+  qs:"qs_string",
+  hidden:"",
+  "_sign":"token",
+};
+</code></pre>
 
 <h3>尝试解决</h3>
 <p>开始尝试直接正则抠出字符串后<code>json.loads</code>，发现和标准json不大一致，遂作罢。</p>
@@ -112,6 +111,7 @@
 <ul>
 		<li><a href="../category/essay.html">essay</a></li>
 		<li><a href="../category/life.html">life</a></li>
+		<li><a href="../category/project.html">project</a></li>
 		<li><a href="../category/skill.html">skill</a></li>
 		<li><a href="../category/tech.html">tech</a></li>
 		<li><a href="../category/translate.html">translate</a></li>
@@ -121,10 +121,10 @@
 <h4>Tags</h4>
 	<ul>
 	    <li class="tag-4"><a href="../tag/feeling.html">feeling</a></li>
-	    <li class="tag-1"><a href="../tag/tech.html">tech</a></li>
-	    <li class="tag-1"><a href="../tag/web.html">web</a></li>
-	    <li class="tag-4"><a href="../tag/mac.html">mac</a></li>
 	    <li class="tag-1"><a href="../tag/python.html">python</a></li>
+	    <li class="tag-1"><a href="../tag/tech.html">tech</a></li>
+	    <li class="tag-4"><a href="../tag/mac.html">mac</a></li>
+	    <li class="tag-1"><a href="../tag/web.html">web</a></li>
 </ul>
 
 

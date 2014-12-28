@@ -55,9 +55,36 @@
         <div class="eleven columns">
 		         <ol id="post-list">
 				        <li><article class="hentry">
+				                <header> <h2 class="entry-title"><a href="./posts/tech/how_to_assessment_the_competing_products_coverage_efficient-zh.html" rel="bookmark" title="Permalink to 如何高效的评估竞品收录覆盖率">如何高效的评估竞品收录覆盖率</a></h2> </header>
+				                <footer class="post-info">
+				                    <abbr class="published" title="2014-05-22T00:00:00+08:00"> 2014-05-22 </abbr>
+<address class="vcard author">By <a class="url fn" href="./author/saerdna.html">Saerdna</a></address>				                </footer><!-- /.post-info -->
+				                <div class="entry-content"> <h3>前言</h3>
+<blockquote>
+<p>好久没来这里写东西了，作为一个技术人员,还是得写点干货。 也算是对工作中一些难点的感悟吧，有些习惯总得坚持下去才能见到收获。</p>
+</blockquote>
+<p>正式入职百度半年之后因为某些<del>特殊原因</del>，我被transfer到了百度的spider部门。 这个部门就是负责抓取互联网上对百度有意义的资源(此处泛指网页)。</p>
+<p>大家都知道，网站是有压力瓶颈的，对于一个站点，不能无限制的抓取。如果<code>抓取量+用户访问量&gt;网站实际可承受压力</code>，网站就会出现诸如404等无法正常响应的情况。</p>
+<p>而对于整个百度而言，抓取的出口也是有限的,每天抓取的总量就那么多。 所以，如何在有限的资源下尽可能的将有价值的网页抓回来就是一个难题。</p>
+<p>评估一个抓取服务质量的好坏，在于这个服务收录整个集合的百分比。</p>
+<p>在我接触这个方向时，对于整个服务的质量评估，基本是处于人工加半自动化工具的方式来评估。 而且现成的工具效率也偏低，只能用来做为评估手段，利用产出数据由于数据量太小，没法用于实际的生产环境。</p>
+<p>当时我的导师给了我一个任务，就是实现一个自动评估模块，日处理千万量级的url，用以检测百度是否都收录了这些url或者这些url的相同资源。</p>
+<p>这个问题的难点在于，怎么判断2个不同的url是否是相同资源。 <code>相同资源:同一个站点下指向同一个网页的不同url，两者互为相同资源</code> 简单来说就是2个不同的url，使用浏览器打开后都为同一个实际页面。 对于收录而言，只需要收录了其中一条就算是good case。 所以需要做的事情，就是比较竞品收录的url和内部收录的url两个集合的交集 ...</p> </div><!-- /.entry-content -->
+
+								<div class="medium primary btn"><a href="./posts/tech/how_to_assessment_the_competing_products_coverage_efficient-zh.html" rel="bookmark" title="Permalink to 如何高效的评估竞品收录覆盖率">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+								<div class="row tag-row">
+								</div>
+
+
+
+				        </article></li>
+				        <li><article class="hentry">
 				                <header> <h2 class="entry-title"><a href="./posts/essay/essay-zh.html" rel="bookmark" title="Permalink to 随笔">随笔</a></h2> </header>
 				                <footer class="post-info">
-				                    <abbr class="published" title="2013-09-09T00:00:00"> 2013-09-09 </abbr>
+				                    <abbr class="published" title="2013-09-09T00:00:00+08:00"> 2013-09-09 </abbr>
 <address class="vcard author">By <a class="url fn" href="./author/saerdna.html">Saerdna</a></address>				                </footer><!-- /.post-info -->
 				                <div class="entry-content"> <h3>插件</h3>
 <blockquote>
@@ -87,16 +114,16 @@
 <ul>
 <li>
 <p>插件端</p>
-<div class="highlight"><pre><span class="mf">1.</span><span class="err">交互模块</span>
-<span class="mf">2.</span><span class="err">展现模块</span>
+<div class="highlight"><pre>1.交互模块
+2.展现模块
 </pre></div>
 
 
 </li>
 <li>
 <p>服务端</p>
-<div class="highlight"><pre><span class="mf">1.</span><span class="err">分成系统</span>
-<span class="mf">2 ...</span></pre></div></li></ul> </div><!-- /.entry-content -->
+<div class="highlight"><pre>1.分成系统
+2 ...</pre></div></li></ul> </div><!-- /.entry-content -->
 
 								<div class="medium primary btn"><a href="./posts/essay/essay-zh.html" rel="bookmark" title="Permalink to 随笔">Read more <i class="icon-arrow-right"></i></a></div>
 
@@ -111,7 +138,7 @@
 				        <li><article class="hentry">
 				                <header> <h2 class="entry-title"><a href="./posts/tech/about_taobao_try-zh.html" rel="bookmark" title="Permalink to 关于淘宝试用频道的一些想法">关于淘宝试用频道的一些想法</a></h2> </header>
 				                <footer class="post-info">
-				                    <abbr class="published" title="2013-08-27T00:30:00"> 2013-08-27 </abbr>
+				                    <abbr class="published" title="2013-08-27T00:30:00+08:00"> 2013-08-27 </abbr>
 <address class="vcard author">By <a class="url fn" href="./author/saerdna.html">Saerdna</a></address>				                </footer><!-- /.post-info -->
 				                <div class="entry-content"> <p>这两天看了下淘宝的<a href="http://try.taobao.com/">试用频道</a>。</p>
 <p>发现里面还挺多好东西的，就是申请的人太多了。</p>
@@ -154,7 +181,7 @@
 				        <li><article class="hentry">
 				                <header> <h2 class="entry-title"><a href="./posts/life/don't_waste_time-zh.html" rel="bookmark" title="Permalink to 别再浪费时间了">别再浪费时间了</a></h2> </header>
 				                <footer class="post-info">
-				                    <abbr class="published" title="2013-08-26T00:00:00"> 2013-08-26 </abbr>
+				                    <abbr class="published" title="2013-08-26T00:00:00+08:00"> 2013-08-26 </abbr>
 <address class="vcard author">By <a class="url fn" href="./author/saerdna.html">Saerdna</a></address>				                </footer><!-- /.post-info -->
 				                <div class="entry-content"> <p>又熬夜了，上一周计划的事情才做了一半多一点。</p>
 <p>发觉自己有点陷入高一，高二那时候的懒惰状态。</p>
@@ -178,7 +205,7 @@
 				        <li><article class="hentry">
 				                <header> <h2 class="entry-title"><a href="./posts/life/It's_My_life-zh.html" rel="bookmark" title="Permalink to It's My life">It's My life</a></h2> </header>
 				                <footer class="post-info">
-				                    <abbr class="published" title="2013-08-19T00:00:00"> 2013-08-19 </abbr>
+				                    <abbr class="published" title="2013-08-19T00:00:00+08:00"> 2013-08-19 </abbr>
 <address class="vcard author">By <a class="url fn" href="./author/saerdna.html">Saerdna</a></address>				                </footer><!-- /.post-info -->
 				                <div class="entry-content"> <p>很久以前也许我也没想过自己会走进互联网这个圈子。</p>
 <p>毕业一年了，来百度的时间也将近3年之久。</p>
@@ -214,6 +241,7 @@
 <ul>
 		<li><a href="./category/essay.html">essay</a></li>
 		<li><a href="./category/life.html">life</a></li>
+		<li><a href="./category/project.html">project</a></li>
 		<li><a href="./category/skill.html">skill</a></li>
 		<li><a href="./category/tech.html">tech</a></li>
 		<li><a href="./category/translate.html">translate</a></li>
@@ -223,10 +251,10 @@
 <h4>Tags</h4>
 	<ul>
 	    <li class="tag-4"><a href="./tag/feeling.html">feeling</a></li>
-	    <li class="tag-1"><a href="./tag/tech.html">tech</a></li>
-	    <li class="tag-1"><a href="./tag/web.html">web</a></li>
-	    <li class="tag-4"><a href="./tag/mac.html">mac</a></li>
 	    <li class="tag-1"><a href="./tag/python.html">python</a></li>
+	    <li class="tag-1"><a href="./tag/tech.html">tech</a></li>
+	    <li class="tag-4"><a href="./tag/mac.html">mac</a></li>
+	    <li class="tag-1"><a href="./tag/web.html">web</a></li>
 </ul>
 
 

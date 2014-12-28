@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
 
-        <title>在mac下安装pyv8</title>
+        <title>AudioToArtImage工具</title>
         <meta charset="utf-8" />
 
 
@@ -54,54 +54,104 @@
 
             <header>
               <h2 class="entry-title">
-                <a href="../../posts/skill/install_pyv8_in_mac-zh.html" rel="bookmark"
-                   title="Permalink to 在mac下安装pyv8">在mac下安装pyv8</a></h2>
+                <a href="../../posts/project/AudioToArtImage-zh.html" rel="bookmark"
+                   title="Permalink to AudioToArtImage工具">AudioToArtImage工具</a></h2>
            
             </header>
             <footer class="post-info">
-              <abbr class="published" title="2014-12-06T02:56:00+08:00">
-                2014-12-06
+              <abbr class="published" title="2014-12-27T17:13:05+08:00">
+                2014-12-27
               </abbr>
               <address class="vcard author">
-                By <a class="url fn" href="../../author/saerdna.html">saerdna</a>
+                By <a class="url fn" href="../../author/saerdna.html">Saerdna</a>
               </address>
             </footer><!-- /.post-info -->
             <div class="entry-content">
-              <h3>需求起因</h3>
-<p>最近在写一个自动登录网站并执行某些操作的模块。</p>
-<p>网站在js中加了token，需要在登录的时候传过去做校验。</p>
-<pre><code>var JSP_VAR={
-  callback:"callbackurl",
-  sid:"sid",
-  qs:"qs_string",
-  hidden:"",
-  "_sign":"token",
-};
-</code></pre>
-
-<h3>尝试解决</h3>
-<p>开始尝试直接正则抠出字符串后<code>json.loads</code>，发现和标准json不大一致，遂作罢。</p>
-<p>后来发现还有pyv8这种神奇的货色，考虑到以后需求肯定不单单是提取js的数据，也会有一些执行的东西，就想着试试。</p>
-<p>执行<code>pip install pyv8</code>后提示</p>
-<blockquote>
-<p>src/Exception.h:6:16: fatal error: v8.h: no such file or directory</p>
-</blockquote>
-<p>参考了这个哥们的文章之后发现还是不行，安装v8后没有出现boost部分的错误。building PyV8的时候报错了，<a href="../../files/pyv8_install_failed.log">错误日志</a>。</p>
-<h3>解决方案</h3>
-<p>无奈之下只好找了个<a href="https://github.com/brokenseal/PyV8-OS-X">PyV8-OS-X</a>直接拿来用，缺点是以后移植到linux平台下还得改代码。</p>
-<h5>mac版：</h5>
-<p><pre><code>from pyv8 import PyV8
+              <h3>概述</h3>
+<p>这个项目是通过萌萌介绍给我的，算是第一个练手的小项目。</p>
+<p>对方的需求是将一小段音频转成一个酷炫的图片，效果类似 <a href="http://weavesilk.com/">weavesilk.com</a>.</p>
+<p><img alt="1" src="../../images/AudioToArtImage.png" /></p>
+<p>在同<a href="http://lingyu.wang/">教皇大神</a>讨论了下技术实现之后果断决定揽下这个<del>坑爹项目</del>.</p>
+<h3>用户需求</h3>
+<p>主要为以下几点.</p>
+<ol>
+<li>音频批处理功能</li>
+<li>指定输入输出目录</li>
+<li>圣诞前完成</li>
+</ol>
+<p>第一眼看上去，这个需求比较简单，但是仔细一想，其实坑挺多。有一些潜在的需求其实是客户没有直接描述的。</p>
+<ol>
+<li>操作简单</li>
+<li>windows下运行</li>
+<li>酷炫的效果</li>
+</ol>
+<h3>设计架构</h3>
+<p>考虑到时间的紧迫性以及技术熟练程度，采用的技术架构如下</p>
+<ol>
+<li>用户界面采用html+css+js，也就是传统的web前端界面。</li>
+<li>图像生成模块利用<a href="http://weavesilk.com/">weavesilk.com</a>原生的代码，在原来的基础上做一些接口化的开发和调整。</li>
+<li>音频处理模块以及web后端采用python进行开发。</li>
+<li>前端使用浏览器打开，后端使用webpy搭建一个本地的httpserver。</li>
+<li>使用pyinstaller生成可执行程序来进行win下的兼容。</li>
+</ol>
+<h3>交互流程</h3>
+<ol>
+<li>前端选定音频文件后，将音频文件POST到后端</li>
+<li>后端提取音频特征后，生成鼠标轨迹数据，并返回给前端。</li>
+<li>前端利用canvas绘制好图片，将图片数据再POST回后端。</li>
+<li>后端将图片写到指定目录。</li>
+</ol>
+<h3>音频处理模块</h3>
+<p>一开始设计的时候，希望是能兼容几种比较主流的音频(mp3,wav,wma)。</p>
+<p>在深入了解了一下音频这块的技术后，果断决定只支持wav格式。</p>
+<p>一方面是开发周期比较短，另外一方面是python这块没有比较好的库可以支持,
+参考<a href="http://sebug.net/paper/books/scipydoc/wave_pyaudio.html">声音的输入输出</a>.</p>
+<h3>绘制图片</h3>
+<p>模拟鼠标轨迹来绘制图片这一块着实花了很大的心思来弄。</p>
+<p>有两个比较坑的地方</p>
+<ol>
+<li>
+<p>js的异步执行机制，你没有办法像同步模型下进行如下的操作。</p>
+<p><pre><code>mouse.down(x, y)
+sleep(sec)
+mouse.move(x, y)
+sleep(sec)
+mouse.up(x,y)
 </code></pre></p>
-<h5>linux版：</h5>
-<p><pre><code>import PyV8
+<p>最后采取的方式是人工计算延迟</p>
+<p><pre><code>setTimeout(sleepMove(poi), tot);
+tot += Number(time_delay);
 </code></pre></p>
-<p>为了这个事情都折腾半天了，实在不划算，对于一个程序员来说，折腾这种环境的事情实在太浪费时间了,下次一定得搞一台mini主机，开发运维啥的都统一到ubuntu，就不会有这些破事了。</p>
+</li>
+<li>
+<p>因为前端绘图是在一个canvas里面操作(别问我为啥不在多个canvas操作，weavesilk.com的代码改起来还是很花时间的。。)</p>
+<p>所以需要对canvas加一个<strong>互斥锁</strong>，防止两份音频生成的鼠标轨迹同时画在canvas上。</p>
+<p>最后采用的方法是在server端加锁，每一个音频上传的upload方法里<strong>加锁</strong>，每一张图片saver的时候<strong>锁释放</strong>。</p>
+<p>这样可以防止canvas重绘的情况发生</p>
+</li>
+</ol>
+<h3>前端交互</h3>
+<p>文件上传使用的是<a href="http://www.plupload.com/">plupload</a>插件</p>
+<p>在设计<strong>指定输入输出目录</strong>这个功能时,chrome的沙盒机制使得我没法在前端获取用户上传文件的路径。</p>
+<p>当时有2个备选方案</p>
+<ol>
+<li>用户直接编辑配置文件</li>
+<li>上传文件夹采取拖动的方式，指定输出文件夹的功能同后台实时交互，需要实现<code>ls,cd</code>这两个功能。</li>
+</ol>
+<p>第一个方案不用说，交互太挫，肯定会被拍回来</p>
+<p>第二个方案的工作量也不小，而且在前端展示目录树也是需要耗费不少精力的。</p>
+<p>最后考虑到用户交互的简单性，我决定在用户生成图片时<strong>弹出一个对话框</strong>让用户填入输出目录。这样既能避免用户直接编辑配置文件的差体验，也降低了开发的工作量。</p>
+<p>事实证明这样的效果还不错，客户看到这个实现还是比较满意的。</p>
+<h3>总结</h3>
+<p>这次做私活还是有不少收益的，技术深度可能没有太大的增加，但是技术广度确实得到了不少提升。</p>
+<p>同时对js，css这块的也由之前的未入门到现在的刚入门。</p>
+<p>同时也感叹，私活不好找啊。以后多扩展下这方面的资源，在以后自己出来创业之前通过私活积累足够的资金和技术广度。</p>
             </div><!-- /.entry-content -->
             <div class="comments">
               <h3>Comments</h3>
               <div id="disqus_thread"></div>
               <script type="text/javascript">
-                var disqus_identifier = "posts/skill/install_pyv8_in_mac-zh.html";
+                var disqus_identifier = "posts/project/AudioToArtImage-zh.html";
                 (function() {
                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
                 dsq.src = 'http://coolfire.disqus.com/embed.js';

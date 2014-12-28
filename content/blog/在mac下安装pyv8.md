@@ -11,15 +11,14 @@ title: 在mac下安装pyv8
 
 网站在js中加了token，需要在登录的时候传过去做校验。
 
-```javascript
-var JSP_VAR={
+<pre><code>var JSP_VAR={
   callback:"callbackurl",
   sid:"sid",
   qs:"qs_string",
   hidden:"",
   "_sign":"token",
 };
-```
+</code></pre>
 ### 尝试解决
 
 开始尝试直接正则抠出字符串后<code>json.loads</code>，发现和标准json不大一致，遂作罢。
