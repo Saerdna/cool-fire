@@ -6,11 +6,11 @@
 &lt;p&gt;在同&lt;a href="http://lingyu.wang/"&gt;教皇大神&lt;/a&gt;讨论了下技术实现之后果断决定揽下这个&lt;del&gt;坑爹项目&lt;/del&gt;.&lt;/p&gt;
 &lt;h3&gt;用户需求&lt;/h3&gt;
 &lt;p&gt;主要为以下几点.&lt;/p&gt;
-&lt;ol&gt;
+&lt;ul&gt;
 &lt;li&gt;音频批处理功能&lt;/li&gt;
 &lt;li&gt;指定输入输出目录&lt;/li&gt;
 &lt;li&gt;圣诞前完成&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 &lt;p&gt;第一眼看上去，这个需求比较简单，但是仔细一想，其实坑挺多。有一些潜在的需求其实是客户没有直接描述的。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;操作简单&lt;/li&gt;

@@ -1,76 +1,72 @@
 <!DOCTYPE html>
-<html lang="zh">
 <head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
 
-        <title>cool-fire</title>
-        <meta charset="utf-8" />
+    <title>cool-fire - project</title>
 
-
-        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
-        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
-
-        <link rel="stylesheet" type="text/css" href="../theme/gumby.css" />
-        <link rel="stylesheet" type="text/css" href="../theme/style.css" />
-        <link rel="stylesheet" type="text/css" href="../theme/pygment.css" />
-        <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">  
-        <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>  
-        <script >hljs.initHighlightingOnLoad();</script>  
-        <script src="../theme/js/libs/modernizr-2.6.2.min.js"></script>
-
-
-
-
-
-
+    <link rel="stylesheet" href="../theme/css/normalize.css" />
+    <link rel="stylesheet" href="../theme/css/foundation.css" />
+    <link rel="stylesheet" href="../theme/css/style.css" />
+    <link rel="stylesheet" href="../theme/css/pygments.css" />	
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script >hljs.initHighlightingOnLoad();</script>
+    <script src="../theme/js/modernizr.js"></script>
 </head>
 
-<body id="index" class="home">
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="..">cool-fire</a></h1>
+    </div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+
+            <li><a href="../pages/search.html" class="button secondary small">Search</a></li>
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
 
 
-    <div class="container">
+<!-- Main Page Content and Sidebar -->
+<div class="row">
 
-        <div class="row">
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+        
+        
 
-          <header id="banner" class="body">
-                  <h1><a href="..">cool-fire <strong></strong></a></h1>
-          </header><!-- /#banner -->
-
-            <div id="navigation" class="navbar row">
-              <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
-             
-              <ul class="columns">
-                <li><a href="..">Home</a></li>
-
-                <li><a href="../pages/search.html">Search</a></li>
-
-              </ul>
-            </div>
-
-<section id="content">
-<h2>Articles in the project category</h2>
-
-   <div class="row">
+            <article>
+                <a href="../posts/project/AudioToArtImage-zh.html"><h3 class="article-title">AudioToArtImage工具</h3></a>
+<h6 class="subheader" title="2014-12-27T17:13:05+08:00">2014-12-27
+</h6>
 
 
-        <div class="eleven columns">
-		         <ol id="post-list">
-				        <li><article class="hentry">
-				                <header> <h2 class="entry-title"><a href="../posts/project/AudioToArtImage-zh.html" rel="bookmark" title="Permalink to AudioToArtImage工具">AudioToArtImage工具</a></h2> </header>
-				                <footer class="post-info">
-				                    <abbr class="published" title="2014-12-27T17:13:05+08:00"> 2014-12-27 </abbr>
-<address class="vcard author">By <a class="url fn" href="../author/saerdna.html">Saerdna</a></address>				                </footer><!-- /.post-info -->
-				                <div class="entry-content"> <h3>概述</h3>
+<h3>概述</h3>
 <p>这个项目是通过萌萌介绍给我的，算是第一个练手的小项目。</p>
 <p>对方的需求是将一小段音频转成一个酷炫的图片，效果类似 <a href="http://weavesilk.com/">weavesilk.com</a>.</p>
 <p><img alt="1" src="../images/AudioToArtImage.png" /></p>
 <p>在同<a href="http://lingyu.wang/">教皇大神</a>讨论了下技术实现之后果断决定揽下这个<del>坑爹项目</del>.</p>
 <h3>用户需求</h3>
 <p>主要为以下几点.</p>
-<ol>
+<ul>
 <li>音频批处理功能</li>
 <li>指定输入输出目录</li>
 <li>圣诞前完成</li>
-</ol>
+</ul>
 <p>第一眼看上去，这个需求比较简单，但是仔细一想，其实坑挺多。有一些潜在的需求其实是客户没有直接描述的。</p>
 <ol>
 <li>操作简单</li>
@@ -93,111 +89,122 @@
 <li>前端利用canvas绘制好图片，将图片数据再POST回后端。</li>
 <li>后端将图片写到指定目录。</li>
 </ol>
-<h3>音频处理模块 ...</h3> </div><!-- /.entry-content -->
+<h3>音频处理模块</h3>
+<p>一开始设计的时候，希望是能兼容几种比较主流的音频(mp3,wav,wma)。</p>
+<p>在深入了解了一下音频这块的技术后，果断决定只支持wav格式。</p>
+<p>一方面是开发周期比较短，另外一方面是python这块没有比较好的库可以支持,
+参考<a href="http://sebug.net/paper/books/scipydoc/wave_pyaudio.html">声音的输入输出</a>.</p>
+<h3>绘制图片</h3>
+<p>模拟鼠标轨迹来绘制图片这一块着实花了很大的心思来弄。</p>
+<p>有两个比较坑的地方</p>
+<ol>
+<li>
+<p>js的异步执行机制，你没有办法像同步模型下进行如下的操作。</p>
+<p><pre><code>mouse.down(x, y)
+sleep(sec)
+mouse.move(x, y)
+sleep(sec)
+mouse.up(x,y)
+</code></pre></p>
+<p>最后采取的方式是人工计算延迟</p>
+<p><pre><code>setTimeout(sleepMove(poi), tot);
+tot += Number(time_delay);
+</code></pre></p>
+</li>
+<li>
+<p>因为前端绘图是在一个canvas里面操作(别问我为啥不在多个canvas操作，weavesilk.com的代码改起来还是很花时间的。。)</p>
+<p>所以需要对canvas加一个<strong>互斥锁</strong>，防止两份音频生成的鼠标轨迹同时画在canvas上。</p>
+<p>最后采用的方法是在server端加锁，每一个音频上传的upload方法里<strong>加锁</strong>，每一张图片saver的时候<strong>锁释放</strong>。</p>
+<p>这样可以防止canvas重绘的情况发生</p>
+</li>
+</ol>
+<h3>前端交互</h3>
+<p>文件上传使用的是<a href="http://www.plupload.com/">plupload</a>插件</p>
+<p>在设计<strong>指定输入输出目录</strong>这个功能时,chrome的沙盒机制使得我没法在前端获取用户上传文件的路径。</p>
+<p>当时有2个备选方案</p>
+<ol>
+<li>用户直接编辑配置文件</li>
+<li>上传文件夹采取拖动的方式，指定输出文件夹的功能同后台实时交互，需要实现<code>ls,cd</code>这两个功能。</li>
+</ol>
+<p>第一个方案不用说，交互太挫，肯定会被拍回来</p>
+<p>第二个方案的工作量也不小，而且在前端展示目录树也是需要耗费不少精力的。</p>
+<p>最后考虑到用户交互的简单性，我决定在用户生成图片时<strong>弹出一个对话框</strong>让用户填入输出目录。这样既能避免用户直接编辑配置文件的差体验，也降低了开发的工作量。</p>
+<p>事实证明这样的效果还不错，客户看到这个实现还是比较满意的。</p>
+<h3>总结</h3>
+<p>这次做私活还是有不少收益的，技术深度可能没有太大的增加，但是技术广度确实得到了不少提升。</p>
+<p>同时对js，css这块的也由之前的未入门到现在的刚入门。</p>
+<p>同时也感叹，私活不好找啊。以后多扩展下这方面的资源，在以后自己出来创业之前通过私活积累足够的资金和技术广度。</p><p class="subheader">Category: <a href="../category/project.html">project</a>
 
-								<div class="medium primary btn"><a href="../posts/project/AudioToArtImage-zh.html" rel="bookmark" title="Permalink to AudioToArtImage工具">Read more <i class="icon-arrow-right"></i></a></div>
-
-
-
-								<div class="row tag-row">
-								</div>
-
-
-
-				        </article></li>
-				</ol><!-- /#posts-list -->
-
-        </div><!-- /.eleven.columns -->
-        
-<div class="three columns">
-<h4>Pages</h4>
-
- <ul>
-      <li><a href="../pages/search.html">Search</a></li>
-  </ul>
-
-<h4>Categories</h4>
-<ul>
-		<li><a href="../category/essay.html">essay</a></li>
-		<li><a href="../category/life.html">life</a></li>
-		<li><a href="../category/project.html">project</a></li>
-		<li><a href="../category/skill.html">skill</a></li>
-		<li><a href="../category/tech.html">tech</a></li>
-		<li><a href="../category/translate.html">translate</a></li>
-</ul>
-
-
-<h4>Tags</h4>
-	<ul>
-	    <li class="tag-4"><a href="../tag/feeling.html">feeling</a></li>
-	    <li class="tag-1"><a href="../tag/python.html">python</a></li>
-	    <li class="tag-1"><a href="../tag/tech.html">tech</a></li>
-	    <li class="tag-4"><a href="../tag/mac.html">mac</a></li>
-	    <li class="tag-1"><a href="../tag/web.html">web</a></li>
-</ul>
-
-
-<nav class="widget">
-  <h4>Social</h4>
-  <ul>
-    <li><a href="http://weibo.com/saerdna13">Weibo</a></li>
-    <li><a href="https://plus.google.com/105858506209398295278">Google plus</a></li>
-  </ul>
-</nav>
-<embed src="http://www.xiami.com/widget/3012097_1773679434,143408,_210_400_5695c1_457cb4_1/multiPlayer.swf" type="application/x-shockwave-flash" width="210" height="400" wmode="opaque"></embed>
-</div> </div><!-- /.row -->
-
-<p class="paginator">
-    Page 1 / 1
 </p>
-</section><!-- /#content -->
-
-       </div><!-- /.row -->
-    </div><!-- /.container -->
-
-       <div class="container.nopad bg">
-
-    
-        <footer id="credits" class="row">
-          <div class="seven columns left-center">
-
-                   <address id="about" class="vcard body">
-                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-                    which takes great advantage of <a href="http://python.org">Python</a>.
-                    <br />
-                    Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a>
-                    </address>
-          </div>
-
-
-          <div class="seven columns">
-            <div class="row">
-              <ul class="socbtns">
 
 
 
+<p><a href="../posts/project/AudioToArtImage-zh.html#disqus_thread">comments</a></p>            </article>
+
+<div class="pagination-centered">
+<h6 class="subheader">Page 1 of 1</h6>
+
+<p>
+
+</p>
+</div>
 
 
-              </ul>
-            </div>
-          </div>
-        </footer>
+
+            <!-- /#posts-list -->
 
     </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">Site</h5>
+        <ul class="side-nav">
+            <li><a href="../archives.html">Archives</a>
+            <li><a href="../tags.html">Tags</a>
+        </ul>
+
+		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+            <li><a href="../category/essay.html">essay</a></li>
+            <li><a href="../category/life.html">life</a></li>
+            <li><a href="../category/project.html">project</a></li>
+            <li><a href="../category/skill.html">skill</a></li>
+            <li><a href="../category/tech.html">tech</a></li>
+            <li><a href="../category/translate.html">translate</a></li>
+   
+        </ul>
+
+        <h5 class="sidebar-title">Links</h5>
+        <ul class="side-nav">
+            <li><a href="http://getpelican.com/">Pelican</a></li>
+            <li><a href="http://python.org/">Python.org</a></li>
+            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+            <li><a href="#">You can modify those links in your config file</a></li>
+        </ul>
+		
+        <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+            <li><a href="Weibo">http://weibo.com/saerdna13</a></li>
+            <li><a href="Google plus">https://plus.google.com/105858506209398295278</a></li>
+        </ul>
+    </aside> <!-- End Sidebar -->
+    <embed src="http://www.xiami.com/widget/3012097_2551935,1773679434,16925,124099,143408,52359,1769085020,1770242833,1771959699,_235_346_cccccc_dddddd_1/multiPlayer.swf" type="application/x-shockwave-flash" width="235" height="346" wmode="opaque"></embed>           
+
+</div> <!-- End Main Content and Sidebar -->
 
 
-<script type="text/javascript">
-    var disqus_shortname = 'coolfire';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
-  <script src="../theme/js/libs/jquery-1.9.1.min.js"></script>
-  <script src="../theme/js/libs/gumby.min.js"></script>
-  <script src="../theme/js/plugins.js"></script>
-
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-6 columns">
+              <!--                  <p>cool-fire by Saerdna</p> -->
+            </div>
+            </div>
+    </div>
+</footer>
 </body>
 </html>

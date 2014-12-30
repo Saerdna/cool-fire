@@ -1,65 +1,61 @@
 <!DOCTYPE html>
-<html lang="zh">
 <head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
 
-        <title>cool-fire - tech</title>
-        <meta charset="utf-8" />
+    <title>cool-fire - tech</title>
 
-
-        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
-        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
-
-        <link rel="stylesheet" type="text/css" href="../theme/gumby.css" />
-        <link rel="stylesheet" type="text/css" href="../theme/style.css" />
-        <link rel="stylesheet" type="text/css" href="../theme/pygment.css" />
-        <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">  
-        <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>  
-        <script >hljs.initHighlightingOnLoad();</script>  
-        <script src="../theme/js/libs/modernizr-2.6.2.min.js"></script>
-
-
-
-
-
-
+    <link rel="stylesheet" href="../theme/css/normalize.css" />
+    <link rel="stylesheet" href="../theme/css/foundation.css" />
+    <link rel="stylesheet" href="../theme/css/style.css" />
+    <link rel="stylesheet" href="../theme/css/pygments.css" />	
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script >hljs.initHighlightingOnLoad();</script>
+    <script src="../theme/js/modernizr.js"></script>
 </head>
 
-<body id="index" class="home">
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="..">cool-fire</a></h1>
+    </div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+
+            <li><a href="../pages/search.html" class="button secondary small">Search</a></li>
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
 
 
-    <div class="container">
+<!-- Main Page Content and Sidebar -->
+<div class="row">
 
-        <div class="row">
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+        
+        
 
-          <header id="banner" class="body">
-                  <h1><a href="..">cool-fire <strong></strong></a></h1>
-          </header><!-- /#banner -->
-
-            <div id="navigation" class="navbar row">
-              <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
-             
-              <ul class="columns">
-                <li><a href="..">Home</a></li>
-
-                <li><a href="../pages/search.html">Search</a></li>
-
-              </ul>
-            </div>
-
-<section id="content">
+            <article>
+                <a href="../posts/skill/how_to_post_array_with_python-zh.html"><h3 class="article-title">python中post数组参数</h3></a>
+<h6 class="subheader" title="2014-12-06T10:56:00+08:00">2014-12-06
+</h6>
 
 
-   <div class="row">
-
-
-        <div class="eleven columns">
-		         <ol id="post-list">
-				        <li><article class="hentry">
-				                <header> <h2 class="entry-title"><a href="../posts/skill/how_to_post_array_with_python-zh.html" rel="bookmark" title="Permalink to python中post数组参数">python中post数组参数</a></h2> </header>
-				                <footer class="post-info">
-				                    <abbr class="published" title="2014-12-06T10:56:00+08:00"> 2014-12-06 </abbr>
-<address class="vcard author">By <a class="url fn" href="../author/saerdna.html">saerdna</a></address>				                </footer><!-- /.post-info -->
-				                <div class="entry-content"> <p>今天在写自动预约抢购的模块时发现的问题</p>
+<p>今天在写自动预约抢购的模块时发现的问题</p>
 <p>需要向网站post这样的数据<code>{'key':[1,2,3]}</code></p>
 <p>post的结果是<code>key=1&amp;key=2&amp;key=3</code></p>
 <p>大家都知道在python对参数做序列化是urlencode,可是直接urlencode的结果如下</p>
@@ -71,28 +67,37 @@ Out[4]: 'key=%5B1%2C+2%2C+3%5D'
 </code></pre>
 
 <p>查了下stackoverflow，还是有人遇到同样的问题，解决方案是urlencode时加上一个参数。</p>
-<pre><code>In [1 ...</code></pre> </div><!-- /.entry-content -->
+<pre><code>In [1]: import urllib
+In [2]: help(urllib.urlencode)
+In [3]: post_data = {'key':[1,2,3]}
+In [4]: urllib.urlencode(post_data, True)
+Out[4]: 'key=1&key=2&key=3'
+</code></pre><p class="subheader">Category: <a href="../category/skill.html">skill</a>
 
-								<div class="medium primary btn"><a href="../posts/skill/how_to_post_array_with_python-zh.html" rel="bookmark" title="Permalink to python中post数组参数">Read more <i class="icon-arrow-right"></i></a></div>
+    Tagged: 
+    <a href="../tag/tech.html">tech </a>
+    <a href="../tag/python.html">python </a>
+    <a href="../tag/web.html">web </a>
+</p>
 
 
 
-								<div class="row tag-row">
-										<span>Tagged as : </span>
-											<a class="danger label" href="../tag/tech.html">tech</a>
-											<a class="danger label" href="../tag/python.html">python</a>
-											<a class="danger label" href="../tag/web.html">web</a>
-								</div>
+<p><a href="../posts/skill/how_to_post_array_with_python-zh.html#disqus_thread">comments</a></p>            </article>
 
 
+                <hr  class="gradient"/>
 
-				        </article></li>
-				        <li><article class="hentry">
-				                <header> <h2 class="entry-title"><a href="../posts/skill/install_pyv8_in_mac-zh.html" rel="bookmark" title="Permalink to 在mac下安装pyv8">在mac下安装pyv8</a></h2> </header>
-				                <footer class="post-info">
-				                    <abbr class="published" title="2014-12-06T02:56:00+08:00"> 2014-12-06 </abbr>
-<address class="vcard author">By <a class="url fn" href="../author/saerdna.html">saerdna</a></address>				                </footer><!-- /.post-info -->
-				                <div class="entry-content"> <h3>需求起因</h3>
+
+        
+
+
+            <article>
+                <a href="../posts/skill/install_pyv8_in_mac-zh.html"><h3 class="article-title">在mac下安装pyv8</h3></a>
+<h6 class="subheader" title="2014-12-06T02:56:00+08:00">2014-12-06
+</h6>
+
+
+<h3>需求起因</h3>
 <p>最近在写一个自动登录网站并执行某些操作的模块。</p>
 <p>网站在js中加了token，需要在登录的时候传过去做校验。</p>
 <pre><code>var JSP_VAR={
@@ -112,116 +117,82 @@ Out[4]: 'key=%5B1%2C+2%2C+3%5D'
 <p>src/Exception.h:6:16: fatal error: v8.h: no such file or directory</p>
 </blockquote>
 <p>参考了这个哥们的文章之后发现还是不行，安装v8后没有出现boost部分的错误。building PyV8的时候报错了，<a href="../files/pyv8_install_failed.log">错误日志</a>。</p>
-<h3>解决方案 ...</h3> </div><!-- /.entry-content -->
+<h3>解决方案 ...</h3><p class="subheader">Category: <a href="../category/skill.html">skill</a>
 
-								<div class="medium primary btn"><a href="../posts/skill/install_pyv8_in_mac-zh.html" rel="bookmark" title="Permalink to 在mac下安装pyv8">Read more <i class="icon-arrow-right"></i></a></div>
-
-
-
-								<div class="row tag-row">
-										<span>Tagged as : </span>
-											<a class="danger label" href="../tag/tech.html">tech</a>
-											<a class="danger label" href="../tag/python.html">python</a>
-											<a class="danger label" href="../tag/mac.html">mac</a>
-											<a class="danger label" href="../tag/web.html">web</a>
-								</div>
-
-
-
-				        </article></li>
-				</ol><!-- /#posts-list -->
-
-        </div><!-- /.eleven.columns -->
-        
-<div class="three columns">
-<h4>Pages</h4>
-
- <ul>
-      <li><a href="../pages/search.html">Search</a></li>
-  </ul>
-
-<h4>Categories</h4>
-<ul>
-		<li><a href="../category/essay.html">essay</a></li>
-		<li><a href="../category/life.html">life</a></li>
-		<li><a href="../category/project.html">project</a></li>
-		<li><a href="../category/skill.html">skill</a></li>
-		<li><a href="../category/tech.html">tech</a></li>
-		<li><a href="../category/translate.html">translate</a></li>
-</ul>
-
-
-<h4>Tags</h4>
-	<ul>
-	    <li class="tag-4"><a href="../tag/feeling.html">feeling</a></li>
-	    <li class="tag-1"><a href="../tag/python.html">python</a></li>
-	    <li class="tag-1"><a href="../tag/tech.html">tech</a></li>
-	    <li class="tag-4"><a href="../tag/mac.html">mac</a></li>
-	    <li class="tag-1"><a href="../tag/web.html">web</a></li>
-</ul>
-
-
-<nav class="widget">
-  <h4>Social</h4>
-  <ul>
-    <li><a href="http://weibo.com/saerdna13">Weibo</a></li>
-    <li><a href="https://plus.google.com/105858506209398295278">Google plus</a></li>
-  </ul>
-</nav>
-<embed src="http://www.xiami.com/widget/3012097_1773679434,143408,_210_400_5695c1_457cb4_1/multiPlayer.swf" type="application/x-shockwave-flash" width="210" height="400" wmode="opaque"></embed>
-</div> </div><!-- /.row -->
-
-<p class="paginator">
-    Page 1 / 1
+    Tagged: 
+    <a href="../tag/tech.html">tech </a>
+    <a href="../tag/python.html">python </a>
+    <a href="../tag/mac.html">mac </a>
+    <a href="../tag/web.html">web </a>
 </p>
-</section><!-- /#content -->
-
-       </div><!-- /.row -->
-    </div><!-- /.container -->
-
-       <div class="container.nopad bg">
-
-    
-        <footer id="credits" class="row">
-          <div class="seven columns left-center">
-
-                   <address id="about" class="vcard body">
-                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-                    which takes great advantage of <a href="http://python.org">Python</a>.
-                    <br />
-                    Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a>
-                    </address>
-          </div>
-
-
-          <div class="seven columns">
-            <div class="row">
-              <ul class="socbtns">
 
 
 
+<p><a href="../posts/skill/install_pyv8_in_mac-zh.html#disqus_thread">comments</a></p>                <a class="button radius secondary small right" href="../posts/skill/install_pyv8_in_mac-zh.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
 
+            <!-- /#posts-list -->
+<div class="pagination-centered">
+<h6 class="subheader">Page 1 of 1</h6>
 
-              </ul>
-            </div>
-          </div>
-        </footer>
+<p>
+
+</p>
+</div>
 
     </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">Site</h5>
+        <ul class="side-nav">
+            <li><a href="../archives.html">Archives</a>
+            <li><a href="../tags.html">Tags</a>
+        </ul>
+
+		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+            <li><a href="../category/essay.html">essay</a></li>
+            <li><a href="../category/life.html">life</a></li>
+            <li><a href="../category/project.html">project</a></li>
+            <li><a href="../category/skill.html">skill</a></li>
+            <li><a href="../category/tech.html">tech</a></li>
+            <li><a href="../category/translate.html">translate</a></li>
+   
+        </ul>
+
+        <h5 class="sidebar-title">Links</h5>
+        <ul class="side-nav">
+            <li><a href="http://getpelican.com/">Pelican</a></li>
+            <li><a href="http://python.org/">Python.org</a></li>
+            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+            <li><a href="#">You can modify those links in your config file</a></li>
+        </ul>
+		
+        <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+            <li><a href="Weibo">http://weibo.com/saerdna13</a></li>
+            <li><a href="Google plus">https://plus.google.com/105858506209398295278</a></li>
+        </ul>
+    </aside> <!-- End Sidebar -->
+    <embed src="http://www.xiami.com/widget/3012097_2551935,1773679434,16925,124099,143408,52359,1769085020,1770242833,1771959699,_235_346_cccccc_dddddd_1/multiPlayer.swf" type="application/x-shockwave-flash" width="235" height="346" wmode="opaque"></embed>           
+
+</div> <!-- End Main Content and Sidebar -->
 
 
-<script type="text/javascript">
-    var disqus_shortname = 'coolfire';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
-  <script src="../theme/js/libs/jquery-1.9.1.min.js"></script>
-  <script src="../theme/js/libs/gumby.min.js"></script>
-  <script src="../theme/js/plugins.js"></script>
-
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-6 columns">
+              <!--                  <p>cool-fire by Saerdna</p> -->
+            </div>
+            </div>
+    </div>
+</footer>
 </body>
 </html>

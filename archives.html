@@ -1,122 +1,151 @@
 <!DOCTYPE html>
-<html lang="zh">
 <head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
 
-        <title>cool-fire</title>
-        <meta charset="utf-8" />
+    <title>cool-fire</title>
 
-
-        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
-        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
-
-        <link rel="stylesheet" type="text/css" href="./theme/gumby.css" />
-        <link rel="stylesheet" type="text/css" href="./theme/style.css" />
-        <link rel="stylesheet" type="text/css" href="./theme/pygment.css" />
-        <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">  
-        <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>  
-        <script >hljs.initHighlightingOnLoad();</script>  
-        <script src="./theme/js/libs/modernizr-2.6.2.min.js"></script>
-
-
-
-
-
-
+    <link rel="stylesheet" href="./theme/css/normalize.css" />
+    <link rel="stylesheet" href="./theme/css/foundation.css" />
+    <link rel="stylesheet" href="./theme/css/style.css" />
+    <link rel="stylesheet" href="./theme/css/pygments.css" />	
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script >hljs.initHighlightingOnLoad();</script>
+    <script src="./theme/js/modernizr.js"></script>
 </head>
 
-<body id="index" class="home">
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href=".">cool-fire</a></h1>
+    </div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+
+            <li><a href="./pages/search.html" class="button secondary small">Search</a></li>
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
 
 
-    <div class="container">
+<!-- Main Page Content and Sidebar -->
+<div class="row">
 
-        <div class="row">
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
 
-          <header id="banner" class="body">
-                  <h1><a href=".">cool-fire <strong></strong></a></h1>
-          </header><!-- /#banner -->
+<h3>Archives</h3>
 
-            <div id="navigation" class="navbar row">
-              <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
-             
-              <ul class="columns">
-                <li><a href=".">Home</a></li>
-
-                <li><a href="./pages/search.html">Search</a></li>
-
-              </ul>
-            </div>
-
-<h1>Archives for cool-fire</h1>
-
-<dl>
-    <dt>2014-12-27</dt>
-    <dd><a href="./posts/project/AudioToArtImage-zh.html">AudioToArtImage工具</a></dd>
-    <dt>2014-12-06</dt>
-    <dd><a href="./posts/skill/how_to_post_array_with_python-zh.html">python中post数组参数</a></dd>
-    <dt>2014-12-06</dt>
-    <dd><a href="./posts/skill/install_pyv8_in_mac-zh.html">在mac下安装pyv8</a></dd>
-    <dt>2014-12-01</dt>
-    <dd><a href="./posts/tech/blog_environmental_move_problem-zh.html">博客环境迁移遇到的问题</a></dd>
-    <dt>2014-12-01</dt>
-    <dd><a href="./posts/translate/supervised_learning-zh.html">监督学习</a></dd>
-    <dt>2014-05-22</dt>
-    <dd><a href="./posts/tech/how_to_assessment_the_competing_products_coverage_efficient-zh.html">如何高效的评估竞品收录覆盖率</a></dd>
-    <dt>2013-09-09</dt>
-    <dd><a href="./posts/essay/essay-zh.html">随笔</a></dd>
-    <dt>2013-08-27</dt>
-    <dd><a href="./posts/tech/about_taobao_try-zh.html">关于淘宝试用频道的一些想法</a></dd>
-    <dt>2013-08-26</dt>
-    <dd><a href="./posts/life/don't_waste_time-zh.html">别再浪费时间了</a></dd>
-    <dt>2013-08-19</dt>
-    <dd><a href="./posts/life/It's_My_life-zh.html">It's My life</a></dd>
-</dl>
-
-       </div><!-- /.row -->
-    </div><!-- /.container -->
-
-       <div class="container.nopad bg">
-
-    
-        <footer id="credits" class="row">
-          <div class="seven columns left-center">
-
-                   <address id="about" class="vcard body">
-                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-                    which takes great advantage of <a href="http://python.org">Python</a>.
-                    <br />
-                    Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a>
-                    </address>
-          </div>
-
-
-          <div class="seven columns">
-            <div class="row">
-              <ul class="socbtns">
-
-
-
-
-
-              </ul>
-            </div>
-          </div>
-        </footer>
+<table class="table-archive">
+    <tbody>
+        <tr>
+        <td>2014-12-27</td>
+        <td><a href='posts/project/AudioToArtImage-zh.html'>AudioToArtImage工具</a></td>
+        </tr>
+        <tr>
+        <td>2014-12-06</td>
+        <td><a href='posts/skill/how_to_post_array_with_python-zh.html'>python中post数组参数</a></td>
+        </tr>
+        <tr>
+        <td>2014-12-06</td>
+        <td><a href='posts/skill/install_pyv8_in_mac-zh.html'>在mac下安装pyv8</a></td>
+        </tr>
+        <tr>
+        <td>2014-12-01</td>
+        <td><a href='posts/tech/blog_environmental_move_problem-zh.html'>博客环境迁移遇到的问题</a></td>
+        </tr>
+        <tr>
+        <td>2014-12-01</td>
+        <td><a href='posts/translate/supervised_learning-zh.html'>监督学习</a></td>
+        </tr>
+        <tr>
+        <td>2014-05-22</td>
+        <td><a href='posts/tech/how_to_assessment_the_competing_products_coverage_efficient-zh.html'>如何高效的评估竞品收录覆盖率</a></td>
+        </tr>
+        <tr>
+        <td>2013-09-09</td>
+        <td><a href='posts/essay/essay-zh.html'>随笔</a></td>
+        </tr>
+        <tr>
+        <td>2013-08-27</td>
+        <td><a href='posts/tech/about_taobao_try-zh.html'>关于淘宝试用频道的一些想法</a></td>
+        </tr>
+        <tr>
+        <td>2013-08-26</td>
+        <td><a href='posts/life/don't_waste_time-zh.html'>别再浪费时间了</a></td>
+        </tr>
+        <tr>
+        <td>2013-08-19</td>
+        <td><a href='posts/life/It's_My_life-zh.html'>It's My life</a></td>
+        </tr>
+    </tbody>
+</table>
 
     </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">Site</h5>
+        <ul class="side-nav">
+            <li><a href="./archives.html">Archives</a>
+            <li><a href="./tags.html">Tags</a>
+        </ul>
+
+		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+            <li><a href="./category/essay.html">essay</a></li>
+            <li><a href="./category/life.html">life</a></li>
+            <li><a href="./category/project.html">project</a></li>
+            <li><a href="./category/skill.html">skill</a></li>
+            <li><a href="./category/tech.html">tech</a></li>
+            <li><a href="./category/translate.html">translate</a></li>
+   
+        </ul>
+
+        <h5 class="sidebar-title">Links</h5>
+        <ul class="side-nav">
+            <li><a href="http://getpelican.com/">Pelican</a></li>
+            <li><a href="http://python.org/">Python.org</a></li>
+            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+            <li><a href="#">You can modify those links in your config file</a></li>
+        </ul>
+		
+        <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+            <li><a href="Weibo">http://weibo.com/saerdna13</a></li>
+            <li><a href="Google plus">https://plus.google.com/105858506209398295278</a></li>
+        </ul>
+    </aside> <!-- End Sidebar -->
+    <embed src="http://www.xiami.com/widget/3012097_2551935,1773679434,16925,124099,143408,52359,1769085020,1770242833,1771959699,_235_346_cccccc_dddddd_1/multiPlayer.swf" type="application/x-shockwave-flash" width="235" height="346" wmode="opaque"></embed>           
+
+</div> <!-- End Main Content and Sidebar -->
 
 
-<script type="text/javascript">
-    var disqus_shortname = 'coolfire';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
-  <script src="./theme/js/libs/jquery-1.9.1.min.js"></script>
-  <script src="./theme/js/libs/gumby.min.js"></script>
-  <script src="./theme/js/plugins.js"></script>
-
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-6 columns">
+              <!--                  <p>cool-fire by Saerdna</p> -->
+            </div>
+            </div>
+    </div>
+</footer>
 </body>
 </html>

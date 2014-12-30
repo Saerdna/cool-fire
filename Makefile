@@ -8,7 +8,7 @@ INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(BASEDIR)/
 CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
-THEME=$(BASEDIR)/theme/gum/
+THEME=$(BASEDIR)/theme/zurb-F5-basic/
 
 FTP_HOST=localhost
 FTP_USER=anonymous
