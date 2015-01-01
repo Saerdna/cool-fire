@@ -1,5 +1,5 @@
 date: 2014-12-27 17:13:05
-category: project 
+category: Technology 
 tag: tech, python, javascript
 slug: AudioToArtImage
 title: AudioToArtImage工具
@@ -69,7 +69,7 @@ title: AudioToArtImage工具
 	
 	最后采取的方式是人工计算延迟
 	
-	<pre><code>setTimeout(sleepMove(poi), tot);
+	<pre><code class = "hljs javascript">setTimeout(sleepMove(poi), tot);
 	tot += Number(time_delay);
 	</code></pre>
 	

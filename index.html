@@ -50,7 +50,69 @@
         
 
             <article>
-                <a href="./posts/project/AudioToArtImage-zh.html"><h3 class="article-title">AudioToArtImage工具</h3></a>
+                <a href="./posts/technology/arch design of stock service-zh.html"><h3 class="article-title">关于库存服务的架构设计</h3></a>
+<h6 class="subheader" title="2015-01-01T12:43:13+08:00">2015-01-01
+</h6>
+
+
+<p>最近在负责<del>某司</del>的库存服务改造项目。</p>
+<p>其实就是设计一个秒杀系统，让商品在极端的抢购环境下可以正常的扣减库存，同时不会超卖。</p>
+<p>公司的项目已基本弄完，剩下的就是一些后期优化的工作。</p>
+<p>在此整理一下设计要点，未来一段时间会考虑做一个开源版本，希望可以作成一个通用服务。</p>
+<h3>整体架构</h3>
+<p>由上至下分为3层</p>
+<ul>
+<li>
+<p>逻辑层</p>
+</li>
+<li>
+<p>数据层</p>
+</li>
+<li>
+<p>基础服务层</p>
+</li>
+</ul>
+<h4>逻辑层</h4>
+<p>逻辑层主要负责数据处理以及分发</p>
+<ol>
+<li>接收外部系统的请求并分发。</li>
+<li>调用数据层获取原始数据拼装并返回</li>
+</ol>
+<h4>数据层</h4>
+<p>逻辑层主要负责数据获取</p>
+<ol>
+<li>同数据库进行交互。</li>
+<li>同消息队列进行交互</li>
+<li>本地cache交互</li>
+<li>日志</li>
+</ol>
+<h4>基础服务层</h4>
+<p>基础服务层主要对外部系统提供的一些接口针对性的封装。</p>
+<ol>
+<li>redis</li>
+<li>日志打印</li>
+<li>MQ（消息队列）</li>
+<li>local-cache</li>
+<li>模块监控</li>
+</ol>
+<h3>存储设计</h3>
+<p>to be continue...</p><p class="subheader">Category: <a href="./category/technology.html">Technology</a>
+
+</p>
+
+
+
+<p><a href="./posts/technology/arch design of stock service-zh.html#disqus_thread">comments</a></p>            </article>
+
+
+                <hr  class="gradient"/>
+
+
+        
+
+
+            <article>
+                <a href="./posts/technology/AudioToArtImage-zh.html"><h3 class="article-title">AudioToArtImage工具</h3></a>
 <h6 class="subheader" title="2014-12-27T17:13:05+08:00">2014-12-27
 </h6>
 
@@ -89,61 +151,15 @@
 <li>前端利用canvas绘制好图片，将图片数据再POST回后端。</li>
 <li>后端将图片写到指定目录。</li>
 </ol>
-<h3>音频处理模块</h3>
-<p>一开始设计的时候，希望是能兼容几种比较主流的音频(mp3,wav,wma)。</p>
-<p>在深入了解了一下音频这块的技术后，果断决定只支持wav格式。</p>
-<p>一方面是开发周期比较短，另外一方面是python这块没有比较好的库可以支持,
-参考<a href="http://sebug.net/paper/books/scipydoc/wave_pyaudio.html">声音的输入输出</a>.</p>
-<h3>绘制图片</h3>
-<p>模拟鼠标轨迹来绘制图片这一块着实花了很大的心思来弄。</p>
-<p>有两个比较坑的地方</p>
-<ol>
-<li>
-<p>js的异步执行机制，你没有办法像同步模型下进行如下的操作。</p>
-<p><pre><code>mouse.down(x, y)
-sleep(sec)
-mouse.move(x, y)
-sleep(sec)
-mouse.up(x,y)
-</code></pre></p>
-<p>最后采取的方式是人工计算延迟</p>
-<p><pre><code>setTimeout(sleepMove(poi), tot);
-tot += Number(time_delay);
-</code></pre></p>
-</li>
-<li>
-<p>因为前端绘图是在一个canvas里面操作(别问我为啥不在多个canvas操作，weavesilk.com的代码改起来还是很花时间的。。)</p>
-<p>所以需要对canvas加一个<strong>互斥锁</strong>，防止两份音频生成的鼠标轨迹同时画在canvas上。</p>
-<p>最后采用的方法是在server端加锁，每一个音频上传的upload方法里<strong>加锁</strong>，每一张图片saver的时候<strong>锁释放</strong>。</p>
-<p>这样可以防止canvas重绘的情况发生</p>
-</li>
-</ol>
-<h3>前端交互</h3>
-<p>文件上传使用的是<a href="http://www.plupload.com/">plupload</a>插件</p>
-<p>在设计<strong>指定输入输出目录</strong>这个功能时,chrome的沙盒机制使得我没法在前端获取用户上传文件的路径。</p>
-<p>当时有2个备选方案</p>
-<ol>
-<li>用户直接编辑配置文件</li>
-<li>上传文件夹采取拖动的方式，指定输出文件夹的功能同后台实时交互，需要实现<code>ls,cd</code>这两个功能。</li>
-</ol>
-<p>第一个方案不用说，交互太挫，肯定会被拍回来</p>
-<p>第二个方案的工作量也不小，而且在前端展示目录树也是需要耗费不少精力的。</p>
-<p>最后考虑到用户交互的简单性，我决定在用户生成图片时<strong>弹出一个对话框</strong>让用户填入输出目录。这样既能避免用户直接编辑配置文件的差体验，也降低了开发的工作量。</p>
-<p>事实证明这样的效果还不错，客户看到这个实现还是比较满意的。</p>
-<h3>总结</h3>
-<p>这次做私活还是有不少收益的，技术深度可能没有太大的增加，但是技术广度确实得到了不少提升。</p>
-<p>同时对js，css这块的也由之前的未入门到现在的刚入门。</p>
-<p>同时也感叹，私活不好找啊。以后多扩展下这方面的资源，在以后自己出来创业之前通过私活积累足够的资金和技术广度。</p><p class="subheader">Category: <a href="./category/project.html">project</a>
+<h3>音频处理模块 ...</h3><p class="subheader">Category: <a href="./category/technology.html">Technology</a>
 
 </p>
 
 
 
-<p><a href="./posts/project/AudioToArtImage-zh.html#disqus_thread">comments</a></p>            </article>
-
-
+<p><a href="./posts/technology/AudioToArtImage-zh.html#disqus_thread">comments</a></p>                <a class="button radius secondary small right" href="./posts/technology/AudioToArtImage-zh.html">Read More</a>
                 <hr  class="gradient"/>
-
+            </article>
 
         
 
@@ -264,43 +280,9 @@ Out[4]: 'key=%5B1%2C+2%2C+3%5D'
                 <hr  class="gradient"/>
             </article>
 
-        
-
-
-            <article>
-                <a href="./posts/translate/supervised_learning-zh.html"><h3 class="article-title">监督学习</h3></a>
-<h6 class="subheader" title="2014-12-01T00:00:00+08:00">2014-12-01
-</h6>
-
-
-<h3><center>1.监督学习（翻译完）</center></h3>
-<ul>
-<li>1.1. 广义线性模型<ul>
-<li>1.1.1. 最小二乘法<ul>
-<li>1.1.1.1. 最小二乘法复杂度</li>
-</ul>
-</li>
-<li>1.1.2. 岭回归<ul>
-<li>1.1.2.1. 岭回归复杂度</li>
-<li>1.1.2.2. 参数设置:广义交叉验证</li>
-</ul>
-</li>
-<li>1.1.3. 套索算法<ul>
-<li>1.1.3.1. 参数设置<ul>
-<li>1.1.3.1.1. 交叉验证的使用</li>
-<li>1.1.3.1.2 ...</li></ul></li></ul></li></ul></li></ul><p class="subheader">Category: <a href="./category/translate.html">translate</a>
-
-</p>
-
-
-
-<p><a href="./posts/translate/supervised_learning-zh.html#disqus_thread">comments</a></p>                <a class="button radius secondary small right" href="./posts/translate/supervised_learning-zh.html">Read More</a>
-                <hr  class="gradient"/>
-            </article>
-
             <!-- /#posts-list -->
 <div class="pagination-centered">
-<h6 class="subheader">Page 1 of 2</h6>
+<h6 class="subheader">Page 1 of 3</h6>
 
 <p>
 
@@ -324,9 +306,9 @@ Out[4]: 'key=%5B1%2C+2%2C+3%5D'
         <ul class="side-nav">
             <li><a href="./category/essay.html">essay</a></li>
             <li><a href="./category/life.html">life</a></li>
-            <li><a href="./category/project.html">project</a></li>
             <li><a href="./category/skill.html">skill</a></li>
             <li><a href="./category/tech.html">tech</a></li>
+            <li><a href="./category/technology.html">Technology</a></li>
             <li><a href="./category/translate.html">translate</a></li>
    
         </ul>
