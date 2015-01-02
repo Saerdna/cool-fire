@@ -1,6 +1,6 @@
 Date: 2013-09-09
 Title: 随笔
-Category: essay
+Category: daily
 Tag: tech, feeling, future
 Slug: essay
 

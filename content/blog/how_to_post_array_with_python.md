@@ -1,5 +1,5 @@
 date: 2014-12-06 10:56
-category: skill
+category: Technology
 tags: tech, python, web
 authors: saerdna
 slug: how_to_post_array_with_python

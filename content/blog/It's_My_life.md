@@ -1,7 +1,7 @@
 Date: 2013-08-19
 Title: It's My life
-Tags: feeling
-Category: life
+category: daily
+tag: life, feeling
 Slug: It's_My_life
 
   

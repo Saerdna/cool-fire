@@ -1,7 +1,7 @@
 Date: 2013-08-27 00:30
 Title: 关于淘宝试用频道的一些想法
-category: tech
-Tag: idea
+category: Technology
+Tag: idea, tech, javascript, chrome
 Slug:about_taobao_try
 
 这两天看了下淘宝的[试用频道](http://try.taobao.com/)。

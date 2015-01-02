@@ -4,7 +4,7 @@
     <!-- Set the viewport width to device width for mobile -->
     <meta name="viewport" content="width=device-width" />
 
-    <title>关于库存服务的架构设计</title>
+    <title>博客环境迁移遇到的问题</title>
 
     <link rel="stylesheet" href="../../theme/css/normalize.css" />
     <link rel="stylesheet" href="../../theme/css/foundation.css" />
@@ -48,56 +48,36 @@
     <div class="large-9 columns">
 <article>
     <header>
-        <h3 class="article-title"><a href="../../posts/technology/arch design of stock service-zh.html" rel="bookmark"
-        title="Permalink to 关于库存服务的架构设计">关于库存服务的架构设计</a></h3>
+        <h3 class="article-title"><a href="../../posts/technology/blog_environmental_move_problem-zh.html" rel="bookmark"
+        title="Permalink to 博客环境迁移遇到的问题">博客环境迁移遇到的问题</a></h3>
     </header>
 
-<h6 class="subheader" title="2015-01-01T12:43:13+08:00">2015-01-01
+<h6 class="subheader" title="2014-12-01T00:00:00+08:00">2014-12-01
 </h6>
 
 
-    <p>最近在负责<del>某司</del>的库存服务改造项目。</p>
-<p>其实就是设计一个秒杀系统，让商品在极端的抢购环境下可以正常的扣减库存，同时不会超卖。</p>
-<p>公司的项目已基本弄完，剩下的就是一些后期优化的工作。</p>
-<p>在此整理一下设计要点，未来一段时间会考虑做一个开源版本，希望可以作成一个通用服务。</p>
-<h3>整体架构</h3>
-<p>由上至下分为3层</p>
+    <p>在把博客的本地环境在 MBP 重新部署的时候遇到的.</p>
+<p>现象描述:</p>
+<p>pelican 发布博文时出现如下错误</p>
+<blockquote>
+<p>ImportError: No module named html_parser
+<img alt="1" src="../../images/pelican_error.png" /></p>
+</blockquote>
 <ul>
-<li>
-<p>逻辑层</p>
-</li>
-<li>
-<p>数据层</p>
-</li>
-<li>
-<p>基础服务层</p>
+<li>发现是 mac python 自带的 six module 库有问题.因为原生six 的 version 是1.4的,最新的已经到1.8了.</li>
+</ul>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">six</span>
+<span class="k">print</span> <span class="n">six</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+
+
+<ul>
+<li>Solution:<ul>
+<li>从 https://pypi.python.org/pypi/six/ 下载最新的 source. </li>
+<li>解压后执行 <code>sudo python setup.py install</code></li>
+</ul>
 </li>
 </ul>
-<h4>逻辑层</h4>
-<p>逻辑层主要负责数据处理以及分发</p>
-<ol>
-<li>接收外部系统的请求并分发。</li>
-<li>调用数据层获取原始数据拼装并返回</li>
-</ol>
-<h4>数据层</h4>
-<p>逻辑层主要负责数据获取</p>
-<ol>
-<li>同数据库进行交互。</li>
-<li>同消息队列进行交互</li>
-<li>本地cache交互</li>
-<li>日志</li>
-</ol>
-<h4>基础服务层</h4>
-<p>基础服务层主要对外部系统提供的一些接口针对性的封装。</p>
-<ol>
-<li>redis</li>
-<li>日志打印</li>
-<li>MQ（消息队列）</li>
-<li>local-cache</li>
-<li>模块监控</li>
-</ol>
-<h3>存储设计</h3>
-<p>to be continue...</p>
 <p class="subheader">Category: <a href="../../category/technology.html">Technology</a>
 
 </p>
@@ -109,8 +89,8 @@
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         var disqus_shortname = 'coolfire'
-        var disqus_identifier = "posts/technology/arch design of stock service-zh.html";
-        var disqus_url = "../../posts/technology/arch design of stock service-zh.html";
+        var disqus_identifier = "posts/technology/blog_environmental_move_problem-zh.html";
+        var disqus_url = "../../posts/technology/blog_environmental_move_problem-zh.html";
 
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

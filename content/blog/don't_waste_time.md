@@ -1,7 +1,7 @@
 Date: 2013-08-26
 Title: 别再浪费时间了
-Category: life
-Tag: time, feeling
+Category: daily
+Tag: feeling
 Slug: don't_waste_time
 
 又熬夜了，上一周计划的事情才做了一半多一点。

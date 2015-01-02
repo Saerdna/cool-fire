@@ -1,7 +1,7 @@
 Date: 2014-05-22
 Title: 如何高效的评估竞品收录覆盖率
-Category: tech
-Tag: tech
+Category: Technology
+Tag: tech, project
 Slug: how_to_assessment_the_competing_products_coverage_efficient
 ###前言
 >好久没来这里写东西了，作为一个技术人员,还是得写点干货。 也算是对工作中一些难点的感悟吧，有些习惯总得坚持下去才能见到收获。

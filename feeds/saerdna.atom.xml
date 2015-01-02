@@ -118,7 +118,7 @@ tot += Number(time_delay);
 &lt;h3&gt;总结&lt;/h3&gt;
 &lt;p&gt;这次做私活还是有不少收益的，技术深度可能没有太大的增加，但是技术广度确实得到了不少提升。&lt;/p&gt;
 &lt;p&gt;同时对js，css这块的也由之前的未入门到现在的刚入门。&lt;/p&gt;
-&lt;p&gt;同时也感叹，私活不好找啊。以后多扩展下这方面的资源，在以后自己出来创业之前通过私活积累足够的资金和技术广度。&lt;/p&gt;</summary></entry><entry><title>python中post数组参数</title><link href="http://saerdna.github.io/posts/skill/how_to_post_array_with_python-zh.html" rel="alternate"></link><updated>2014-12-06T10:56:00+08:00</updated><author><name>saerdna</name></author><id>tag:saerdna.github.io,2014-12-06:posts/skill/how_to_post_array_with_python-zh.html</id><summary type="html">&lt;p&gt;今天在写自动预约抢购的模块时发现的问题&lt;/p&gt;
+&lt;p&gt;同时也感叹，私活不好找啊。以后多扩展下这方面的资源，在以后自己出来创业之前通过私活积累足够的资金和技术广度。&lt;/p&gt;</summary></entry><entry><title>python中post数组参数</title><link href="http://saerdna.github.io/posts/technology/how_to_post_array_with_python-zh.html" rel="alternate"></link><updated>2014-12-06T10:56:00+08:00</updated><author><name>saerdna</name></author><id>tag:saerdna.github.io,2014-12-06:posts/technology/how_to_post_array_with_python-zh.html</id><summary type="html">&lt;p&gt;今天在写自动预约抢购的模块时发现的问题&lt;/p&gt;
 &lt;p&gt;需要向网站post这样的数据&lt;code&gt;{'key':[1,2,3]}&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;post的结果是&lt;code&gt;key=1&amp;amp;key=2&amp;amp;key=3&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;大家都知道在python对参数做序列化是urlencode,可是直接urlencode的结果如下&lt;/p&gt;
@@ -135,7 +135,7 @@ In [2]: help(urllib.urlencode)
 In [3]: post_data = {'key':[1,2,3]}
 In [4]: urllib.urlencode(post_data, True)
 Out[4]: 'key=1&amp;key=2&amp;key=3'
-&lt;/code&gt;&lt;/pre&gt;</summary><category term="tech"></category><category term="python"></category><category term="web"></category></entry><entry><title>在mac下安装pyv8</title><link href="http://saerdna.github.io/posts/skill/install_pyv8_in_mac-zh.html" rel="alternate"></link><updated>2014-12-06T02:56:00+08:00</updated><author><name>saerdna</name></author><id>tag:saerdna.github.io,2014-12-06:posts/skill/install_pyv8_in_mac-zh.html</id><summary type="html">&lt;h3&gt;需求起因&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;</summary><category term="tech"></category><category term="python"></category><category term="web"></category></entry><entry><title>在mac下安装pyv8</title><link href="http://saerdna.github.io/posts/technology/install_pyv8_in_mac-zh.html" rel="alternate"></link><updated>2014-12-06T02:56:00+08:00</updated><author><name>saerdna</name></author><id>tag:saerdna.github.io,2014-12-06:posts/technology/install_pyv8_in_mac-zh.html</id><summary type="html">&lt;h3&gt;需求起因&lt;/h3&gt;
 &lt;p&gt;最近在写一个自动登录网站并执行某些操作的模块。&lt;/p&gt;
 &lt;p&gt;网站在js中加了token，需要在登录的时候传过去做校验。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;var JSP_VAR={
@@ -163,7 +163,7 @@ Out[4]: 'key=1&amp;key=2&amp;key=3'
 &lt;h5&gt;linux版：&lt;/h5&gt;
 &lt;p&gt;&lt;pre&gt;&lt;code&gt;import PyV8
 &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
-&lt;p&gt;为了这个事情都折腾半天了，实在不划算，对于一个程序员来说，折腾这种环境的事情实在太浪费时间了,下次一定得搞一台mini主机，开发运维啥的都统一到ubuntu，就不会有这些破事了。&lt;/p&gt;</summary><category term="tech"></category><category term="python"></category><category term="mac"></category><category term="web"></category></entry><entry><title>博客环境迁移遇到的问题</title><link href="http://saerdna.github.io/posts/tech/blog_environmental_move_problem-zh.html" rel="alternate"></link><updated>2014-12-01T00:00:00+08:00</updated><author><name>Saerdna</name></author><id>tag:saerdna.github.io,2014-12-01:posts/tech/blog_environmental_move_problem-zh.html</id><summary type="html">&lt;p&gt;在把博客的本地环境在 MBP 重新部署的时候遇到的.&lt;/p&gt;
+&lt;p&gt;为了这个事情都折腾半天了，实在不划算，对于一个程序员来说，折腾这种环境的事情实在太浪费时间了,下次一定得搞一台mini主机，开发运维啥的都统一到ubuntu，就不会有这些破事了。&lt;/p&gt;</summary><category term="tech"></category><category term="python"></category><category term="mac"></category><category term="web"></category></entry><entry><title>博客环境迁移遇到的问题</title><link href="http://saerdna.github.io/posts/technology/blog_environmental_move_problem-zh.html" rel="alternate"></link><updated>2014-12-01T00:00:00+08:00</updated><author><name>Saerdna</name></author><id>tag:saerdna.github.io,2014-12-01:posts/technology/blog_environmental_move_problem-zh.html</id><summary type="html">&lt;p&gt;在把博客的本地环境在 MBP 重新部署的时候遇到的.&lt;/p&gt;
 &lt;p&gt;现象描述:&lt;/p&gt;
 &lt;p&gt;pelican 发布博文时出现如下错误&lt;/p&gt;
 &lt;blockquote&gt;
@@ -405,7 +405,7 @@ Out[4]: 'key=1&amp;key=2&amp;key=3'
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;1.14. 保序回归&lt;/li&gt;
-&lt;/ul&gt;</summary></entry><entry><title>如何高效的评估竞品收录覆盖率</title><link href="http://saerdna.github.io/posts/tech/how_to_assessment_the_competing_products_coverage_efficient-zh.html" rel="alternate"></link><updated>2014-05-22T00:00:00+08:00</updated><author><name>Saerdna</name></author><id>tag:saerdna.github.io,2014-05-22:posts/tech/how_to_assessment_the_competing_products_coverage_efficient-zh.html</id><summary type="html">&lt;h3&gt;前言&lt;/h3&gt;
+&lt;/ul&gt;</summary></entry><entry><title>如何高效的评估竞品收录覆盖率</title><link href="http://saerdna.github.io/posts/technology/how_to_assessment_the_competing_products_coverage_efficient-zh.html" rel="alternate"></link><updated>2014-05-22T00:00:00+08:00</updated><author><name>Saerdna</name></author><id>tag:saerdna.github.io,2014-05-22:posts/technology/how_to_assessment_the_competing_products_coverage_efficient-zh.html</id><summary type="html">&lt;h3&gt;前言&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;好久没来这里写东西了，作为一个技术人员,还是得写点干货。 也算是对工作中一些难点的感悟吧，有些习惯总得坚持下去才能见到收获。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -426,7 +426,7 @@ Out[4]: 'key=1&amp;key=2&amp;key=3'
 &lt;li&gt;通过对过滤后的集合进行两两比较，判断竞品url是否存在一个相似url在已收录集合。 这里主要需要比较的是query部分，将query部分相似度最大的那组url认为是相同资源组 当然，还需要剔除一些无效参数的干扰，这里就不细说了。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3&gt;效果&lt;/h3&gt;
-&lt;p&gt;第一版的准确和召回均在90%以上，这主要还是依赖于目前dedup策略的效果已经很高，收录部分基本没什么重复和垃圾。 还有就是本身百度收录还是做得很好的，大部分url都能找到相同资源，很特殊的一小部分case也都是一些特殊参数导致的误识别，目前还没发现url长相一致，但指向不同网页的case。所以后继算法上基本不做优化，主要都是通过配置白名单解决。&lt;/p&gt;</summary></entry><entry><title>随笔</title><link href="http://saerdna.github.io/posts/essay/essay-zh.html" rel="alternate"></link><updated>2013-09-09T00:00:00+08:00</updated><author><name>Saerdna</name></author><id>tag:saerdna.github.io,2013-09-09:posts/essay/essay-zh.html</id><summary type="html">&lt;h3&gt;插件&lt;/h3&gt;
+&lt;p&gt;第一版的准确和召回均在90%以上，这主要还是依赖于目前dedup策略的效果已经很高，收录部分基本没什么重复和垃圾。 还有就是本身百度收录还是做得很好的，大部分url都能找到相同资源，很特殊的一小部分case也都是一些特殊参数导致的误识别，目前还没发现url长相一致，但指向不同网页的case。所以后继算法上基本不做优化，主要都是通过配置白名单解决。&lt;/p&gt;</summary></entry><entry><title>随笔</title><link href="http://saerdna.github.io/posts/daily/essay-zh.html" rel="alternate"></link><updated>2013-09-09T00:00:00+08:00</updated><author><name>Saerdna</name></author><id>tag:saerdna.github.io,2013-09-09:posts/daily/essay-zh.html</id><summary type="html">&lt;h3&gt;插件&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;在等程序出结果，想着似乎该写点什么。&lt;/p&gt;
 &lt;p&gt;就称之为随笔吧，估计以后会有个系列也说不定。&lt;/p&gt;
@@ -472,7 +472,7 @@ Out[4]: 'key=1&amp;key=2&amp;key=3'
 &lt;/ul&gt;
 &lt;p&gt;这个事情只能拿自己平时的时间来弄了。&lt;/p&gt;
 &lt;p&gt;这个也是我第一次如此感兴趣的一个项目。&lt;/p&gt;
-&lt;p&gt;加油。&lt;/p&gt;</summary></entry><entry><title>关于淘宝试用频道的一些想法</title><link href="http://saerdna.github.io/posts/tech/about_taobao_try-zh.html" rel="alternate"></link><updated>2013-08-27T00:30:00+08:00</updated><author><name>Saerdna</name></author><id>tag:saerdna.github.io,2013-08-27:posts/tech/about_taobao_try-zh.html</id><summary type="html">&lt;p&gt;这两天看了下淘宝的&lt;a href="http://try.taobao.com/"&gt;试用频道&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;加油。&lt;/p&gt;</summary></entry><entry><title>关于淘宝试用频道的一些想法</title><link href="http://saerdna.github.io/posts/technology/about_taobao_try-zh.html" rel="alternate"></link><updated>2013-08-27T00:30:00+08:00</updated><author><name>Saerdna</name></author><id>tag:saerdna.github.io,2013-08-27:posts/technology/about_taobao_try-zh.html</id><summary type="html">&lt;p&gt;这两天看了下淘宝的&lt;a href="http://try.taobao.com/"&gt;试用频道&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;发现里面还挺多好东西的，就是申请的人太多了。&lt;/p&gt;
 &lt;p&gt;随便个什么东西都有几百号人在领，好一点的基本都上万人。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="1" src="http://saerdna.github.io/images/taobao_try_1.png" /&gt;&lt;/p&gt;
@@ -498,16 +498,16 @@ Out[4]: 'key=1&amp;key=2&amp;key=3'
 &lt;p&gt;解析商品页面对应的描述部分即可。&lt;/p&gt;
 &lt;p&gt;至于自动写报告的模块。找几家大的天猫店或者皇冠店铺。&lt;/p&gt;
 &lt;p&gt;把字数比较多的评论抓出来，然后替换关键词。&lt;/p&gt;
-&lt;p&gt;估计这么弄出来的报告可以混过70%的临时工。&lt;/p&gt;</summary></entry><entry><title>别再浪费时间了</title><link href="http://saerdna.github.io/posts/life/don't_waste_time-zh.html" rel="alternate"></link><updated>2013-08-26T00:00:00+08:00</updated><author><name>Saerdna</name></author><id>tag:saerdna.github.io,2013-08-26:posts/life/don't_waste_time-zh.html</id><summary type="html">&lt;p&gt;又熬夜了，上一周计划的事情才做了一半多一点。&lt;/p&gt;
+&lt;p&gt;估计这么弄出来的报告可以混过70%的临时工。&lt;/p&gt;</summary></entry><entry><title>别再浪费时间了</title><link href="http://saerdna.github.io/posts/daily/don't_waste_time-zh.html" rel="alternate"></link><updated>2013-08-26T00:00:00+08:00</updated><author><name>Saerdna</name></author><id>tag:saerdna.github.io,2013-08-26:posts/daily/don't_waste_time-zh.html</id><summary type="html">&lt;p&gt;又熬夜了，上一周计划的事情才做了一半多一点。&lt;/p&gt;
 &lt;p&gt;发觉自己有点陷入高一，高二那时候的懒惰状态。&lt;/p&gt;
 &lt;p&gt;想得太多，做得太少。&lt;/p&gt;
 &lt;p&gt;再这么下去，不用等公司自然淘汰了，自己首先就得把自己玩死。&lt;/p&gt;
 &lt;p&gt;这一个月租了房子之后，整个人都懒散了下来。&lt;/p&gt;
 &lt;p&gt;看视频，偶尔玩玩游戏，刷刷微博，看看小说。&lt;/p&gt;
 &lt;p&gt;时间就是这么一点一点被消磨光的。&lt;/p&gt;
-&lt;p&gt;人的精力都是有限的。什么是长远的发展，自己得看清楚。不要每次都等到来不及了再去匆匆忙忙的赶工。很多机会就是在这种消磨和匆忙中流失了。&lt;/p&gt;</summary></entry><entry><title>It's My life</title><link href="http://saerdna.github.io/posts/life/It's_My_life-zh.html" rel="alternate"></link><updated>2013-08-19T00:00:00+08:00</updated><author><name>Saerdna</name></author><id>tag:saerdna.github.io,2013-08-19:posts/life/It's_My_life-zh.html</id><summary type="html">&lt;p&gt;很久以前也许我也没想过自己会走进互联网这个圈子。&lt;/p&gt;
+&lt;p&gt;人的精力都是有限的。什么是长远的发展，自己得看清楚。不要每次都等到来不及了再去匆匆忙忙的赶工。很多机会就是在这种消磨和匆忙中流失了。&lt;/p&gt;</summary></entry><entry><title>It's My life</title><link href="http://saerdna.github.io/posts/daily/It's_My_life-zh.html" rel="alternate"></link><updated>2013-08-19T00:00:00+08:00</updated><author><name>Saerdna</name></author><id>tag:saerdna.github.io,2013-08-19:posts/daily/It's_My_life-zh.html</id><summary type="html">&lt;p&gt;很久以前也许我也没想过自己会走进互联网这个圈子。&lt;/p&gt;
 &lt;p&gt;毕业一年了，来百度的时间也将近3年之久。&lt;/p&gt;
 &lt;p&gt;现在的情况也说不上是好还是坏吧。&lt;/p&gt;
 &lt;p&gt;这种感觉就和在游戏里面打装备，可是你刚刚走出副本，就爆出了一件不错的装备。&lt;/p&gt;
 &lt;p&gt;我相信我可以做得很好，但是却找不到那条通向梦想的道路。&lt;/p&gt;
-&lt;p&gt;也每当这个时候，我才会特别相信所谓的厚积薄发。&lt;/p&gt;</summary><category term="feeling"></category></entry></feed>
+&lt;p&gt;也每当这个时候，我才会特别相信所谓的厚积薄发。&lt;/p&gt;</summary></entry></feed>
