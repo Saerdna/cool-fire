@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+        <meta charset="utf-8" />
+        <title>redis 小技巧</title>
+        <link rel="stylesheet" href="../../theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="../../">cool-fire </a></h1>
+                <nav><ul>
+                    <li><a href="../../pages/search.html">Search</a></li>
+                    <li><a href="../../category/daily.html">daily</a></li>
+                    <li class="active"><a href="../../category/technology.html">Technology</a></li>
+                    <li><a href="../../category/translate.html">translate</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="../../posts/technology/redis-skill-zh.html" rel="bookmark"
+           title="Permalink to redis 小技巧">redis 小技巧</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-03-25T00:00:00+08:00">
+                Published: 2016-03-25
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="../../author/saerdna.html">Saerdna</a>
+        </address>
+<p>In <a href="../../category/technology.html">Technology</a>. </p>
+
+</footer><!-- /.post-info -->      <h3>问题</h3>
+<p>最近因为米粉节压测,线上会出现不少压测的垃圾数据</p>
+<p>不少实例出现了内存暴增的情况</p>
+<h3>解决</h3>
+<p>一开始使用
+<pre><code>redis-cli --bigkeys</code></pre>
+扫描大 key,清理了一部分</p>
+<p>后来发现这个命令的机制不是全量扫描,只是抽样扫描
+<pre><code>--bigkeys          Sample Redis keys looking for big keys.</code></pre></p>
+<p>出于不想背锅的心理,用go写了一个扫描全量key 的小程序.</p>
+<p>主要是利用 <strong><em>DEBUG OBJECT</em></strong> 和 <strong><em>scan</em></strong>这2个命令实现的</p>
+<p>逻辑中加了一些条件判断和限速</p>
+<p>发现坑真 TM 多啊.4G 大的 key 你能忍?</p>
+<p>3个月不访问的数据干嘛不加 ttl.</p>
+<p>真心日了狗.</p>
+<h3>TIPS</h3>
+<p>注意 scan 扫描默认只能扫出10个 key</p>
+<p>得这么写才能扫出多个 key
+<pre><code>
+scan 0 MATCH * COUNT 1024
+</codeßß></pre></p>
+    </div><!-- /.entry-content -->
+    <div class="comments">
+      <h2>Comments !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'coolfire';
+        var disqus_identifier = 'posts/technology/redis-skill-zh.html';
+        var disqus_url = '../../posts/technology/redis-skill-zh.html';
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//coolfire.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the comments.</noscript>
+    </div>
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="Weibo">http://weibo.com/saerdna13</a></li>
+                            <li><a href="Google plus">https://plus.google.com/105858506209398295278</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-43474657-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+<script type="text/javascript">
+    var disqus_shortname = 'coolfire';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

@@ -50,6 +50,47 @@
         
 
             <article>
+                <a href="../posts/technology/redis-skill-zh.html"><h3 class="article-title">redis 小技巧</h3></a>
+<h6 class="subheader" title="2016-03-25T00:00:00+08:00">2016-03-25
+</h6>
+
+
+<h3>问题</h3>
+<p>最近因为米粉节压测,线上会出现不少压测的垃圾数据</p>
+<p>不少实例出现了内存暴增的情况</p>
+<h3>解决</h3>
+<p>一开始使用
+<pre><code>redis-cli --bigkeys</code></pre>
+扫描大 key,清理了一部分</p>
+<p>后来发现这个命令的机制不是全量扫描,只是抽样扫描
+<pre><code>--bigkeys          Sample Redis keys looking for big keys.</code></pre></p>
+<p>出于不想背锅的心理,用go写了一个扫描全量key 的小程序.</p>
+<p>主要是利用 <strong><em>DEBUG OBJECT</em></strong> 和 <strong><em>scan</em></strong>这2个命令实现的</p>
+<p>逻辑中加了一些条件判断和限速</p>
+<p>发现坑真 TM 多啊.4G 大的 key 你能忍?</p>
+<p>3个月不访问的数据干嘛不加 ttl.</p>
+<p>真心日了狗.</p>
+<h3>TIPS</h3>
+<p>注意 scan 扫描默认只能扫出10个 key</p>
+<p>得这么写才能扫出多个 key
+<pre><code>
+scan 0 MATCH * COUNT 1024
+</codeßß></pre></p><p class="subheader">Category: <a href="../category/technology.html">Technology</a>
+
+</p>
+
+
+
+<p><a href="../posts/technology/redis-skill-zh.html#disqus_thread">comments</a></p>            </article>
+
+
+                <hr  class="gradient"/>
+
+
+        
+
+
+            <article>
                 <a href="../posts/technology/arch design of stock service-zh.html"><h3 class="article-title">关于库存服务的架构设计</h3></a>
 <h6 class="subheader" title="2015-01-01T12:43:13+08:00">2015-01-01
 </h6>
@@ -102,11 +143,9 @@
 
 
 
-<p><a href="../posts/technology/arch design of stock service-zh.html#disqus_thread">comments</a></p>            </article>
-
-
+<p><a href="../posts/technology/arch design of stock service-zh.html#disqus_thread">comments</a></p>                <a class="button radius secondary small right" href="../posts/technology/arch design of stock service-zh.html">Read More</a>
                 <hr  class="gradient"/>
-
+            </article>
 
         
 
@@ -237,46 +276,6 @@ Out[4]: 'key=%5B1%2C+2%2C+3%5D'
 
 
 <p><a href="../posts/technology/install_pyv8_in_mac-zh.html#disqus_thread">comments</a></p>                <a class="button radius secondary small right" href="../posts/technology/install_pyv8_in_mac-zh.html">Read More</a>
-                <hr  class="gradient"/>
-            </article>
-
-        
-
-
-            <article>
-                <a href="../posts/technology/blog_environmental_move_problem-zh.html"><h3 class="article-title">博客环境迁移遇到的问题</h3></a>
-<h6 class="subheader" title="2014-12-01T00:00:00+08:00">2014-12-01
-</h6>
-
-
-<p>在把博客的本地环境在 MBP 重新部署的时候遇到的.</p>
-<p>现象描述:</p>
-<p>pelican 发布博文时出现如下错误</p>
-<blockquote>
-<p>ImportError: No module named html_parser
-<img alt="1" src="../images/pelican_error.png" /></p>
-</blockquote>
-<ul>
-<li>发现是 mac python 自带的 six module 库有问题.因为原生six 的 version 是1.4的,最新的已经到1.8了.</li>
-</ul>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">six</span>
-<span class="k">print</span> <span class="n">six</span><span class="o">.</span><span class="n">__version__</span>
-</pre></div>
-
-
-<ul>
-<li>Solution:<ul>
-<li>从 https://pypi.python.org/pypi/six/ 下载最新的 source. </li>
-<li>解压后执行 <code>sudo python setup.py install</code></li>
-</ul>
-</li>
-</ul><p class="subheader">Category: <a href="../category/technology.html">Technology</a>
-
-</p>
-
-
-
-<p><a href="../posts/technology/blog_environmental_move_problem-zh.html#disqus_thread">comments</a></p>                <a class="button radius secondary small right" href="../posts/technology/blog_environmental_move_problem-zh.html">Read More</a>
                 <hr  class="gradient"/>
             </article>
 

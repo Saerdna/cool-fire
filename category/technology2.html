@@ -51,6 +51,46 @@
 
 
             <article>
+                <a href="../posts/technology/blog_environmental_move_problem-zh.html"><h3 class="article-title">博客环境迁移遇到的问题</h3></a>
+<h6 class="subheader" title="2014-12-01T00:00:00+08:00">2014-12-01
+</h6>
+
+
+<p>在把博客的本地环境在 MBP 重新部署的时候遇到的.</p>
+<p>现象描述:</p>
+<p>pelican 发布博文时出现如下错误</p>
+<blockquote>
+<p>ImportError: No module named html_parser
+<img alt="1" src="../images/pelican_error.png" /></p>
+</blockquote>
+<ul>
+<li>发现是 mac python 自带的 six module 库有问题.因为原生six 的 version 是1.4的,最新的已经到1.8了.</li>
+</ul>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">six</span>
+<span class="k">print</span> <span class="n">six</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+
+
+<ul>
+<li>Solution:<ul>
+<li>从 https://pypi.python.org/pypi/six/ 下载最新的 source. </li>
+<li>解压后执行 <code>sudo python setup.py install</code></li>
+</ul>
+</li>
+</ul><p class="subheader">Category: <a href="../category/technology.html">Technology</a>
+
+</p>
+
+
+
+<p><a href="../posts/technology/blog_environmental_move_problem-zh.html#disqus_thread">comments</a></p>                <a class="button radius secondary small right" href="../posts/technology/blog_environmental_move_problem-zh.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
                 <a href="../posts/technology/how_to_assessment_the_competing_products_coverage_efficient-zh.html"><h3 class="article-title">如何高效的评估竞品收录覆盖率</h3></a>
 <h6 class="subheader" title="2014-05-22T00:00:00+08:00">2014-05-22
 </h6>
