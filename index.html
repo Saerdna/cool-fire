@@ -50,6 +50,56 @@
         
 
             <article>
+                <a href="./posts/technology/golang-mapinterface-to-struct-zh.html"><h3 class="article-title">golang map interface to struct</h3></a>
+<h6 class="subheader" title="2016-03-27T00:00:00+08:00">2016-03-27
+</h6>
+
+
+<p>最近在弄一个参数检查的功能,需要根据外部的数据来对请求 api 的参数进行检查</p>
+<blockquote>
+<p>其实就是为了减少别人乱传参数害我来背锅</p>
+</blockquote>
+<p>外部的数据是一个大 <code>JSON</code>,还是多层嵌套那种.</p>
+<p>类似这种
+<pre>
+<code>
+{
+    "body": {
+        "key": {
+            "string": "value",
+            "int_array": [1,2,3],
+            "map": {
+                "key": "value"
+            }
+        }
+    }
+}
+</code>
+</pre></p>
+<p>开始的时候把问题想简单了,直接用<code>encoding/json</code>硬来</p>
+<p>大家都知道,硬上一般是不太好的嘛.错误的姿势就不给大家示范了,最好不要学我.</p>
+<p>主要的问题在于 golang 对于结构体的转换是没法直接转的,需要自己利用反射来扫描map 的每个一 item.</p>
+<p>还有一个坑就是 golang 的 json 对于 float 和 int 的处理有些问题,明明是 int,可是拿到手就变成了 float.</p>
+<p>这个坑卡了我半个晚上,日了🐶</p>
+<h3>解决方案</h3>
+<p>其实你既然看到这里一定是想要一个解决方案,我不给肯定是不行的了.</p>
+<p>解决方案就在这里 <a href="https://github.com/mitchellh/mapstructure">https://github.com/mitchellh/mapstructure</a></p>
+<p>还是国外大神给力,在我看到这个模块几百行的代码之后我觉得不再自己造轮子了,而且基本上各种乱七八糟的类型都支持,基本不会有什么大坑,可以放心拿来食用.</p><p class="subheader">Category: <a href="./category/technology.html">Technology</a>
+
+</p>
+
+
+
+<p><a href="./posts/technology/golang-mapinterface-to-struct-zh.html#disqus_thread">comments</a></p>            </article>
+
+
+                <hr  class="gradient"/>
+
+
+        
+
+
+            <article>
                 <a href="./posts/technology/redis-skill-zh.html"><h3 class="article-title">redis 小技巧</h3></a>
 <h6 class="subheader" title="2016-03-25T00:00:00+08:00">2016-03-25
 </h6>
@@ -74,18 +124,15 @@
 <p>注意 scan 扫描默认只能扫出10个 key</p>
 <p>得这么写才能扫出多个 key
 <pre><code>
-scan 0 MATCH * COUNT 1024
-</codeßß></pre></p><p class="subheader">Category: <a href="./category/technology.html">Technology</a>
+scan 0 ...</code></pre></p><p class="subheader">Category: <a href="./category/technology.html">Technology</a>
 
 </p>
 
 
 
-<p><a href="./posts/technology/redis-skill-zh.html#disqus_thread">comments</a></p>            </article>
-
-
+<p><a href="./posts/technology/redis-skill-zh.html#disqus_thread">comments</a></p>                <a class="button radius secondary small right" href="./posts/technology/redis-skill-zh.html">Read More</a>
                 <hr  class="gradient"/>
-
+            </article>
 
         
 
@@ -235,50 +282,6 @@ Out[4]: 'key=%5B1%2C+2%2C+3%5D'
                 <hr  class="gradient"/>
             </article>
 
-        
-
-
-            <article>
-                <a href="./posts/technology/install_pyv8_in_mac-zh.html"><h3 class="article-title">在mac下安装pyv8</h3></a>
-<h6 class="subheader" title="2014-12-06T02:56:00+08:00">2014-12-06
-</h6>
-
-
-<h3>需求起因</h3>
-<p>最近在写一个自动登录网站并执行某些操作的模块。</p>
-<p>网站在js中加了token，需要在登录的时候传过去做校验。</p>
-<pre><code>var JSP_VAR={
-  callback:"callbackurl",
-  sid:"sid",
-  qs:"qs_string",
-  hidden:"",
-  "_sign":"token",
-};
-</code></pre>
-
-<h3>尝试解决</h3>
-<p>开始尝试直接正则抠出字符串后<code>json.loads</code>，发现和标准json不大一致，遂作罢。</p>
-<p>后来发现还有pyv8这种神奇的货色，考虑到以后需求肯定不单单是提取js的数据，也会有一些执行的东西，就想着试试。</p>
-<p>执行<code>pip install pyv8</code>后提示</p>
-<blockquote>
-<p>src/Exception.h:6:16: fatal error: v8.h: no such file or directory</p>
-</blockquote>
-<p>参考了这个哥们的文章之后发现还是不行，安装v8后没有出现boost部分的错误。building PyV8的时候报错了，<a href="./files/pyv8_install_failed.log">错误日志</a>。</p>
-<h3>解决方案 ...</h3><p class="subheader">Category: <a href="./category/technology.html">Technology</a>
-
-    Tagged: 
-    <a href="./tag/tech.html">tech </a>
-    <a href="./tag/python.html">python </a>
-    <a href="./tag/mac.html">mac </a>
-    <a href="./tag/web.html">web </a>
-</p>
-
-
-
-<p><a href="./posts/technology/install_pyv8_in_mac-zh.html#disqus_thread">comments</a></p>                <a class="button radius secondary small right" href="./posts/technology/install_pyv8_in_mac-zh.html">Read More</a>
-                <hr  class="gradient"/>
-            </article>
-
             <!-- /#posts-list -->
 <div class="pagination-centered">
 <h6 class="subheader">Page 1 of 3</h6>
@@ -311,10 +314,7 @@ Out[4]: 'key=%5B1%2C+2%2C+3%5D'
 
         <h5 class="sidebar-title">Links</h5>
         <ul class="side-nav">
-            <li><a href="http://getpelican.com/">Pelican</a></li>
-            <li><a href="http://python.org/">Python.org</a></li>
-            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-            <li><a href="#">You can modify those links in your config file</a></li>
+            <li><a href="http://lingyu.wang/">天镶大神的 blog</a></li>
         </ul>
 		
         <h5 class="sidebar-title">Social</h5>

@@ -51,6 +51,50 @@
 
 
             <article>
+                <a href="../posts/technology/install_pyv8_in_mac-zh.html"><h3 class="article-title">在mac下安装pyv8</h3></a>
+<h6 class="subheader" title="2014-12-06T02:56:00+08:00">2014-12-06
+</h6>
+
+
+<h3>需求起因</h3>
+<p>最近在写一个自动登录网站并执行某些操作的模块。</p>
+<p>网站在js中加了token，需要在登录的时候传过去做校验。</p>
+<pre><code>var JSP_VAR={
+  callback:"callbackurl",
+  sid:"sid",
+  qs:"qs_string",
+  hidden:"",
+  "_sign":"token",
+};
+</code></pre>
+
+<h3>尝试解决</h3>
+<p>开始尝试直接正则抠出字符串后<code>json.loads</code>，发现和标准json不大一致，遂作罢。</p>
+<p>后来发现还有pyv8这种神奇的货色，考虑到以后需求肯定不单单是提取js的数据，也会有一些执行的东西，就想着试试。</p>
+<p>执行<code>pip install pyv8</code>后提示</p>
+<blockquote>
+<p>src/Exception.h:6:16: fatal error: v8.h: no such file or directory</p>
+</blockquote>
+<p>参考了这个哥们的文章之后发现还是不行，安装v8后没有出现boost部分的错误。building PyV8的时候报错了，<a href="../files/pyv8_install_failed.log">错误日志</a>。</p>
+<h3>解决方案 ...</h3><p class="subheader">Category: <a href="../category/technology.html">Technology</a>
+
+    Tagged: 
+    <a href="../tag/tech.html">tech </a>
+    <a href="../tag/python.html">python </a>
+    <a href="../tag/mac.html">mac </a>
+    <a href="../tag/web.html">web </a>
+</p>
+
+
+
+<p><a href="../posts/technology/install_pyv8_in_mac-zh.html#disqus_thread">comments</a></p>                <a class="button radius secondary small right" href="../posts/technology/install_pyv8_in_mac-zh.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
                 <a href="../posts/technology/blog_environmental_move_problem-zh.html"><h3 class="article-title">博客环境迁移遇到的问题</h3></a>
 <h6 class="subheader" title="2014-12-01T00:00:00+08:00">2014-12-01
 </h6>
@@ -66,7 +110,7 @@
 <ul>
 <li>发现是 mac python 自带的 six module 库有问题.因为原生six 的 version 是1.4的,最新的已经到1.8了.</li>
 </ul>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">six</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">six</span>
 <span class="k">print</span> <span class="n">six</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
 
@@ -193,10 +237,7 @@
 
         <h5 class="sidebar-title">Links</h5>
         <ul class="side-nav">
-            <li><a href="http://getpelican.com/">Pelican</a></li>
-            <li><a href="http://python.org/">Python.org</a></li>
-            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-            <li><a href="#">You can modify those links in your config file</a></li>
+            <li><a href="http://lingyu.wang/">天镶大神的 blog</a></li>
         </ul>
 		
         <h5 class="sidebar-title">Social</h5>

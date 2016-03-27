@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="./theme/css/main.css" />
 
         <!--[if IE]>
-            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 </head>
 
@@ -14,261 +14,16 @@
         <header id="banner" class="body">
                 <h1><a href="./">cool-fire </a></h1>
                 <nav><ul>
-                    <li><a href="./pages/search.html">Search</a></li>
-                    <li><a href="./category/daily.html">daily</a></li>
-                    <li><a href="./category/technology.html">Technology</a></li>
-                    <li><a href="./category/translate.html">translate</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
-
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="./posts/technology/redis-skill-zh.html">redis 小技巧</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2016-03-25T00:00:00+08:00">
-                Published: 2016-03-25
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author/saerdna.html">Saerdna</a>
-        </address>
-<p>In <a href="./category/technology.html">Technology</a>. </p>
-
-</footer><!-- /.post-info --><h3>问题</h3>
-<p>最近因为米粉节压测,线上会出现不少压测的垃圾数据</p>
-<p>不少实例出现了内存暴增的情况</p>
-<h3>解决</h3>
-<p>一开始使用
-<pre><code>redis-cli --bigkeys</code></pre>
-扫描大 key,清理了一部分</p>
-<p>后来发现这个命令的机制不是全量扫描,只是抽样扫描
-<pre><code>--bigkeys          Sample Redis keys looking for big keys.</code></pre></p>
-<p>出于不想背锅的心理,用go写了一个扫描全量key 的小程序.</p>
-<p>主要是利用 <strong><em>DEBUG OBJECT</em></strong> 和 <strong><em>scan</em></strong>这2个命令实现的</p>
-<p>逻辑中加了一些条件判断和限速</p>
-<p>发现坑真 TM 多啊.4G 大的 key 你能忍?</p>
-<p>3个月不访问的数据干嘛不加 ttl.</p>
-<p>真心日了狗.</p>
-<h3>TIPS</h3>
-<p>注意 scan 扫描默认只能扫出10个 key</p>
-<p>得这么写才能扫出多个 key
-<pre><code>
-scan 0 MATCH * COUNT 1024
-</codeßß></pre></p><p>There are <a href="./posts/technology/redis-skill-zh.html#disqus_thread">comments</a>.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="./posts/technology/arch design of stock service-zh.html" rel="bookmark"
-                           title="Permalink to 关于库存服务的架构设计">关于库存服务的架构设计</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-01-01T12:43:13+08:00">
-                Published: 2015-01-01
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author/saerdna.html">Saerdna</a>
-        </address>
-<p>In <a href="./category/technology.html">Technology</a>. </p>
-
-</footer><!-- /.post-info -->                <p>最近在负责<del>某司</del>的库存服务改造项目。</p>
-<p>其实就是设计一个秒杀系统，让商品在极端的抢购环境下可以正常的扣减库存，同时不会超卖。</p>
-<p>公司的项目已基本弄完，剩下的就是一些后期优化的工作。</p>
-<p>在此整理一下设计要点，未来一段时间会考虑做一个开源版本，希望可以作成一个通用服务。</p>
-<h3>整体架构</h3>
-<p>由上至下分为3层</p>
-<ul>
-<li>
-<p>逻辑层</p>
-</li>
-<li>
-<p>数据层</p>
-</li>
-<li>
-<p>基础服务层</p>
-</li>
-</ul>
-<h4>逻辑层</h4>
-<p>逻辑层主要负责数据处理以及分发</p>
-<ol>
-<li>接收外部系统的请求并分发。</li>
-<li>调用数据层获取原始数据拼装并返回</li>
-</ol>
-<h4>数据层</h4>
-<p>逻辑层主要负责数据获取</p>
-<ol>
-<li>同数据库进行交互。</li>
-<li>同消息队列进行交互</li>
-<li>本地cache交互</li>
-<li>日志</li>
-</ol>
-<h4>基础服务层</h4>
-<p>基础服务层主要对外部系统提供的一些接口针对性的封装。</p>
-<ol>
-<li>redis</li>
-<li>日志打印</li>
-<li>MQ（消息队列）</li>
-<li>local-cache</li>
-<li>模块监控</li>
-</ol>
-<h3>存储设计</h3>
-<p>to be continue...</p>
-                <a class="readmore" href="./posts/technology/arch design of stock service-zh.html">read more</a>
-<p>There are <a href="./posts/technology/arch design of stock service-zh.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="./posts/technology/AudioToArtImage-zh.html" rel="bookmark"
-                           title="Permalink to AudioToArtImage工具">AudioToArtImage工具</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2014-12-27T17:13:05+08:00">
-                Published: 2014-12-27
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author/saerdna.html">Saerdna</a>
-        </address>
-<p>In <a href="./category/technology.html">Technology</a>. </p>
-
-</footer><!-- /.post-info -->                <h3>概述</h3>
-<p>这个项目是通过萌萌介绍给我的，算是第一个练手的小项目。</p>
-<p>对方的需求是将一小段音频转成一个酷炫的图片，效果类似 <a href="http://weavesilk.com/">weavesilk.com</a>.</p>
-<p><img alt="1" src="./images/AudioToArtImage.png" /></p>
-<p>在同<a href="http://lingyu.wang/">教皇大神</a>讨论了下技术实现之后果断决定揽下这个<del>坑爹项目</del>.</p>
-<h3>用户需求</h3>
-<p>主要为以下几点.</p>
-<ul>
-<li>音频批处理功能</li>
-<li>指定输入输出目录</li>
-<li>圣诞前完成</li>
-</ul>
-<p>第一眼看上去，这个需求比较简单，但是仔细一想，其实坑挺多。有一些潜在的需求其实是客户没有直接描述的。</p>
-<ol>
-<li>操作简单</li>
-<li>windows下运行</li>
-<li>酷炫的效果</li>
-</ol>
-<h3>设计架构</h3>
-<p>考虑到时间的紧迫性以及技术熟练程度，采用的技术架构如下</p>
-<ol>
-<li>用户界面采用html+css+js，也就是传统的web前端界面。</li>
-<li>图像生成模块利用<a href="http://weavesilk.com/">weavesilk.com</a>原生的代码，在原来的基础上做一些接口化的开发和调整。</li>
-<li>音频处理模块以及web后端采用python进行开发。</li>
-<li>前端使用浏览器打开，后端使用webpy搭建一个本地的httpserver。</li>
-<li>使用pyinstaller生成可执行程序来进行win下的兼容。</li>
-</ol>
-<h3>交互流程</h3>
-<ol>
-<li>前端选定音频文件后，将音频文件POST到后端</li>
-<li>后端提取音频特征后，生成鼠标轨迹数据，并返回给前端。</li>
-<li>前端利用canvas绘制好图片，将图片数据再POST回后端。</li>
-<li>后端将图片写到指定目录。</li>
-</ol>
-<h3>音频处理模块 ...</h3>
-                <a class="readmore" href="./posts/technology/AudioToArtImage-zh.html">read more</a>
-<p>There are <a href="./posts/technology/AudioToArtImage-zh.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="./posts/technology/how_to_post_array_with_python-zh.html" rel="bookmark"
-                           title="Permalink to python中post数组参数">python中post数组参数</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2014-12-06T10:56:00+08:00">
-                Published: 2014-12-06
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author/saerdna.html">saerdna</a>
-        </address>
-<p>In <a href="./category/technology.html">Technology</a>. </p>
-<p>tags: <a href="./tag/tech.html">tech</a> <a href="./tag/python.html">python</a> <a href="./tag/web.html">web</a> </p>
-</footer><!-- /.post-info -->                <p>今天在写自动预约抢购的模块时发现的问题</p>
-<p>需要向网站post这样的数据<code>{'key':[1,2,3]}</code></p>
-<p>post的结果是<code>key=1&amp;key=2&amp;key=3</code></p>
-<p>大家都知道在python对参数做序列化是urlencode,可是直接urlencode的结果如下</p>
-<pre><code>In [1]: import urllib
-In [2]: help(urllib.urlencode)
-In [3]: post_data = {'key':[1,2,3]}
-In [4]: urllib.urlencode(post_data)
-Out[4]: 'key=%5B1%2C+2%2C+3%5D'
-</code></pre>
-
-<p>查了下stackoverflow，还是有人遇到同样的问题，解决方案是urlencode时加上一个参数。</p>
-<pre><code>In [1 ...</code></pre>
-                <a class="readmore" href="./posts/technology/how_to_post_array_with_python-zh.html">read more</a>
-<p>There are <a href="./posts/technology/how_to_post_array_with_python-zh.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="./posts/technology/install_pyv8_in_mac-zh.html" rel="bookmark"
-                           title="Permalink to 在mac下安装pyv8">在mac下安装pyv8</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2014-12-06T02:56:00+08:00">
-                Published: 2014-12-06
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author/saerdna.html">saerdna</a>
-        </address>
-<p>In <a href="./category/technology.html">Technology</a>. </p>
-<p>tags: <a href="./tag/tech.html">tech</a> <a href="./tag/python.html">python</a> <a href="./tag/mac.html">mac</a> <a href="./tag/web.html">web</a> </p>
-</footer><!-- /.post-info -->                <h3>需求起因</h3>
-<p>最近在写一个自动登录网站并执行某些操作的模块。</p>
-<p>网站在js中加了token，需要在登录的时候传过去做校验。</p>
-<pre><code>var JSP_VAR={
-  callback:"callbackurl",
-  sid:"sid",
-  qs:"qs_string",
-  hidden:"",
-  "_sign":"token",
-};
-</code></pre>
-
-<h3>尝试解决</h3>
-<p>开始尝试直接正则抠出字符串后<code>json.loads</code>，发现和标准json不大一致，遂作罢。</p>
-<p>后来发现还有pyv8这种神奇的货色，考虑到以后需求肯定不单单是提取js的数据，也会有一些执行的东西，就想着试试。</p>
-<p>执行<code>pip install pyv8</code>后提示</p>
-<blockquote>
-<p>src/Exception.h:6:16: fatal error: v8.h: no such file or directory</p>
-</blockquote>
-<p>参考了这个哥们的文章之后发现还是不行，安装v8后没有出现boost部分的错误。building PyV8的时候报错了，<a href="./files/pyv8_install_failed.log">错误日志</a>。</p>
-<h3>解决方案 ...</h3>
-                <a class="readmore" href="./posts/technology/install_pyv8_in_mac-zh.html">read more</a>
-<p>There are <a href="./posts/technology/install_pyv8_in_mac-zh.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 3
-        <a href="./index2.html">&raquo;</a>
-</p>
-                </section><!-- /#content -->
+<section id="content" class="body">
+<h2>Pages</h2>
+</section>
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>
                         <ul>
-                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
+                            <li><a href="http://lingyu.wang/">天镶大神的 blog</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
                 <div class="social">
@@ -295,7 +50,7 @@ Out[4]: 'key=%5B1%2C+2%2C+3%5D'
     _gaq.push(['_trackPageview']);
     (function() {
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = 'https://ssl.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
     </script>
@@ -304,7 +59,7 @@ Out[4]: 'key=%5B1%2C+2%2C+3%5D'
     (function () {
         var s = document.createElement('script'); s.async = true;
         s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
 </script>

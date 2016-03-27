@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>cool-fire</title><link>http://saerdna.github.io/</link><description></description><atom:link href="http://saerdna.github.io/feeds/saerdna.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 25 Mar 2016 00:00:00 +0800</lastBuildDate><item><title>redis 小技巧</title><link>http://saerdna.github.io/posts/technology/redis-skill-zh.html</link><description>&lt;h3&gt;问题&lt;/h3&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>cool-fire</title><link>http://saerdna.github.io/</link><description></description><atom:link href="http://saerdna.github.io/feeds/saerdna.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 27 Mar 2016 00:00:00 +0800</lastBuildDate><item><title>golang map interface to struct</title><link>http://saerdna.github.io/posts/technology/golang-mapinterface-to-struct-zh.html</link><description>&lt;p&gt;最近在弄一个参数检查的功能,需要根据外部的数据来对请求 api 的参数进行检查&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;其实就是为了减少别人乱传参数害我来背锅&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;外部的数据是一个大 &lt;code&gt;JSON&lt;/code&gt;,还是多层嵌套那种.&lt;/p&gt;
+&lt;p&gt;类似这种
+&lt;pre&gt;
+&lt;code&gt;
+{
+    "body": {
+        "key": {
+            "string": "value",
+            "int_array": [1,2,3],
+            "map": {
+                "key": "value"
+            }
+        }
+    }
+}
+&lt;/code&gt;
+&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;开始的时候把问题想简单了,直接用&lt;code&gt;encoding/json&lt;/code&gt;硬来&lt;/p&gt;
+&lt;p&gt;大家都知道,硬上一般是不太好的嘛.错误的姿势就不给大家示范了,最好不要学我.&lt;/p&gt;
+&lt;p&gt;主要的问题在于 golang 对于结构体的转换是没法直接转的,需要自己利用反射来扫描map 的每个一 item.&lt;/p&gt;
+&lt;p&gt;还有一个坑就是 golang 的 json 对于 float 和 int 的处理有些问题,明明是 int,可是拿到手就变成了 float.&lt;/p&gt;
+&lt;p&gt;这个坑卡了我半个晚上,日了🐶&lt;/p&gt;
+&lt;h3&gt;解决方案&lt;/h3&gt;
+&lt;p&gt;其实你既然看到这里一定是想要一个解决方案,我不给肯定是不行的了.&lt;/p&gt;
+&lt;p&gt;解决方案就在这里 &lt;a href="https://github.com/mitchellh/mapstructure"&gt;https://github.com/mitchellh/mapstructure&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;还是国外大神给力,在我看到这个模块几百行的代码之后我觉得不再自己造轮子了,而且基本上各种乱七八糟的类型都支持,基本不会有什么大坑,可以放心拿来食用.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Saerdna</dc:creator><pubDate>Sun, 27 Mar 2016 00:00:00 +0800</pubDate><guid>tag:saerdna.github.io,2016-03-27:posts/technology/golang-mapinterface-to-struct-zh.html</guid></item><item><title>redis 小技巧</title><link>http://saerdna.github.io/posts/technology/redis-skill-zh.html</link><description>&lt;h3&gt;问题&lt;/h3&gt;
 &lt;p&gt;最近因为米粉节压测,线上会出现不少压测的垃圾数据&lt;/p&gt;
 &lt;p&gt;不少实例出现了内存暴增的情况&lt;/p&gt;
 &lt;h3&gt;解决&lt;/h3&gt;
@@ -193,7 +222,7 @@ Out[4]: 'key=1&amp;key=2&amp;key=3'
 &lt;ul&gt;
 &lt;li&gt;发现是 mac python 自带的 six module 库有问题.因为原生six 的 version 是1.4的,最新的已经到1.8了.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;six&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;six&lt;/span&gt;
 &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;six&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__version__&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -474,7 +503,7 @@ Out[4]: 'key=1&amp;key=2&amp;key=3'
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;插件端&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;1.交互模块
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;1.交互模块
 2.展现模块
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -482,7 +511,7 @@ Out[4]: 'key=1&amp;key=2&amp;key=3'
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;服务端&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;1.分成系统
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;1.分成系统
 2.用户接入
 3.站点分析
 &lt;/pre&gt;&lt;/div&gt;
