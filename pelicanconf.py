@@ -14,6 +14,7 @@ DEFAULT_LANG = u'zh'
 DEFAULT_DATE_FORMAT = '%Y-%m-%d'
 #THEME = 'bootstrap2'
 RELATIVE_URLS = True
+DUOSHUO_SITENAME = "saerdna"
 
 ARCHIVES_URL = 'archives.html'
 PATH = 'content'
@@ -22,7 +23,7 @@ STATIC_PATHS = ['images', 'files']
 ARTICLE_URL = 'posts/{category}/{slug}-{lang}.html'
 ARTICLE_SAVE_AS = 'posts/{category}/{slug}-{lang}.html'
 
-DISQUS_SITENAME = 'coolfire'
+#DISQUS_SITENAME = 'coolfire'
 GOOGLE_ANALYTICS = 'UA-43474657-1'
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None

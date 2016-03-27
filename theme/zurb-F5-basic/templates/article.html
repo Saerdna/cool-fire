@@ -12,9 +12,12 @@
     {{ article.content }}
     {% include 'article_infos_bottom.html' %}
 
-    {% if DISQUS_SITENAME and SITEURL and article.status != "draft" %}
-	<h4>Comments</h4>
-    {% include 'disqus_script.html' %}
+    {% if DUOSHUO_SITENAME and SITEURL and article.status != "draft" %}
+    <h4>Comments</h4>
+    <div id="DuoShuoComment" aria-live="polite">
+        {% include 'DuoShuo_Script.html' %}
+        {% include 'DuoShuo_thread.html' %}
+    </div>
     {% endif %}
 </article>
 {% endblock %}
